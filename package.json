@@ -1,0 +1,38 @@
+{
+	"name": "app-site",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/content": "^2.7.2",
+		"@nuxt/devtools": "latest",
+		"@nuxtjs/color-mode": "^3.2.0",
+		"@nuxtjs/tailwindcss": "^6.8.0",
+		"@tailwindcss/typography": "^0.5.9",
+		"@types/node": "^18.17.3",
+		"@vueuse/nuxt": "^10.3.0",
+		"daisyui": "^3.5.1",
+		"nuxt": "^3.6.5"
+	},
+	"dependencies": {
+		"@egoist/tailwindcss-icons": "^1.1.0",
+		"@headlessui/vue": "^1.7.15",
+		"@heroicons/vue": "^2.0.18",
+		"@iconify/json": "^2.2.102",
+		"@pinia/nuxt": "^0.4.11",
+		"@vueuse/core": "^10.3.0",
+		"dayjs-nuxt": "^1.1.2",
+		"nuxt-lodash": "^2.5.0",
+		"pinia": "^2.1.6",
+		"postcss-color-gray": "5.0.0",
+		"scss": "^0.2.4",
+		"scss-loader": "^0.0.1",
+		"tailwindcss": "^3.3.3",
+		"theme-change": "^2.5.0"
+	}
+}
