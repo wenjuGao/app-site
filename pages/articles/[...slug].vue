@@ -1,7 +1,7 @@
 <template>
 	<ContentDoc v-slot="{ doc }">
-		<main class="px-4 w-full overflow-hidden">
-			<article class="relative isolate flex lg:px-6 pt-10 pb-24 lg:overflow-visible lg:px-0">
+		<main class="px-4 w-full">
+			<article class="relative isolate flex justify-center lg:px-6 pt-10 pb-24 lg:overflow-visible lg:px-0">
 				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 box-content">
 					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
 					<img
@@ -12,7 +12,7 @@
 					<p class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
 						{{ doc.description }}
 					</p>
-					<div class="mt-6 text-accent-content leading-7 break-all">
+					<div class="mt-6 text-accent-content article leading-7 break-all">
 						<ContentRenderer :value="doc" />
 					</div>
 				</div>
@@ -57,3 +57,37 @@
 // const html = DOMPurify.sanitize(marked.parse(text))
 // console.log(html)
 </script>
+
+<style lang="postcss">
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+	line-height: 1.5;
+	@apply text-neutral mx-1 pb-2;
+}
+.article h1 {
+	@apply text-2xl my-2 font-bold;
+}
+.article h2 {
+	@apply text-xl my-1 border-b-2 border-amber-400 font-bold;
+}
+.article h3 {
+	@apply text-lg my-0.5 font-semibold;
+}
+.article h4 {
+	@apply text-base my-0.5 font-medium;
+}
+.article h5,
+.article h6 {
+	@apply text-base my-0.5;
+}
+.article p {
+	@apply mb-2;
+}
+.article img {
+	@apply max-w-full;
+}
+</style>
