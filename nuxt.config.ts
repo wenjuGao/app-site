@@ -11,11 +11,31 @@ export default defineNuxtConfig({
   $development: {
     //
   },
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      // theme: 'github-light'
+      // OR
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light',
+        // Theme used if `html.dark`
+        dark: 'github-dark',
+        // Theme used if `html.sepia`
+        sepia: 'monokai'
+      },
+      preload: [
+        'diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'
+      ]
+    }
+  },
   runtimeConfig: {
     app: {
       baseURL: "/",
       title: "前端小书童",
-      logo: "http://qiniu.gaowenju.com/app-site/logo.png"
+      logo: "http://qiniu.gaowenju.com/app-site/logo.png",
+      footLogo: "/img/qrcode.jpg",
+      description: "前端工程师的杂货铺"
     },
     // The private keys which are only available server-side
     apiSecret: '123',
@@ -25,6 +45,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    '@nuxtjs/mdc',
     '@vueuse/nuxt',
     '@nuxt/content',
     '@pinia/nuxt',

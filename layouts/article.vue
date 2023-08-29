@@ -1,7 +1,13 @@
 <template>
-	<page-header />
+	<ClientOnly fallback-tag="span"
+				fallback="Loading comments...">
+		<page-header />
+	</ClientOnly>
 	<main class="bg-base-100">
-		<slot />
+		<ContentDoc v-slot="{ doc }">
+			<h1>{{ doc.title }}</h1>
+			<ContentRendererMarkdown :value="doc" />
+		</ContentDoc>
 	</main>
 	<page-footer />
 </template>

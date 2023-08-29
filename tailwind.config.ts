@@ -1,7 +1,7 @@
 import type { ModuleOptions } from '@nuxtjs/tailwindcss'
 const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
 const config: ModuleOptions['config'] = {
-  // darkMode: 'class',
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '480px',
@@ -41,24 +41,13 @@ const config: ModuleOptions['config'] = {
     prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-  content(contentDefaults): any[] {
-    return [
-      // add the defaults
-      ...contentDefaults,
-      // or filter only vue file patterns from defaults
-      ...contentDefaults.filter((c) => c.endsWith('*.vue')),
-
-      // add js and vue files for a directory
-      './components/**/*.{js,vue}',
-
-      // exclude test files if you keep them together with source
-      contentDefaults.filter(
-        c => c.endsWith('/**/*.{vue,js,ts}')
-      ).map(
-        c => c.replace('/**/*.{vue,js,ts}', '/**/!(*.{test,spec,story}).{vue,js,ts}')
-      ),
-    ]
-  }
+  content: [
+    "./components/**/*.{vue,js}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}"
+  ]
 }
 
 export default config
