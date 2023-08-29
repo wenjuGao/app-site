@@ -1,10 +1,8 @@
 <template>
-	<footer class="p-10 mt-20 bg-base-200">
+	<footer class="p-10 pt-20 bg-base-200">
 		<div class="container text-base-content w-full footer justify-between">
 			<div>
-				<img :src="app.footLogo"
-					 class="h-24 mr-3"
-					 :alt="app.title">
+				<img :src="app.footLogo" class="h-24 mr-3" :alt="app.title" />
 				<p>{{ app.description }}</p>
 			</div>
 			<div>

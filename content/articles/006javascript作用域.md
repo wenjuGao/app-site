@@ -13,8 +13,6 @@ tags:
   - javascript
 ---
 
-### javascript作用域
-
 
 
 ```javascript

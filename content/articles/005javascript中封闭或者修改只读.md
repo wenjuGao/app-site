@@ -11,7 +11,6 @@ tags:
   - javascript
 ---
 
-## javascript 中封闭或者修改只读
 
 ### Object.seal
 

@@ -18,9 +18,8 @@ tags:
   - javascript
 ---
 
-## JS 中的 map,some,every,filter,find,findIndex,forEach 跳出循环
 
-> > > js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式。
+>  js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式。
 
 ### every 循环
 

@@ -11,8 +11,6 @@ tags:
   - javascript
 ---
 
-## javascript 中的位运算符
-
 
 ![img](http://qiniu.gaowenju.com/leecode/banner/operator.png)
 

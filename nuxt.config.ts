@@ -45,7 +45,6 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@nuxtjs/mdc',
     '@vueuse/nuxt',
     '@nuxt/content',
     '@pinia/nuxt',

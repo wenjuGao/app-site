@@ -16,7 +16,6 @@ tags:
 ---
 
 
-### ES5 模块化之 AMD、CMD、CommonJs 区别
 
 #### 1. AMD — RequireJS：依赖前置、异步定义
 
