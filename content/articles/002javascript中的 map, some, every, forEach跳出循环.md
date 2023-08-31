@@ -31,7 +31,7 @@ tags:
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```Javascript
+```js
 let list = [1, 2, 3, 4, 5];
 list.every((value, index) => {
     if(value > 3){
@@ -61,7 +61,7 @@ list.every((value, index) => {
 - 引发异常外，没有其他方法可以停止或中断循环
 - forEach 的本事是异步函数，但是其内部 callback 是同步的；
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5]
 let sum = 0
 
@@ -96,7 +96,7 @@ setTimeout(() => console.log(sum)) // 1
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5]
 list.some((value, index) => {
   if (value === 3) {
@@ -112,7 +112,7 @@ list.some((value, index) => {
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```javascript
+```js
 let list = [1, 2, 3, 4, 5]
 const resultA = list.map(parseInt) // 1, NaN, NaN, NaN, NaN
 const resultB = list.map(item => parseInt(item)) // 1, 2, 3, 4, 5
@@ -124,7 +124,7 @@ const resultB = list.map(item => parseInt(item)) // 1, 2, 3, 4, 5
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```javascript
+```js
 let newArray = arr.filter(callback(element[, index, [array]])[, thisArg]);
 
 let fruits = ['apple', 'banana', 'grapes', 'mango', 'orange']
@@ -151,7 +151,7 @@ console.log(filterItems(fruits, 'an'))  // ['banana', 'mango', 'orange']
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```javascript
+```js
 array.find(function(currentValue, index, arr),thisValue);
 let list = [1,2,3,4,5];
 const result = list.find(item => item > 2);
@@ -167,7 +167,7 @@ console.log(result); // 3
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```javascript
+```js
 array.findIndex(function(currentValue, index, arr),thisValue);
 let list = [1,2,3,4,5];
 const result = list.findIndex(item => item > 2);

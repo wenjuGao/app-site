@@ -7,6 +7,9 @@
 			</div>
 			<div>
 				<span class="footer-title">Services</span>
+				<span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv">3341505</span>次</span>
+				<span id="busuanzi_container_site_pv"> 本站总访问量<span id="busuanzi_value_site_pv"></span>次 </span>
+				<span id="busuanzi_container_site_uv"> 本站访客数<span id="busuanzi_value_site_uv"></span>人次 </span>
 				<a class="link link-hover">Branding</a>
 				<a class="link link-hover">Design</a>
 				<a class="link link-hover">Marketing</a>

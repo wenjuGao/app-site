@@ -1,28 +1,24 @@
 <template>
 	<nav class="page-header bg-base-300 navbar">
 		<div class="flex-1">
-			<a :href="app.baseURL"
-			   class="flex items-center">
-				<img :src="app.logo"
-					 class="h-8 mr-3"
-					 :alt="app.title" />
-				<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> {{ app.title }} </span>
-			</a>
+			<div class="flex items-center cursor-pointer" @click="handleLink('')">
+				<img :src="app.logo" class="h-8 mr-3" :alt="app.title" />
+				<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> {{ app.title }}</span>
+			</div>
 		</div>
 		<div class="flex-none">
 			<div class="flex items-center sm:order-2 md:hidden">
-				<ClientOnly fallback-tag="span"
-							fallback="Loading comments...">
-					<menu-swap :menu="menus" />
+				<ClientOnly fallback-tag="span" fallback="Loading comments...">
+					<menu-swap :menu="headerMenu" />
 				</ClientOnly>
 			</div>
-			<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-				 id="navbar-user">
+			<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
 				<ul class="menu menu-horizontal rounded-box">
-					<li v-for="(item, index) in menus"
-						:key="index">
-						<a :href="item.link"
-						   aria-current="page">{{ item.label }}</a>
+					<li v-for="(item, index) in headerMenu" :key="index" class="group">
+						<span @click="handleLink(item.link)" :class="route.path == `${app.baseURL}${item.link}` ? 'active' : ''">
+							<span v-if="item.icon" :class="`${item.icon} text-xl`"></span>
+							{{ item.label }}</span
+						>
 					</li>
 				</ul>
 				<select-theme />
@@ -34,10 +30,14 @@
 import { NitroRuntimeConfigApp } from 'nitropack'
 import menuSwap from './tools/menu-swap.vue'
 import selectTheme from './tools/select-theme.vue'
-import { categoryMenu } from 'assets/constant/index'
+
+const { headerMenu } = useAppConfig()
+const router = useRouter()
+const route: any = useRoute()
 const config = useRuntimeConfig()
 const app: NitroRuntimeConfigApp = config.app
-const menus = categoryMenu
+
+const handleLink = (path: string) => router.push({ path: `${app.baseURL}${path}` })
 </script>
 <style lang="postcss" scoped>
 .page-header {

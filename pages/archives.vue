@@ -1,3 +1,3 @@
 <template>
-	interview
+	<div>archives</div>
 </template>

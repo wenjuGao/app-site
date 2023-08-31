@@ -3,6 +3,23 @@ import tailwindTypography from '@tailwindcss/typography'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      // script: [
+      //   {
+      //     // 不蒜子
+      //     src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
+      //     // valid options are: 'head' | 'bodyClose' | 'bodyOpen'
+      //     tagPosition: 'bodyOpen'
+      //   }
+      // ],
+      htmlAttrs: {
+        class: "scroll-smooth"
+      }
+    }
+  },
   $production: {
     routeRules: {
       '/**': { isr: true }
@@ -45,6 +62,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    'nuxt-lodash',
     '@vueuse/nuxt',
     '@nuxt/content',
     '@pinia/nuxt',
@@ -86,6 +104,6 @@ export default defineNuxtConfig({
       plugins: {
         "postcss-color-gray": {}
       }
-    }
-  }
+    },
+  },
 })

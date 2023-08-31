@@ -1,3 +1,3 @@
 <template>
-	<ContentDoc />
+	<div>message</div>
 </template>

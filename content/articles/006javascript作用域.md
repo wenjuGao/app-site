@@ -15,7 +15,7 @@ tags:
 
 
 
-```javascript
+```js
 function foo (a) {
 	bar()
 	var b = 2;

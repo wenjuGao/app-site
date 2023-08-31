@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-const appConfig = useAppConfig()
-const colorMode = useColorMode()
+// const appConfig = useAppConfig()
+// const colorMode = useColorMode()
 </script>
 
 <style lang="postcss">

@@ -3,6 +3,9 @@
 	<main class="bg-base-100">
 		<slot />
 	</main>
+	<ClientOnly>
+		<scoll-top />
+	</ClientOnly>
 	<page-footer />
 </template>
 

@@ -1,8 +1,10 @@
 <template>
 	<div class="grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 md:grid-cols-2">
-		<div v-for="(item, index) in list"
-			 :key="index"
-			 :class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow mt-3 shadow-${item.class} border-${item.class}`">
+		<div
+			v-for="(item, index) in list"
+			:key="index"
+			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow mt-3 shadow-${item.class} border-${item.class}`"
+		>
 			<div class="stat">
 				<div :class="`stat-figure  text-${item.class}`">
 					<div class="avatar">
@@ -23,9 +25,8 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { categoryMenu } from 'assets/constant/index'
 import type { CategoryMenuType } from 'assets/constant/constant'
-
+const { categoryMenu } = useAppConfig()
 interface itemType extends CategoryMenuType {
 	count?: Number
 }
@@ -42,5 +43,5 @@ Promise.all(
 			count: result.length
 		}
 	})
-).then((resp) => list.value = resp)
+).then((resp) => (list.value = resp))
 </script>

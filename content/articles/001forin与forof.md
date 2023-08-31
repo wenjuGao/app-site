@@ -19,7 +19,7 @@ tags:
 
 ### forin
 
-```javascript
+```js
 for (variable in object) statement
 ```
 
@@ -38,7 +38,7 @@ for (variable in object) statement
 
 ### 区别
 
-```javascript
+```js
 Object.prototype.objCustom = function () {}
 Array.prototype.arrCustom = function () {}
 

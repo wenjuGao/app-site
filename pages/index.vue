@@ -1,5 +1,5 @@
 <template>
-	<div class="px-4 xl:mx-auto max-w-7xl">
+	<div class="px-4 xl:mx-auto m-auto max-w-7xl">
 		<page-banner />
 		<page-category />
 		<div class="divider"></div>
