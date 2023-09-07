@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      // viewport: 'width=device-width, initial-scale=1',
       // script: [
       //   {
       //     // 不蒜子
@@ -44,6 +44,10 @@ export default defineNuxtConfig({
       preload: [
         'diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'
       ]
+    },
+    toc: {
+      depth: 2,
+      searchDepth: 2
     }
   },
   runtimeConfig: {
@@ -62,6 +66,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    'dayjs-nuxt',
     'nuxt-lodash',
     '@vueuse/nuxt',
     '@nuxt/content',
@@ -69,6 +74,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode'
   ],
+  dayjs: {
+    plugins: ['weekday', 'advancedFormat', 'timezone'],
+  },
   pinia: {
     autoImports: [
       // automatically imports `defineStore`

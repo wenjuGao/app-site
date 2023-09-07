@@ -7,10 +7,16 @@
 const show = ref(false)
 
 const handleScroll = useDebounce(() => {
-	show.value = document.querySelector('html').scrollTop > 300
+	const scrollTop = document.querySelector('html').scrollTop
+	show.value = scrollTop > 300
+	if (scrollTop > 5) {
+		document.querySelector('.page-header').setAttribute('class', 'opacity-header page-header')
+	} else {
+		document.querySelector('.page-header').setAttribute('class', 'page-header bg-base-300')
+	}
 }, 100)
 const handleTop = () => {
-	document.querySelector('html').scrollTo(0)
+	document.querySelector('html').scrollTop = 0
 }
 
 onMounted(() => {

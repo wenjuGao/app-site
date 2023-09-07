@@ -56,6 +56,38 @@
 // })
 // const html = DOMPurify.sanitize(marked.parse(text))
 // console.log(html)
+onMounted(() => {
+	// const {
+	// 	// Global references
+	// 	globals,
+	// 	navigation,
+	// 	surround,
+	// 	page,
+	// 	// Computed properties from `page` key
+	// 	excerpt,
+	// 	toc,
+	// 	type,
+	// 	layout,
+	// 	// Computed properties from `surround` key
+	// 	next,
+	// 	prev
+	// } = useContent()
+	// console.log({
+	// 	// Global references
+	// 	globals,
+	// 	navigation,
+	// 	surround,
+	// 	page,
+	// 	// Computed properties from `page` key
+	// 	excerpt,
+	// 	toc,
+	// 	type,
+	// 	layout,
+	// 	// Computed properties from `surround` key
+	// 	next,
+	// 	prev
+	// })
+})
 </script>
 
 <style lang="postcss">

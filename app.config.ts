@@ -1,5 +1,34 @@
 
 export default defineAppConfig({
+	myInfo: {
+		bgImg: "/img/my-bg.png",
+		name: "前端小书童",
+		desc: "平平无奇 小花瓶",
+		avatar: "/img/avatar.jpg",
+		links: [
+			{
+				label: "github",
+				img: "/img/Github.png",
+				link: "https://github.com/wenjuGao"
+			},
+			{
+				label: "twitter",
+				img: "/img/twitter.png",
+				link: "https://twitter.com/6QJM6pzFNe2TiEu"
+			},
+			{
+				label: "掘金",
+				img: "/img/juejin.png",
+				link: "https://juejin.cn/user/2383396937933166"
+			},
+			{
+				label: "telegram",
+				img: "/img/telegram.png",
+				link: "https://t.me/FrontEndDevep"
+			},
+
+		]
+	},
 	headerMenu: [
 		{
 			label: '首页',

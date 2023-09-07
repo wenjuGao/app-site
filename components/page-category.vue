@@ -3,7 +3,7 @@
 		<div
 			v-for="(item, index) in list"
 			:key="index"
-			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow mt-3 shadow-${item.class} border-${item.class}`"
+			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`"
 		>
 			<div class="stat">
 				<div :class="`stat-figure  text-${item.class}`">

@@ -1,5 +1,5 @@
 <template>
-	<nav class="page-header bg-base-300 navbar">
+	<nav class="page-header bg-base-300">
 		<div class="flex-1">
 			<div class="flex items-center cursor-pointer" @click="handleLink('')">
 				<img :src="app.logo" class="h-8 mr-3" :alt="app.title" />
@@ -41,8 +41,11 @@ const handleLink = (path: string) => router.push({ path: `${app.baseURL}${path}`
 </script>
 <style lang="postcss" scoped>
 .page-header {
-	position: sticky;
-	top: 0;
-	z-index: 2;
+	@apply sticky top-0  z-20 navbar transition-all;
+}
+.opacity-header {
+	background-image: radial-gradient(transparent 1px, hsl(var(--b1) / var(--tw-bg-opacity)) 1px);
+	background-size: 2px 2px;
+	backdrop-filter: saturate(50%) blur(4px);
 }
 </style>
