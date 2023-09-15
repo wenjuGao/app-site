@@ -44,3 +44,31 @@ export const lockPointer = (elem: HTMLElement) => {
 export const unlockPointer = () => {
 	document.exitPointerLock();
 }
+
+
+export const setToc = (id: string | number) => {
+	new Promise<void>((resolve) => {
+		document.querySelectorAll('.toc-item.active').forEach((element) => {
+			element.setAttribute('class', 'toc-item')
+		})
+		resolve()
+	}).then(() => {
+		document.querySelector(`.toc-item[data-value=${id}]`)?.setAttribute('class', 'toc-item active')
+	})
+}
+
+export const tocActive = (top: number) => {
+	const list = document.querySelectorAll('.article-content>div>*[id]');
+	let index = 0, min = -Number.MAX_VALUE;
+	let result = null
+	while (index < list.length) {
+		const item: any = list[index]
+		if (Math.abs(item.offsetTop - top) > min) {
+			min = Math.abs(item.offsetTop - top)
+		} else {
+			result = item
+		}
+		index++
+	}
+	console.log(result);
+}

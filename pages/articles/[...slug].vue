@@ -1,8 +1,8 @@
 <template>
 	<ContentDoc v-slot="{ doc }">
-		<main class="px-4 w-full">
-			<article class="relative isolate flex justify-center lg:px-6 pt-10 pb-24 lg:overflow-visible lg:px-0">
-				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 box-content">
+		<main class="px-4 w-full pb-24">
+			<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
+				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
 					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
 					<img
 						class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
@@ -12,82 +12,49 @@
 					<p class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
 						{{ doc.description }}
 					</p>
-					<div class="mt-6 text-accent-content article leading-7 break-all">
-						<ContentRenderer :value="doc" />
+					<span id="twikoo_visitors">0</span>
+					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
+						<ContentRenderer :key="page._id" :value="page" />
+					</div>
+					<div class="divider"></div>
+					<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
+						<NuxtLink v-if="prev" :to="prev._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
+							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="prev.header" />
+							<div class="min-w-0 py-5 pl-28 pr-5">
+								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">上一篇</div>
+								<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+									{{ prev.title }}
+								</div>
+							</div>
+						</NuxtLink>
+						<NuxtLink v-if="next" :to="next._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
+							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="next.header" />
+							<div class="min-w-0 py-5 pl-28 pr-5">
+								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">下一篇</div>
+								<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+									{{ next.title }}
+								</div>
+							</div>
+						</NuxtLink>
+					</div>
+					<div class="mt-20">
+						<twikoo-comment />
 					</div>
 				</div>
-				<div class="lg:sticky flex-none h-fit lg:top-32 menu bg-base-200 w-56 rounded-box lg:overflow-hidden md:block sm:hidden">
-					<li v-for="(item, key) in doc.body.toc.links" :key="key">
-						<h2 class="menu-title">
-							<a :href="`#${item.id}`" class="cursor-pointer line-clamp-1 break-all overflow-hidden">
-								{{ item.text }}
-							</a>
-						</h2>
-						<ul v-if="item.children && item.children.length">
-							<li v-for="(child, index) in item.children" :key="`${index}-${key}`">
-								<a :href="`#${child.id}`" class="line-clamp-1 cursor-pointer">{{ child.text }}</a>
-							</li>
-						</ul>
-					</li>
+				<div class="toc">
+					<toc-menu :list="toc.links" />
 				</div>
 			</article>
 		</main>
 	</ContentDoc>
 </template>
-<script setup>
-// import { marked } from 'marked'
-// import DOMPurify from 'dompurify'
-// import hljs from 'highlight.js/lib/common'
-// // 代码主体样式文件
-// import 'highlight.js/styles/github.css'
-// marked.setOptions({
-// 	renderer: new marked.Renderer(),
-// 	highlight: function (code) {
-// 		return hljs.highlightAuto(code).value
-// 	},
-// 	pedantic: false,
-// 	gfm: true,
-// 	tables: true,
-// 	breaks: false,
-// 	sanitize: false,
-// 	smartLists: true,
-// 	smartypants: false,
-// 	xhtml: false
-// })
-// const html = DOMPurify.sanitize(marked.parse(text))
-// console.log(html)
-onMounted(() => {
-	// const {
-	// 	// Global references
-	// 	globals,
-	// 	navigation,
-	// 	surround,
-	// 	page,
-	// 	// Computed properties from `page` key
-	// 	excerpt,
-	// 	toc,
-	// 	type,
-	// 	layout,
-	// 	// Computed properties from `surround` key
-	// 	next,
-	// 	prev
-	// } = useContent()
-	// console.log({
-	// 	// Global references
-	// 	globals,
-	// 	navigation,
-	// 	surround,
-	// 	page,
-	// 	// Computed properties from `page` key
-	// 	excerpt,
-	// 	toc,
-	// 	type,
-	// 	layout,
-	// 	// Computed properties from `surround` key
-	// 	next,
-	// 	prev
-	// })
+<script setup lang="ts">
+import twikooComment from '@/components/twikoo-comment.vue'
+import tocMenu from '@/components/tools/toc-menu.vue'
+definePageMeta({
+	layout: 'article'
 })
+const { page, next, prev, toc } = useContent()
 </script>
 
 <style lang="postcss">
@@ -121,5 +88,11 @@ onMounted(() => {
 }
 .article img {
 	@apply max-w-full;
+}
+.toc {
+	@apply lg:sticky flex-none h-fit lg:top-32 menu bg-base-200 w-56 rounded-box lg:overflow-hidden md:block hidden;
+}
+.link-page {
+	@apply mt-6 overflow-hidden w-full md:w-2/5  relative bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6;
 }
 </style>
