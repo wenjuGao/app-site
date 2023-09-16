@@ -42,8 +42,6 @@ list.forEach(i => {
 		mapList.value[day] = [i]
 	}
 })
-
-console.log(list);
 </script>
 
 <style lang="postcss" scoped>
