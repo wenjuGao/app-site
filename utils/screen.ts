@@ -59,16 +59,16 @@ export const setToc = (id: string | number) => {
 
 export const tocActive = (top: number) => {
 	const list = document.querySelectorAll('.article-content>div>*[id]');
-	let index = 0, min = -Number.MAX_VALUE;
-	let result = null
-	while (index < list.length) {
-		const item: any = list[index]
-		if (Math.abs(item.offsetTop - top) > min) {
-			min = Math.abs(item.offsetTop - top)
-		} else {
-			result = item
-		}
-		index++
+	let result = null, arr: any[] = []
+	list.forEach((i: any) => {
+		arr.push({
+			id: i.getAttribute('id'),
+			gap: Math.abs(i.offsetTop - top),
+			v: i.offsetTop
+		})
+	})
+	result = arr.sort((a, b) => a.gap - b.gap)[0] || {};
+	if (result.id) {
+		setToc(result.id)
 	}
-	console.log(result);
 }

@@ -6,6 +6,7 @@ img: /img/forEach.jpg
 header: /img/forEach-banner.jpg
 banner: true
 category: javascript
+date: 2023-04-02 12:12:12
 tags:
   - 循环
   - map

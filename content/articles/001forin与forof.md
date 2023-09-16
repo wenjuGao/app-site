@@ -5,6 +5,7 @@ description: 每个对象将继承 objCustom 属性，并且作为 Array 的每�
 img: /img/forof.jpg
 header: /img/forof-header.jpg
 banner: true
+date: 2023-04-01 12:12:12
 category: javascript
 tags:
   - 循环

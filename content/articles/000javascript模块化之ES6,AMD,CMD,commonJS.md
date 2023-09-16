@@ -5,6 +5,7 @@ description: 异步加载 JS 文件，按照模块加载方法，通过 define()
 img: /img/js-module.jpg
 header: /img/js-module-header.jpg
 banner: true
+date: 2023-04-04 12:12:12
 category: javascript
 tags:
   - 模块化

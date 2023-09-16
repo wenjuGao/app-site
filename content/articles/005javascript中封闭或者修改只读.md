@@ -5,6 +5,7 @@ description: 封闭一个对象，阻止添加新属性并将所有现有属性�
 img: /img/seal.jpg
 header: /img/seal-header.jpg
 banner: true
+date: 2023-04-01 12:12:12
 category: javascript
 tags:
   - 只读
