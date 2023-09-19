@@ -22,7 +22,7 @@ import pageBanner from './../components/page-banner.vue'
 import pageCategory from './../components/page-category.vue'
 import listItem from './../components/tools/list-item.vue'
 import homeSide from './../components/home-side.vue'
-let list = await queryContent('articles')
+let list = await queryContent()
 	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
 	.limit(20)
 	.sort({ date: -1 })

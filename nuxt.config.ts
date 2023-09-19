@@ -5,9 +5,19 @@ import tailwindTypography from '@tailwindcss/typography'
 export default defineNuxtConfig({
   app: {
     head: {
+      title: '前端小书童',
       charset: 'utf-8',
-      "style": [
+      link: [
         {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: "32x32",
+          href: "https://qiniu.gaowenju.com/app-site/logo.png-32X32"
+        },
+      ],
+      style: [
+        {
+          // @ts-ignore
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css',
           integrity: 'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
@@ -70,6 +80,7 @@ export default defineNuxtConfig({
         'diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'
       ]
     },
+    // @ts-ignore
     toc: {
       depth: 2,
       searchDepth: 2
@@ -79,7 +90,7 @@ export default defineNuxtConfig({
     app: {
       baseURL: "/",
       title: "前端小书童",
-      logo: "http://qiniu.gaowenju.com/app-site/logo.png",
+      logo: "https://qiniu.gaowenju.com/app-site/logo.png",
       footLogo: "/img/qrcode.jpg",
       description: "前端工程师的杂货铺"
     },

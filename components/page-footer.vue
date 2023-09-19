@@ -1,5 +1,5 @@
 <template>
-	<footer class="p-10 pt-20 bg-base-200">
+	<footer class="p-10  bg-base-200">
 		<div class="text-base-content w-full footer items-end justify-between">
 			<div>
 				<img :src="app.footLogo"

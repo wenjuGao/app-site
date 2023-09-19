@@ -1,4 +1,6 @@
 
+import type { ArticleLinkType } from "type"
+
 export default defineAppConfig({
 	myInfo: {
 		bgImg: "/img/my-bg.png",
@@ -59,18 +61,21 @@ export default defineAppConfig({
 		{
 			label: 'javascript',
 			link: 'javascript',
+			value: ['javascript', 'Javascript', 'js', 'JS'],
 			class: 'primary',
 			img: '/img/javascript.png'
 		},
 		{
 			label: 'Vue',
 			link: 'vue',
+			value: ['vue', 'Vue', 'vuejs', 'VUE', 'vue2', 'vue3', 'Vue3', 'Vue3'],
 			class: 'secondary',
 			img: '/img/vue.jpg'
 		},
 		{
 			label: 'React',
 			link: 'react',
+			value: ['React', 'react', 'reactjs', 'react native', 'react Native', 'react16', 'react18', 'preact'],
 			class: 'accent',
 			img: '/img/react.svg'
 		},
@@ -81,30 +86,35 @@ export default defineAppConfig({
 		{
 			label: '小程序',
 			link: 'miniprogram',
+			value: ['小程序', '微信小程序', 'uniapp', 'taro', 'tarojs'],
 			class: 'neutral',
 			img: '/img/miniprogram.svg'
 		},
 		{
 			label: '算法',
 			link: 'leetcode',
+			value: ['leetcode', '算法'],
 			class: 'info',
 			img: '/img/leetcode.webp'
 		},
 		{
 			label: '笔记',
 			link: 'note',
+			value: ['note', '笔记', '翻译', '收藏'],
 			class: 'warning',
 			img: '/img/note.png'
 		},
 		{
 			label: '面试',
 			link: 'interview',
+			value: ['interview', '面试'],
 			class: 'error',
 			img: '/img/interview.png'
 		},
 		{
 			label: '其他',
 			link: 'other',
+			value: ['other', '其他'],
 			class: 'success',
 			img: '/img/article.png'
 		}

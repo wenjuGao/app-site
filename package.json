@@ -29,6 +29,8 @@
 		"@vueuse/core": "^10.3.0",
 		"chinese-workday": "^1.9.0",
 		"dayjs-nuxt": "^1.1.2",
+		"echarts": "^5.4.3",
+		"echarts-wordcloud": "^2.1.0",
 		"lunar-typescript": "^1.6.10",
 		"nuxt-lodash": "^2.5.0",
 		"pinia": "^2.1.6",

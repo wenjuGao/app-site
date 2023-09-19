@@ -25,23 +25,23 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { CategoryMenuType } from 'assets/constant/constant'
+import useArticleStore from '@/stores/articles'
+import type { ArticleStoreType } from '@/stores/articles'
+import type { ArticleType } from 'type'
 const { categoryMenu } = useAppConfig()
-interface itemType extends CategoryMenuType {
-	count?: Number
-}
-let list = ref<itemType[]>(categoryMenu)
-
-Promise.all(
-	categoryMenu.map(async (item) => {
-		const result = await queryContent('articles')
-			.only(['id'])
-			.where({ category: { $contains: item.label } })
-			.find()
-		return {
-			...item,
-			count: result.length
+let list = ref(categoryMenu)
+const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
+list.value = categoryMenu.map((item: any) => {
+	let articles: ArticleType[] = []
+	item.value.forEach((i: string) => {
+		if (categoryLinkArticle) {
+			articles = [...articles, ...(categoryLinkArticle.get(i) || [])]
 		}
 	})
-).then((resp) => (list.value = resp))
+	return {
+		...item,
+		articles: articles,
+		count: articles.length
+	}
+})
 </script>
