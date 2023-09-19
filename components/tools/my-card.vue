@@ -30,7 +30,7 @@
 					<span class="count-item-label">文章</span>
 				</div>
 			</div>
-			<template v-if="myInfo.links && myInfo.links.length">
+			<template v-if="myInfo && myInfo.links && myInfo.links.length">
 				<div class="divider m-0"></div>
 				<div class="flex flex-row justify-between mt-3">
 					<a

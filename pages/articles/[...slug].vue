@@ -42,7 +42,7 @@
 					</div>
 				</div>
 				<div class="toc">
-					<toc-menu :list="toc.links" />
+					<toc-menu :list="toc ? toc.links : []" />
 				</div>
 			</article>
 		</main>
