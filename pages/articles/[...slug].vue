@@ -1,53 +1,51 @@
 <template>
 	<ContentDoc v-slot="{ doc }">
-		<ContentRenderer :value="page">
-			<main class="px-4 w-full pb-24">
-				<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
-					<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
-						<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
-						<img
-							class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
-							:src="doc.header"
-							:alt="doc.title"
-						/>
-						<p class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
-							{{ doc.description }}
-						</p>
-						<span id="twikoo_visitors">0</span>
-						<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
-							<ContentRendererMarkdown :key="page._id" :value="page" />
-						</div>
-						<div class="divider"></div>
-						<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
-							<NuxtLink v-if="prev" :to="prev._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
-								<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="prev.header" />
-								<div class="min-w-0 py-5 pl-28 pr-5">
-									<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">上一篇</div>
-									<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
-										{{ prev.title }}
-									</div>
-								</div>
-							</NuxtLink>
-							<NuxtLink v-if="next" :to="next._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
-								<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="next.header" />
-								<div class="min-w-0 py-5 pl-28 pr-5">
-									<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">下一篇</div>
-									<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
-										{{ next.title }}
-									</div>
-								</div>
-							</NuxtLink>
-						</div>
-						<div class="mt-20">
-							<twikoo-comment />
-						</div>
+		<main class="px-4 w-full pb-24">
+			<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
+				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
+					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
+					<img
+						class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
+						:src="doc.header"
+						:alt="doc.title"
+					/>
+					<p class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
+						{{ doc.description }}
+					</p>
+					<span id="twikoo_visitors">0</span>
+					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
+						<ContentRenderer :key="page._id" :value="page" />
 					</div>
-					<div class="toc">
-						<toc-menu :list="toc ? toc.links : []" />
+					<div class="divider"></div>
+					<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
+						<NuxtLink v-if="prev" :to="prev._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
+							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="prev.header" />
+							<div class="min-w-0 py-5 pl-28 pr-5">
+								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">上一篇</div>
+								<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+									{{ prev.title }}
+								</div>
+							</div>
+						</NuxtLink>
+						<NuxtLink v-if="next" :to="next._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
+							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="next.header" />
+							<div class="min-w-0 py-5 pl-28 pr-5">
+								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">下一篇</div>
+								<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+									{{ next.title }}
+								</div>
+							</div>
+						</NuxtLink>
 					</div>
-				</article>
-			</main>
-		</ContentRenderer>
+					<div class="mt-20">
+						<twikoo-comment />
+					</div>
+				</div>
+				<div class="toc">
+					<toc-menu :list="toc ? toc.links : []" />
+				</div>
+			</article>
+		</main>
 	</ContentDoc>
 </template>
 <script setup lang="ts">
