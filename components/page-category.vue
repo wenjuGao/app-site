@@ -3,6 +3,7 @@
 		<div
 			v-for="(item, index) in list"
 			:key="index"
+			@click="handLink(item.label)"
 			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`"
 		>
 			<div class="stat">
@@ -44,4 +45,7 @@ list.value = categoryMenu.map((item: any) => {
 		count: articles.length
 	}
 })
+const handLink = (label: string) => {
+	window.location.href = `/category/${label}`
+}
 </script>

@@ -21,12 +21,13 @@
 </template>
 
 <script setup lang="ts">
-const router = useRouter()
 let list = await queryContent('articles')
 	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
 	.limit(20)
 	.sort({ date: -1 })
 	.find()
 
-const handleLink = (item: any) => router.push({ path: item._path })
+const handleLink = (item: any) => {
+	window.location.href = item._path
+}
 </script>

@@ -26,7 +26,6 @@
 type propsType = {
 	list: any[]
 }
-const router = useRouter()
 const props: propsType = defineProps({
 	list: {
 		type: Array,
@@ -35,5 +34,7 @@ const props: propsType = defineProps({
 		}
 	}
 })
-const handleLink = (item: any) => router.push({ path: item._path })
+const handleLink = (item: any) => {
+	window.location.href = item._path
+}
 </script>

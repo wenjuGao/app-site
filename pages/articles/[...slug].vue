@@ -18,7 +18,11 @@
 					</div>
 					<div class="divider"></div>
 					<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
-						<NuxtLink v-if="prev" :to="prev._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
+						<div
+							v-if="prev"
+							@click="handLink(prev._path)"
+							class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto"
+						>
 							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="prev.header" />
 							<div class="min-w-0 py-5 pl-28 pr-5">
 								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">上一篇</div>
@@ -26,8 +30,12 @@
 									{{ prev.title }}
 								</div>
 							</div>
-						</NuxtLink>
-						<NuxtLink v-if="next" :to="next._path" class="link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
+						</div>
+						<div
+							v-if="next"
+							@click="handLink(next._path)"
+							class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto"
+						>
 							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="next.header" />
 							<div class="min-w-0 py-5 pl-28 pr-5">
 								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">下一篇</div>
@@ -35,7 +43,7 @@
 									{{ next.title }}
 								</div>
 							</div>
-						</NuxtLink>
+						</div>
 					</div>
 					<div class="mt-20">
 						<twikoo-comment />
@@ -55,6 +63,9 @@ definePageMeta({
 	layout: 'article'
 })
 const { page, next, prev, toc } = useContent()
+const handLink = (url: string) => {
+	window.location.href = url
+}
 </script>
 
 <style lang="postcss">
