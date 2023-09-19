@@ -16,9 +16,9 @@
 				<ul class="menu menu-horizontal rounded-box">
 					<li v-for="(item, index) in headerMenu" :key="index" class="group">
 						<span @click="handleLink(item.link)" :class="route.path == `${app.baseURL}${item.link}` ? 'active' : ''">
-							<span v-if="item.icon" :class="`${item.icon} text-xl`"></span>
-							{{ item.label }}</span
-						>
+							<span v-if="item.icon" :class="`${item.icon} text-xl`"> </span>
+							{{ item.label }}
+						</span>
 					</li>
 				</ul>
 				<select-theme />
@@ -32,12 +32,14 @@ import menuSwap from './tools/menu-swap.vue'
 import selectTheme from './tools/select-theme.vue'
 
 const { headerMenu } = useAppConfig()
-const router = useRouter()
+// const router = useRouter()
 const route: any = useRoute()
 const config = useRuntimeConfig()
 const app: NitroRuntimeConfigApp = config.app
 
-const handleLink = (path: string) => router.push({ path: `${app.baseURL}${path}` })
+const handleLink = (path: string) => {
+	window.location.href = `${app.baseURL}${path}` // router.push({ path: `${app.baseURL}${path}` })
+}
 </script>
 <style lang="postcss" scoped>
 .page-header {

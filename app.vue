@@ -11,7 +11,7 @@ const { setCategoryArticle, setTagsArticle, setAllArticles } = useArticleStore()
 const init = async () => {
 	let tagsMap = new Map<string, ArticleType[]>(),
 		categoryMap = new Map<string, ArticleType[]>()
-	const allArticles = await queryContent().only(['id', 'tags', '_path', 'title', 'date', 'category']).sort({ date: -1 }).find()
+	const allArticles = await queryContent('articles').only(['id', 'tags', '_path', 'title', 'date', 'category']).sort({ date: -1 }).find()
 
 	allArticles.forEach((i: any) => {
 		i.tags.forEach((tag: string) => {
