@@ -216,6 +216,7 @@ const _inlineRuntimeConfig = {
           "layout",
           "layout",
           "layout",
+          "layout",
           "layout"
         ]
       },
@@ -371,6 +372,7 @@ const _inlineRuntimeConfig = {
     },
     "navigation": {
       "fields": [
+        "layout",
         "layout",
         "layout",
         "layout",
@@ -4706,7 +4708,7 @@ const renderer$1 = /*#__PURE__*/Object.freeze({
 	default: renderer
 });
 
-const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>前端小书童</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"https://qiniu.gaowenju.com/app-site/logo.png-32X32\">\n<style rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\" integrity=\"sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X\" crossorigin=\"anonymous\"></style>\n<script innerhtml=\"var _hmt = _hmt || [];\n            (function () {\n              var hm = document.createElement(&quot;script&quot;);\n              hm.src = &quot;https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87&quot;;\n              var s = document.getElementsByTagName(&quot;script&quot;)[0];\n              s.parentNode.insertBefore(hm, s);\n            })(); \"></script>","bodyTags":"","bodyTagsOpen":"<script src=\"https://busuanzi.icodeq.com/busuanzi.pure.mini.js\"></script>\n<script src=\"https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa\"></script>","htmlAttrs":" class=\"scroll-smooth\"","bodyAttrs":""};
+const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>前端小书童</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"https://qiniu.gaowenju.com/app-site/logo.png-32X32\">\n<style rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\" integrity=\"sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X\" crossorigin=\"anonymous\"></style>\n<script>var _hmt = _hmt || [];\n            (function () {\n              var hm = document.createElement(\"script\");\n              hm.src = \"https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87\";\n              var s = document.getElementsByTagName(\"script\")[0];\n              s.parentNode.insertBefore(hm, s);\n            })(); </script>","bodyTags":"","bodyTagsOpen":"<script src=\"https://busuanzi.icodeq.com/busuanzi.pure.mini.js\"></script>\n<script src=\"https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa\"></script>","htmlAttrs":" class=\"scroll-smooth\"","bodyAttrs":""};
 
 const _virtual__headStatic$1 = /*#__PURE__*/Object.freeze({
 	__proto__: null,

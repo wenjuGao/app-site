@@ -49,7 +49,7 @@ export default defineNuxtConfig({
           integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
         },
         {
-          innerhtml: `var _hmt = _hmt || [];
+          innerHTML: `var _hmt = _hmt || [];
             (function () {
               var hm = document.createElement("script");
               hm.src = "https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87";
