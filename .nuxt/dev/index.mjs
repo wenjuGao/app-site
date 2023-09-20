@@ -4460,7 +4460,7 @@ const qiniu = defineEventHandler(async (event) => {
       const deadline = parseInt(Date.now() / 1e3) + 300;
       return {
         ...i,
-        url: bucketManager.privateDownloadUrl(baseUrl, i.key, deadline)
+        url: bucketManager.privateDownloadUrl(baseUrl, `${i.key}-preview`, deadline)
       };
     });
   }).catch(() => {

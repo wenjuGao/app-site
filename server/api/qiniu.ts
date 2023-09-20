@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
 			const deadline = parseInt(Date.now() / 1000) + 300;
 			return {
 				...i,
-				url: bucketManager.privateDownloadUrl(baseUrl, i.key, deadline)
+				url: bucketManager.privateDownloadUrl(baseUrl, `${i.key}-preview`, deadline)
 			}
 		})
 	}).catch(() => {
