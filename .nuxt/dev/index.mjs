@@ -5,7 +5,7 @@ import { join as join$1 } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
 import { defineEventHandler, handleCacheHeaders, isEvent, createEvent, getRequestHeader, splitCookiesString, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler, readBody } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+h3@1.8.1/node_modules/h3/dist/index.mjs';
-import qiniu$2 from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+qiniu@7.9.0/node_modules/qiniu/index.js';
+import qiniu from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+qiniu@7.9.0/node_modules/qiniu/index.js';
 import { createRenderer } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue-bundle-renderer@1.0.3/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+devalue@4.3.2/node_modules/devalue/index.js';
 import { renderToString } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue@3.3.4/node_modules/vue/server-renderer/index.mjs';
@@ -4236,11 +4236,13 @@ const _tnTOw0 = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
-const _lazy_3hKQAt = () => Promise.resolve().then(function () { return qiniu$1; });
+const _lazy_bDVbIV = () => Promise.resolve().then(function () { return qiniuFile$1; });
+const _lazy_iPYr5h = () => Promise.resolve().then(function () { return qiniuPreview$1; });
 const _lazy_BqC3KA = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/qiniu', handler: _lazy_3hKQAt, lazy: true, middleware: false, method: undefined },
+  { route: '/api/qiniu-file', handler: _lazy_bDVbIV, lazy: true, middleware: false, method: undefined },
+  { route: '/api/qiniu-preview', handler: _lazy_iPYr5h, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_BqC3KA, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid/**:params', handler: _worUMB, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query/:qid', handler: _worUMB, lazy: false, middleware: false, method: "get" },
@@ -4435,15 +4437,40 @@ const errorDev = /*#__PURE__*/Object.freeze({
 	template: template$1
 });
 
+const baseUrl$1 = "https://qiniusite.gaowenju.com";
+const qiniuFile = defineEventHandler(async (event) => {
+  const { key } = getQuery$1(event);
+  const accessKey = process.env.NUXT_QINIU_ACCESS_KEY;
+  const secretKey = process.env.NUXT_QINIU_SECRET_KEY;
+  const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
+  const config = new qiniu.conf.Config();
+  config.zone = qiniu.zone.Zone_z2;
+  const bucketManager = new qiniu.rs.BucketManager(mac, config);
+  const deadline = parseInt(Date.now() / 1e3) + 300;
+  if (key) {
+    return bucketManager.privateDownloadUrl(baseUrl$1, `${key}-watermark`, deadline);
+  } else {
+    return createError({
+      statusCode: 400,
+      statusMessage: "\u56FE\u5E8Asdk\u8BF7\u6C42\u9519\u8BEF\u274E"
+    });
+  }
+});
+
+const qiniuFile$1 = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	default: qiniuFile
+});
+
 const baseUrl = "https://qiniusite.gaowenju.com";
-const qiniu = defineEventHandler(async (event) => {
+const qiniuPreview = defineEventHandler(async (event) => {
   await readBody(event);
   const accessKey = process.env.NUXT_QINIU_ACCESS_KEY;
   const secretKey = process.env.NUXT_QINIU_SECRET_KEY;
-  const mac = new qiniu$2.auth.digest.Mac(accessKey, secretKey);
-  const config = new qiniu$2.conf.Config();
-  config.zone = qiniu$2.zone.Zone_z2;
-  const bucketManager = new qiniu$2.rs.BucketManager(mac, config);
+  const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
+  const config = new qiniu.conf.Config();
+  config.zone = qiniu.zone.Zone_z2;
+  const bucketManager = new qiniu.rs.BucketManager(mac, config);
   return new Promise((resolve, reject) => {
     bucketManager.listPrefix("wenju-site", {
       limit: 10,
@@ -4471,9 +4498,9 @@ const qiniu = defineEventHandler(async (event) => {
   });
 });
 
-const qiniu$1 = /*#__PURE__*/Object.freeze({
+const qiniuPreview$1 = /*#__PURE__*/Object.freeze({
 	__proto__: null,
-	default: qiniu
+	default: qiniuPreview
 });
 
 const appRootId = "__nuxt";
