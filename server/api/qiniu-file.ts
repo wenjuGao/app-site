@@ -2,7 +2,7 @@ import qiniu from "qiniu"
 const baseUrl = 'https://qiniusite.gaowenju.com'
 
 export default defineEventHandler(async (event) => {
-	const { key } = getQuery(event)
+	const { key = '' } = getQuery(event)
 	const accessKey = process.env.NUXT_QINIU_ACCESS_KEY
 	const secretKey = process.env.NUXT_QINIU_SECRET_KEY
 	const mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
@@ -13,8 +13,8 @@ export default defineEventHandler(async (event) => {
 	const bucketManager = new qiniu.rs.BucketManager(mac, config)
 	// @ts-ignore
 	const deadline = parseInt(Date.now() / 1000) + 300;
-	console.log(key);
 	if (key) {
+		// @ts-ignore
 		return bucketManager.privateDownloadUrl(baseUrl, `${decodeURIComponent(key)}-watermark`, deadline)
 	} else {
 		return createError({

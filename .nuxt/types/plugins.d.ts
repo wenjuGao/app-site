@@ -6,17 +6,15 @@ type Decorate<T extends Record<string, any>> = { [K in keyof T as K extends stri
 type InjectionType<A extends Plugin> = A extends Plugin<infer T> ? Decorate<T> : unknown
 
 type NuxtAppInjections = 
+  InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app/plugins/payload.client").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@pinia+nuxt@0.4.11_rollup@3.28.1_typescript@5.2.2_vue@3.3.4/node_modules/@pinia/nuxt/dist/runtime/plugin.vue3").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app/plugins/revive-payload.server").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app/plugins/revive-payload.client").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/head/runtime/plugins/unhead").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/pages/runtime/plugins/router").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxtjs+color-mode@3.2.0_rollup@3.28.1/node_modules/@nuxtjs/color-mode/dist/runtime/plugin.server").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxtjs+color-mode@3.2.0_rollup@3.28.1/node_modules/@nuxtjs/color-mode/dist/runtime/plugin.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/plugins/ws").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/plugins/documentDriven").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+dayjs-nuxt@1.1.2_rollup@3.28.1/node_modules/dayjs-nuxt/dist/runtime/plugin").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app/plugins/chunk-reload.client").default>

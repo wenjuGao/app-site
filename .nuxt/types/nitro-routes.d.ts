@@ -9,9 +9,6 @@ declare module 'nitropack' {
     '/api/qiniu-preview': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-preview').default>>>>
     }
-    '/__nuxt_error': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
-    }
     '/api/_content/query/:qid/**:params': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/server/api/query').default>>>>
     }
@@ -21,7 +18,7 @@ declare module 'nitropack' {
     '/api/_content/query': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/server/api/query').default>>>>
     }
-    '/api/_content/cache.json': {
+    '/api/_content/cache.1695202209438.json': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/server/api/cache').default>>>>
     }
     '/api/_content/navigation/:qid/**:params': {

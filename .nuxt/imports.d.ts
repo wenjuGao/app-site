@@ -17,5 +17,4 @@ export { fetchContentNavigation } from '../node_modules/.pnpm/registry.npmjs.org
 export { useContentState, useContent } from '../node_modules/.pnpm/registry.npmjs.org+@nuxt+content@2.7.2_rollup@3.28.1/node_modules/@nuxt/content/dist/runtime/composables/content';
 export { usePinia, defineStore, defineStore as definePiniaStore } from '../node_modules/.pnpm/registry.npmjs.org+@pinia+nuxt@0.4.11_rollup@3.28.1_typescript@5.2.2_vue@3.3.4/node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useColorMode } from '../node_modules/.pnpm/registry.npmjs.org+@nuxtjs+color-mode@3.2.0_rollup@3.28.1/node_modules/@nuxtjs/color-mode/dist/runtime/composables';
-export { useNuxtDevTools } from '../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/pages/runtime/composables';
