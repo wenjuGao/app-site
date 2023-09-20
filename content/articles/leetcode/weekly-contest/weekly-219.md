@@ -2,8 +2,8 @@
 layout: article
 title: leetcode第 219 场周赛
 description: 
-img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
-header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
+img: https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg-watermark
+header: https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg-watermark
 date: 2023-04-01 12:12:12
 category: 算法
 tags:
@@ -11,13 +11,11 @@ tags:
   - 周赛
 ---
 
-![weekly-219](https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg)
-
 ## 1.比赛中的配对次数
 
-::: tip 难度
+::tip{type="难度"}
 简单
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/count-of-matches-in-tournament/)
 
@@ -95,9 +93,9 @@ var numberOfMatches = function(n) {
 
 ## 2.十-二进制数的最少数目
 
-::: tip 难度
+::tip{type="难度"}
 中等
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/)
 
@@ -155,9 +153,9 @@ var minPartitions = function(n) {
 
 ## 3. 石子游戏 VII
 
-::: tip 难度
+::tip{type="难度"}
 中等
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/stone-game-vii/)
 
@@ -252,9 +250,9 @@ var stoneGameVII = function(stones) {
 
 ## 4. 堆叠长方体的最大高度
 
-::: tip 难度
+::tip{type="难度"}
 困难
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/maximum-height-by-stacking-cuboids/)
 

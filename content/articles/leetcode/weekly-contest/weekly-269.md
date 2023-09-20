@@ -2,8 +2,8 @@
 layout: article
 title: leetcode第 269 场周赛
 description: 
-img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
-header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
+img: https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg-watermark
+header: https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg-watermark
 date: 2023-04-01 12:12:12
 category: 算法
 tags:
@@ -12,13 +12,11 @@ tags:
 ---
 
 
-![weekly-219](https://qiniu.gaowenju.com/leecode/banner/weekly-219.jpg)
-
 ## 1.找出数组排序后的目标下标
 
-::: tip 难度
+::tip{type="难度"}
 简单
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/find-target-indices-after-sorting-array/)
 
@@ -88,9 +86,9 @@ var targetIndices = function(nums, target) {
 
 ## 2.十-半径为 k 的子数组平均值
 
-::: tip 难度
+::tip{type="难度"}
 中等
-:::
+::
 
 ### [题目:](https://leetcode-cn.com/problems/k-radius-subarray-averages/)
 
@@ -98,14 +96,14 @@ var targetIndices = function(nums, target) {
 
 ## 3. 从数组中移除最大值和最小值
 
-::: tip 难度
+::tip{type="难度"}
 中等
-:::
+::
 
 ---
 
 ## 4. 找出知晓秘密的所有专家
 
-::: tip 难度
+::tip{type="难度"}
 困难
-:::
+::

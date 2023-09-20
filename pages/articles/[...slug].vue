@@ -14,7 +14,7 @@
 						{{ doc.description }}
 					</p>
 					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
-						<ContentRenderer :key="page._id" :value="page" />
+						<ContentRenderer :key="doc._id" :value="doc" />
 					</div>
 					<div class="divider"></div>
 					<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
@@ -49,7 +49,7 @@
 						<twikoo-comment />
 					</div>
 				</div>
-				<div class="toc">
+				<div class="toc menu">
 					<toc-menu :list="toc ? toc.links : []" />
 				</div>
 			</article>
@@ -79,10 +79,10 @@ const handLink = (url: string) => {
 	@apply text-neutral mx-1 pb-2;
 }
 .article h1 {
-	@apply text-2xl my-2 font-bold;
+	@apply text-2xl my-2 font-bold mt-6;
 }
 .article h2 {
-	@apply text-xl my-1 border-b-2 border-amber-400 font-bold;
+	@apply text-xl my-1 border-b-2 border-amber-400 font-bold mt-4;
 }
 .article h3 {
 	@apply text-lg my-0.5 font-semibold;
@@ -105,5 +105,12 @@ const handLink = (url: string) => {
 }
 .link-page {
 	@apply mt-6 overflow-hidden w-full md:w-2/5  relative bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6;
+}
+.article ol,
+.article ul {
+	@apply my-2 list-decimal pl-10 pr-8 rounded py-4 bg-base-200;
+}
+.article li::marker {
+	color: hsl(var(--af));
 }
 </style>

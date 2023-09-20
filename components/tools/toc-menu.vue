@@ -33,6 +33,6 @@ const handleLink = (id: string | number) => {
 
 <style lang="postcss" scoped>
 .toc-item {
-	@apply cursor-pointer line-clamp-1 break-all overflow-hidden;
+	@apply cursor-pointer block w-full  truncate;
 }
 </style>
