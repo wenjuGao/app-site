@@ -35,6 +35,8 @@
 		"nuxt-lodash": "^2.5.0",
 		"pinia": "^2.1.6",
 		"postcss-color-gray": "5.0.0",
+		"qiniu": "^7.9.0",
+		"qiniu-js": "^3.4.1",
 		"scss": "^0.2.4",
 		"scss-loader": "^0.0.1",
 		"tailwindcss": "^3.3.3",

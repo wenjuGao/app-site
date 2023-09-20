@@ -43,8 +43,8 @@ export default defineAppConfig({
 			icon: 'i-mdi-archive-star-outline group-hover:i-mdi-archive-star'
 		},
 		{
-			label: '留言',
-			link: 'message',
+			label: '图床',
+			link: 'iamges',
 			class: 'primary',
 			icon: 'i-mdi-toggle-switch-variant-off group-hover:i-mdi-toggle-switch-variant'
 		},

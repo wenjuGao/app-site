@@ -4,7 +4,8 @@ import { tmpdir } from 'node:os';
 import { join as join$1 } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, isEvent, createEvent, getRequestHeader, splitCookiesString, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+h3@1.8.1/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, isEvent, createEvent, getRequestHeader, splitCookiesString, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler, readBody } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+h3@1.8.1/node_modules/h3/dist/index.mjs';
+import qiniu$2 from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+qiniu@7.9.0/node_modules/qiniu/index.js';
 import { createRenderer } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue-bundle-renderer@1.0.3/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+devalue@4.3.2/node_modules/devalue/index.js';
 import { renderToString } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue@3.3.4/node_modules/vue/server-renderer/index.mjs';
@@ -97,8 +98,8 @@ const appConfig0 = defineAppConfig({
       icon: "i-mdi-archive-star-outline group-hover:i-mdi-archive-star"
     },
     {
-      label: "\u7559\u8A00",
-      link: "message",
+      label: "\u56FE\u5E8A",
+      link: "iamges",
       class: "primary",
       icon: "i-mdi-toggle-switch-variant-off group-hover:i-mdi-toggle-switch-variant"
     },
@@ -211,6 +212,10 @@ const _inlineRuntimeConfig = {
       },
       "navigation": {
         "fields": [
+          "layout",
+          "layout",
+          "layout",
+          "layout",
           "layout"
         ]
       },
@@ -366,6 +371,10 @@ const _inlineRuntimeConfig = {
     },
     "navigation": {
       "fields": [
+        "layout",
+        "layout",
+        "layout",
+        "layout",
         "layout"
       ]
     },
@@ -4225,9 +4234,11 @@ const _tnTOw0 = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
+const _lazy_3hKQAt = () => Promise.resolve().then(function () { return qiniu$1; });
 const _lazy_BqC3KA = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/qiniu', handler: _lazy_3hKQAt, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_BqC3KA, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid/**:params', handler: _worUMB, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query/:qid', handler: _worUMB, lazy: false, middleware: false, method: "get" },
@@ -4420,6 +4431,47 @@ const template$1 = _template;
 const errorDev = /*#__PURE__*/Object.freeze({
 	__proto__: null,
 	template: template$1
+});
+
+const baseUrl = "https://qiniusite.gaowenju.com";
+const qiniu = defineEventHandler(async (event) => {
+  await readBody(event);
+  const accessKey = process.env.NUXT_QINIU_ACCESS_KEY;
+  const secretKey = process.env.NUXT_QINIU_SECRET_KEY;
+  const mac = new qiniu$2.auth.digest.Mac(accessKey, secretKey);
+  const config = new qiniu$2.conf.Config();
+  config.zone = qiniu$2.zone.Zone_z2;
+  const bucketManager = new qiniu$2.rs.BucketManager(mac, config);
+  return new Promise((resolve, reject) => {
+    bucketManager.listPrefix("wenju-site", {
+      limit: 10,
+      prefix: "site/"
+    }, function(err, respBody, respInfo) {
+      if (err || respInfo.statusCode != 200) {
+        reject(err);
+      } else {
+        resolve(respBody);
+      }
+    });
+  }).then((resp) => {
+    return resp.items.filter((i) => i.fsize > 0).map((i) => {
+      const deadline = parseInt(Date.now() / 1e3) + 300;
+      return {
+        ...i,
+        url: bucketManager.privateDownloadUrl(baseUrl, i.key, deadline)
+      };
+    });
+  }).catch(() => {
+    return createError({
+      statusCode: 400,
+      statusMessage: "\u56FE\u5E8Asdk\u8BF7\u6C42\u9519\u8BEF\u274E"
+    });
+  });
+});
+
+const qiniu$1 = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	default: qiniu
 });
 
 const appRootId = "__nuxt";
@@ -4654,7 +4706,7 @@ const renderer$1 = /*#__PURE__*/Object.freeze({
 	default: renderer
 });
 
-const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>前端小书童</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"https://qiniu.gaowenju.com/app-site/logo.png-32X32\">\n<style rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\" integrity=\"sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X\" crossorigin=\"anonymous\"></style>","bodyTags":"","bodyTagsOpen":"<script src=\"https://busuanzi.icodeq.com/busuanzi.pure.mini.js\"></script>\n<script src=\"https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa\"></script>","htmlAttrs":" class=\"scroll-smooth\"","bodyAttrs":""};
+const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>前端小书童</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"https://qiniu.gaowenju.com/app-site/logo.png-32X32\">\n<style rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\" integrity=\"sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X\" crossorigin=\"anonymous\"></style>\n<script innerhtml=\"var _hmt = _hmt || [];\n            (function () {\n              var hm = document.createElement(&quot;script&quot;);\n              hm.src = &quot;https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87&quot;;\n              var s = document.getElementsByTagName(&quot;script&quot;)[0];\n              s.parentNode.insertBefore(hm, s);\n            })(); \"></script>","bodyTags":"","bodyTagsOpen":"<script src=\"https://busuanzi.icodeq.com/busuanzi.pure.mini.js\"></script>\n<script src=\"https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js\" crossorigin=\"anonymous\" integrity=\"sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa\"></script>","htmlAttrs":" class=\"scroll-smooth\"","bodyAttrs":""};
 
 const _virtual__headStatic$1 = /*#__PURE__*/Object.freeze({
 	__proto__: null,

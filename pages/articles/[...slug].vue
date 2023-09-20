@@ -10,9 +10,11 @@
 						:src="doc.header"
 						:alt="doc.title"
 					/>
-					<p v-if="doc.description" class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
-						{{ doc.description }}
-					</p>
+					<p
+						v-if="doc.description"
+						v-html="doc.description.replace(/\\n/g, '<br/>')"
+						class="mt-6 text-md rounded-xl indent-8 text-accent-conten break-all text-left bg-base-200 p-2 leading-8"
+					></p>
 					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
 						<ContentRenderer :key="doc._id" :value="doc" />
 					</div>
