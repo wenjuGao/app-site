@@ -1,6 +1,6 @@
 ---
 layout: article
-title: javascript 中的位运算符
+title: javascript中的位运算符
 description: javascript 中的位运算符
 img: /img/code.jpg
 header: /img/code-header.jpg
@@ -13,7 +13,8 @@ tags:
 ---
 
 
-![img](http://qiniu.gaowenju.com/leecode/banner/operator.png)
+
+![img](https://qiniu.gaowenju.com/leecode/banner/operator.png)
 
 - 位与（&）、位或（|）、位异或（^）、非位（~）
 - 左移（<<）、右移（>>）、无符号右移（>>>）
@@ -70,7 +71,7 @@ tags:
 - 在移位运算过程中，符号位始终保持不变
 - 如果右侧空出位置，则自动填充为 0；超出 32 位的值，则自动丢弃
 
-```js
+```javascript
 console.log(5 << 1) // 10
 //  .... 00 0101   ->  5
 //  向右移动1位
@@ -84,7 +85,7 @@ console.log(5 << 1) // 10
 - 把数字中的所有有效位整体右移，再使用符号位的值填充空位
 - 移动过程中超出的值将被丢弃
 
-```js
+```javascript
 console.log(10 >> 1) // 5
 //  .... 00 1010   ->  10
 //  向左移动1位
@@ -99,7 +100,7 @@ console.log(10 >> 1) // 5
 - 对于无符号数或正数右移运算，无符号右移与有符号右移运算的结果是相同的
 - 对于负数来说，无符号右移将使用 0 来填充所有的空位，同时会把负数作为正数来处理
 
-```js
+```javascript
 console.log(5 >>> 1) // 2
 //  .... 00 0101   ->  5
 //  向左移动1位
@@ -121,4 +122,4 @@ console.log(-5 >>> 1) // 2147483645
 
 博客: [小书童博客](http://gaowenju.com/)(http://gaowenju.com/)
 公号: 坑人的小书童
-![坑人的小书童](http://qiniu.gaowenju.com/qrcode.jpg)
+![坑人的小书童](https://qiniu.gaowenju.com/qrcode.jpg)

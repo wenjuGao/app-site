@@ -67,8 +67,9 @@ const result = await queryContent('articles').only(['id', 'category', 'tags']).f
 // 统计 分类及标签数量
 totalInfo.totals = result.length
 result.forEach((i) => {
-	if (i.tags && i.tags.length) {
-		i.tags.forEach((child) => tagSet.add(child))
+	const tags = Array.isArray(i.tags) ? i.tags : []
+	if (tags && tags.length) {
+		tags.forEach((child) => tagSet.add(child))
 	}
 	categoryMap.add(i.category)
 })

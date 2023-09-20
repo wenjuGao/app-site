@@ -14,13 +14,11 @@ tags:
   - javascript
 ---
 
-
-
->  无论是 for...in 还是 for...of 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。
+> > > 无论是 for...in 还是 for...of 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。
 
 ### forin
 
-```js
+```javascript
 for (variable in object) statement
 ```
 
@@ -39,7 +37,7 @@ for (variable in object) statement
 
 ### 区别
 
-```js
+```javascript
 Object.prototype.objCustom = function () {}
 Array.prototype.arrCustom = function () {}
 

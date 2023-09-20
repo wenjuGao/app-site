@@ -1,27 +1,19 @@
 <template>
 	<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl py-5">
-		<ClientOnly fallback-tag="span"
-					fallback="Loading comments...">
-			<div class="grid grid-cols-1 gap-4  md:grid-cols-2">
+		<ClientOnly fallback-tag="span" fallback="Loading comments...">
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 				<tags-chart />
 				<category-chart />
 			</div>
-
 		</ClientOnly>
-		<div class="item"
-			 v-for="(item, index) in mapList"
-			 :key="index">
+		<div class="item mt-3" v-for="(item, index) in mapList" :key="index">
 			<div :class="`collapse rounded-none pl-8  collapse-arrow ${opens.includes(index) ? 'collapse-open' : ''}`">
-				<div class="collapse-title rounded bg-base-200"
-					 @click="handleTigger(index)">
+				<div class="collapse-title rounded bg-base-200" @click="handleTigger(index)">
 					{{ index }}
 				</div>
 				<div class="collapse-content">
-					<p v-for="child in item"
-					   class="py-2"
-					   :key="child._path">
-						<a class="link link-hover block truncate break-all"
-						   :href="child._path">
+					<p v-for="child in item" class="py-2" :key="child._path">
+						<a class="link link-hover block truncate break-all" :href="child._path">
 							<span class="i-mdi-link-variant"></span>
 							{{ child.title }}
 						</a>
@@ -32,10 +24,9 @@
 	</div>
 </template>
 
-
 <script setup lang="ts">
-import tagsChart from "@/components/tools/tags-chart.vue"
-import categoryChart from "@/components/tools/category-chart.vue"
+import tagsChart from '@/components/tools/tags-chart.vue'
+import categoryChart from '@/components/tools/category-chart.vue'
 interface DayMap {
 	[day: string]: any[]
 }
@@ -46,19 +37,24 @@ let list = await queryContent('articles')
 	.sort({ date: -1 })
 	.find()
 // 按照日期分组
-let mapList = ref<DayMap>({});
-let opens = ref<any[]>([]);
-list.forEach(i => {
-	const day: string = dayjs(i.date).format('YYYY-MM-DD');
+let mapList = ref<DayMap>({})
+let opens = ref<any[]>([])
+list.forEach((i) => {
+	const day: string = dayjs(i.date).format('YYYY-MM-DD')
 	if (mapList.value[day]) {
 		mapList.value[day] = [...mapList.value[day], i]
 	} else {
 		mapList.value[day] = [i]
 		opens.value.push(day)
 	}
-});
+})
 const handleTigger = (day: string | number) => {
-	opens.value.includes(day) ? opens.value.splice(opens.value.findIndex(i => i === day), 1) : opens.value.push(day)
+	opens.value.includes(day)
+		? opens.value.splice(
+				opens.value.findIndex((i) => i === day),
+				1
+		  )
+		: opens.value.push(day)
 }
 </script>
 
@@ -79,7 +75,7 @@ const handleTigger = (day: string | number) => {
 	}
 
 	.collapse-title::before {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 50%;
 		-webkit-transform: translateY(-50%);
@@ -95,7 +91,7 @@ const handleTigger = (day: string | number) => {
 
 .item::after {
 	position: absolute;
-	content: "";
+	content: '';
 	top: 14px;
 	width: 13px;
 	height: 13px;
@@ -105,7 +101,7 @@ const handleTigger = (day: string | number) => {
 
 .item::before {
 	position: absolute;
-	content: "";
+	content: '';
 	left: 6px;
 	top: 22px;
 	width: 1px;

@@ -10,7 +10,7 @@
 				<list-item :list="list" />
 				<!-- </div> -->
 			</div>
-			<div class="h-fit hidden md:block w-72 pl-4">
+			<div class="right-side h-fit hidden md:block w-72 pl-4">
 				<home-side />
 			</div>
 		</div>
@@ -36,5 +36,9 @@ let list = await queryContent('articles')
 	.badge:hover {
 		@apply bg-gray-300;
 	}
+}
+.right-side {
+	position: sticky;
+	top: 50px;
 }
 </style>

@@ -5,14 +5,14 @@
 				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
 					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
 					<img
+						v-if="doc.header"
 						class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
 						:src="doc.header"
 						:alt="doc.title"
 					/>
-					<p class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
+					<p v-if="doc.description" class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
 						{{ doc.description }}
 					</p>
-					<span id="twikoo_visitors">0</span>
 					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
 						<ContentRenderer :key="page._id" :value="page" />
 					</div>

@@ -20,7 +20,9 @@ const banerList = await queryContent('articles')
 	.sort({ date: -1 })
 	.find()
 
-const handleLink = (item: any) => router.push({ path: item._path })
+const handleLink = (item: any) => {
+	window.location.href = item._path
+}
 </script>
 
 <style lang="postcss" scoped>

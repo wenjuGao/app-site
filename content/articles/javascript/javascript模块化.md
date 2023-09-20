@@ -1,6 +1,6 @@
 ---
 layout: article
-title: ES5 模块化之 AMD、CMD、CommonJs 区别
+title: javascript模块化
 description: 异步加载 JS 文件，按照模块加载方法，通过 define()函数定义，第一个参数是一个数组，里面定义一些需要依赖的包，第二个参数是一个回调函数，通过变量来引用模块里面的方法，最后通过 return 来输出
 img: /img/js-module.jpg
 header: /img/js-module-header.jpg
@@ -17,14 +17,13 @@ tags:
 ---
 
 
-
 #### 1. AMD — RequireJS：依赖前置、异步定义
 
 AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。
 RequireJS：异步加载 JS 文件，按照模块加载方法，通过 define()函数定义，第一个参数是一个数组，里面定义一些需要依赖的包，第二个参数是一个回调函数，通过变量来引用模块里面的方法，最后通过 return 来输出。
 AMD 的规范是一个依赖前置，当需要使用别的模块时，在程序前做好引用，在引用成功的回调里面加载需要执行的程序。
 
-```js
+```javascript
 define(['package/lib'], function(lib) {
   function test() {
     lib.fn()
@@ -38,7 +37,7 @@ define(['package/lib'], function(lib) {
 CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
 SeaJS：同步模块定义，是淘宝团队提供的一个模块开发的 js 框架（不更新）。define()定义，通过 require 加依赖插件，即用即返。
 
-```js
+```javascript
 define(function(require, exports, module) {
   var $ = require('jquery')
   exports.test = function() {}
@@ -55,13 +54,13 @@ CommonJS 输出方式有 2 种：默认输出 module export 和 exports.XX
 
 a.js
 
-```js
+```javascript
 exports.test = function() {}
 ```
 
 b.js
 
-```js
+```javascript
 var test = require('a.js')
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: JS 中的 map,some,every,filter,find,findIndex,forEach 跳出循环
+title: JS跳出循环
 description: js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式
 img: /img/forEach.jpg
 header: /img/forEach-banner.jpg
@@ -19,8 +19,7 @@ tags:
   - javascript
 ---
 
-
->  js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式。
+> > > js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式。
 
 ### every 循环
 
@@ -32,7 +31,7 @@ tags:
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```Javascript
 let list = [1, 2, 3, 4, 5];
 list.every((value, index) => {
     if(value > 3){
@@ -62,7 +61,7 @@ list.every((value, index) => {
 - 引发异常外，没有其他方法可以停止或中断循环
 - forEach 的本事是异步函数，但是其内部 callback 是同步的；
 
-```js
+```javascript
 let list = [1, 2, 3, 4, 5]
 let sum = 0
 
@@ -97,7 +96,7 @@ setTimeout(() => console.log(sum)) // 1
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```javascript
 let list = [1, 2, 3, 4, 5]
 list.some((value, index) => {
   if (value === 3) {
@@ -113,7 +112,7 @@ list.some((value, index) => {
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```javascript
 let list = [1, 2, 3, 4, 5]
 const resultA = list.map(parseInt) // 1, NaN, NaN, NaN, NaN
 const resultB = list.map(item => parseInt(item)) // 1, 2, 3, 4, 5
@@ -125,7 +124,7 @@ const resultB = list.map(item => parseInt(item)) // 1, 2, 3, 4, 5
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```javascript
 let newArray = arr.filter(callback(element[, index, [array]])[, thisArg]);
 
 let fruits = ['apple', 'banana', 'grapes', 'mango', 'orange']
@@ -152,7 +151,7 @@ console.log(filterItems(fruits, 'an'))  // ['banana', 'mango', 'orange']
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```javascript
 array.find(function(currentValue, index, arr),thisValue);
 let list = [1,2,3,4,5];
 const result = list.find(item => item > 2);
@@ -168,7 +167,7 @@ console.log(result); // 3
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```js
+```javascript
 array.findIndex(function(currentValue, index, arr),thisValue);
 let list = [1,2,3,4,5];
 const result = list.findIndex(item => item > 2);
