@@ -47,8 +47,11 @@ const init = async () => {
 init();
 
 const handleView = async (item: any) => {
-	console.log(item);
-	const { data } = await useFetch(`/api/qiniu-file?key=${encodeURIComponent(item.key)}`)
+	const { data } = await useFetch(`/api/qiniu-file`, {
+		method: 'post', body: {
+			key: item.key
+		}
+	})
 	open.value = true
 	scopeInfo.value = {
 		...item,
@@ -93,7 +96,12 @@ onClickOutside(imgRef, () => {
 
 	}
 }
-
+.img-modal {
+	img {
+		max-height: 80vh;
+		vertical-align: middle;
+	}
+}
 .close {
 	@apply absolute right-12 w-10 h-10 rounded-full bg-base-300 hover:bg-base-200 flex justify-center items-center cursor-pointer;
 }
