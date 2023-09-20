@@ -47,7 +47,8 @@ const init = async () => {
 init();
 
 const handleView = async (item: any) => {
-	const { data } = await useFetch(`/api/qiniu-file?key=${item.key}`)
+	console.log(item);
+	const { data } = await useFetch(`/api/qiniu-file?key=${encodeURIComponent(item.key)}`)
 	open.value = true
 	scopeInfo.value = {
 		...item,

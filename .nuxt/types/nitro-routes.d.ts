@@ -4,7 +4,7 @@ declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
     '/api/qiniu-file': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-filelt>>>>
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-file').default>>>>
     }
     '/api/qiniu-preview': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-preview').default>>>>

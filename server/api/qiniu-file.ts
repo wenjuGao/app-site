@@ -13,8 +13,9 @@ export default defineEventHandler(async (event) => {
 	const bucketManager = new qiniu.rs.BucketManager(mac, config)
 	// @ts-ignore
 	const deadline = parseInt(Date.now() / 1000) + 300;
+	console.log(key);
 	if (key) {
-		return bucketManager.privateDownloadUrl(baseUrl, `${key}-watermark`, deadline)
+		return bucketManager.privateDownloadUrl(baseUrl, `${decodeURIComponent(key)}-watermark`, deadline)
 	} else {
 		return createError({
 			statusCode: 400,

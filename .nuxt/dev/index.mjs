@@ -212,11 +212,6 @@ const _inlineRuntimeConfig = {
       },
       "navigation": {
         "fields": [
-          "layout",
-          "layout",
-          "layout",
-          "layout",
-          "layout",
           "layout"
         ]
       },
@@ -372,11 +367,6 @@ const _inlineRuntimeConfig = {
     },
     "navigation": {
       "fields": [
-        "layout",
-        "layout",
-        "layout",
-        "layout",
-        "layout",
         "layout"
       ]
     },
@@ -4447,8 +4437,9 @@ const qiniuFile = defineEventHandler(async (event) => {
   config.zone = qiniu.zone.Zone_z2;
   const bucketManager = new qiniu.rs.BucketManager(mac, config);
   const deadline = parseInt(Date.now() / 1e3) + 300;
+  console.log(key);
   if (key) {
-    return bucketManager.privateDownloadUrl(baseUrl$1, `${key}-watermark`, deadline);
+    return bucketManager.privateDownloadUrl(baseUrl$1, `${decodeURIComponent(key)}-watermark`, deadline);
   } else {
     return createError({
       statusCode: 400,
