@@ -4,7 +4,6 @@ title: 异步
 description: JavaScript 引擎负责解析，执行 JavaScript 代码，但它并不能单独运行，通常都得有一个宿主环境，一般如浏览器或 Node 服务器，前文说到的单线程是指在这些宿主环境创建单一线程，提供一种机制，调用 JavaScript 引擎完成多个 JavaScript 代码块的调度，这种机制就称为事件循环（ Event Loop ）
 img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
-banner: true
 date: 2023-04-01 12:12:12
 category: 面试
 tags:

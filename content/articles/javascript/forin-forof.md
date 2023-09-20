@@ -4,7 +4,6 @@ title: forin 与 forof的区别
 description: 每个对象将继承 objCustom 属性，并且作为 Array 的每个对象将继承 arrCustom 属性，因为将这些属性添加到 Object.prototype 和 Array.prototype。由于继承和原型链，对象 iterable 继承属性 objCustom 和 arrCustom
 img: /img/forof.jpg
 header: /img/forof-header.jpg
-banner: true
 date: 2023-04-01 12:12:12
 category: javascript
 tags:

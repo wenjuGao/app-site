@@ -4,7 +4,6 @@ title: 常用数据可视化
 description: 常用数据可视化
 img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
-banner: true
 date: 2023-04-01 12:12:12
 category: 数据可视化
 tags:

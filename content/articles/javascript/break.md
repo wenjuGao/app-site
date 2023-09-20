@@ -4,7 +4,6 @@ title: JS跳出循环
 description: js 中终止循环分为：终止本次循环，终止循环体，终止的形式也各有不同包括：return true fasle break 等，对应不同场景终止循环需要使用不同形式
 img: /img/forEach.jpg
 header: https://qiniu.gaowenju.com/app-site/img/forEach-banner.jpg-watermark
-banner: true
 category: javascript
 date: 2023-04-02 12:12:12
 tags:

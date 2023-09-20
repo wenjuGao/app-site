@@ -4,7 +4,6 @@ title: 深拷贝浅拷贝
 description: 
 img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
-banner: true
 date: 2023-04-01 12:12:12
 category: 面试
 tags:

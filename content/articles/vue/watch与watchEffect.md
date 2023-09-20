@@ -4,7 +4,6 @@ title: watch与watchEffect
 description: 
 img: https://qiniu.gaowenju.com/app-site/img/seal.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/seal-header.jpg-watermark
-banner: true
 date: 2023-04-01 12:12:12
 category: javascript
 tags:

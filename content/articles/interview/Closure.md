@@ -4,7 +4,6 @@ title: 闭包
 description: 在编程过程中我们总是需要将函数与其所操作的环境关联起来，即某些逻辑依赖其他环境的数据，为了管理函数的执行环境和避免变量污染于是就涉及到了闭包（closure）的概念。
 img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
-banner: true
 date: 2023-04-01 12:12:12
 category: 面试
 tags:

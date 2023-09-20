@@ -4,7 +4,6 @@ title: 字面量与构造器的区别
 description: 字面量与 构造器 构建变量的区别
 img: https://qiniu.gaowenju.com/app-site/img/action-scope.jpg-watermark
 header: https://qiniu.gaowenju.com/app-site/img/action-scope-header.jpg-watermark
-banner: true
 date: 2023-04-03 12:12:12
 category: javascript
 tags:
