@@ -4,7 +4,7 @@
 			<li class="rounded mb-2.5 overflow-hidden relative cursor-pointer group hover:shadow-xl"
 				v-for="img in images"
 				:key="img.key">
-				<img class="w-24"
+				<img class="object-contain w-24"
 					 :src="img.url" />
 				<div @click="handleView(img)"
 					 class="hidden group-hover:flex top-0 left-0 right-0 bottom-0 absolute view-box items-center justify-center">
@@ -20,7 +20,7 @@
 				</div>
 				<img :src="scopeInfo.url"
 					 ref="imgRef"
-					 class="w-6/12"
+					 class="object-contain w-6/12"
 					 v-if="scopeInfo.url"
 					 :alt="scopeInfo.key">
 			</div>
@@ -47,20 +47,23 @@ const init = async () => {
 init();
 
 const handleView = async (item: any) => {
+	open.value = true
 	const { data } = await useFetch(`/api/qiniu-file`, {
 		method: 'post', body: {
 			key: item.key
 		}
 	})
-	open.value = true
+
 	scopeInfo.value = {
 		...item,
 	}
 	if (data) {
 		scopeInfo.value.url = data
+	} else {
+		open.value = false
 	}
-	
-	
+
+
 }
 const handleClose = () => {
 	open.value = false
@@ -96,12 +99,14 @@ onClickOutside(imgRef, () => {
 
 	}
 }
+
 .img-modal {
 	img {
 		max-height: 80vh;
 		vertical-align: middle;
 	}
 }
+
 .close {
 	@apply absolute right-12 w-10 h-10 rounded-full bg-base-300 hover:bg-base-200 flex justify-center items-center cursor-pointer;
 }
