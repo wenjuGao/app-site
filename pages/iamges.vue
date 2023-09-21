@@ -49,7 +49,9 @@ init();
 const handleView = async (item: any) => {
 	open.value = true
 	const { data } = await useFetch(`/api/qiniu-file`, {
-		method: 'post', body: {
+		method: 'post',
+		cache: "reload",
+		body: {
 			key: item.key
 		}
 	})
