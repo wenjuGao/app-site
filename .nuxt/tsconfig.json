@@ -66,10 +66,7 @@
         "/Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+pinia@2.1.6_typescript@5.2.2_vue@3.3.4/node_modules/pinia/dist/pinia"
       ],
       "#tailwind-config": [
-        "/Users/gaowenju/my-job/app-site/.nuxt/tailwind.config"
-      ],
-      "#tailwind-config/*": [
-        "/Users/gaowenju/my-job/app-site/.nuxt/tailwind.config/*"
+        "/Users/gaowenju/my-job/app-site/.nuxt/tailwind"
       ],
       "#color-mode-options": [
         "/Users/gaowenju/my-job/app-site/.nuxt/color-mode-options"

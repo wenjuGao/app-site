@@ -1,9 +1,52 @@
 import { createRenderer } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue-bundle-renderer@1.0.3/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { eventHandler, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getQuery, createError, appendResponseHeader } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+h3@1.8.1/node_modules/h3/dist/index.mjs';
+import { eventHandler, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getQuery, createError } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+h3@1.8.1/node_modules/h3/dist/index.mjs';
 import { stringify, uneval } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+devalue@4.3.2/node_modules/devalue/index.js';
-import { joinURL, withoutTrailingSlash } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+ufo@1.2.0/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+vue@3.3.4/node_modules/vue/server-renderer/index.mjs';
 import { u as useNitroApp, a as useRuntimeConfig, g as getRouteRules } from './nitro/nitro-prerenderer.mjs';
+import { joinURL } from 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+ufo@1.2.0/node_modules/ufo/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+node-fetch-native@1.4.0/node_modules/node-fetch-native/dist/polyfill.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+ofetch@1.3.3/node_modules/ofetch/dist/node.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+destr@2.0.1/node_modules/destr/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unenv@1.7.3/node_modules/unenv/runtime/fetch/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+scule@1.0.0/node_modules/scule/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+klona@2.0.6/node_modules/klona/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+defu@6.1.2/node_modules/defu/dist/defu.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+ohash@1.1.3/node_modules/ohash/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unstorage@1.9.0/node_modules/unstorage/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unstorage@1.9.0/node_modules/unstorage/drivers/fs.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unstorage@1.9.0/node_modules/unstorage/drivers/fs-lite.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+radix3@1.1.0/node_modules/radix3/dist/index.mjs';
+import 'node:fs';
+import 'node:url';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+pathe@1.1.1/node_modules/pathe/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unified@10.1.2/node_modules/unified/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+mdast-util-to-string@3.2.0/node_modules/mdast-util-to-string/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+micromark@3.2.0/node_modules/micromark/lib/preprocess.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+micromark@3.2.0/node_modules/micromark/lib/postprocess.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unist-util-stringify-position@4.0.0/node_modules/unist-util-stringify-position/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+micromark-util-character@1.2.0/node_modules/micromark-util-character/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+micromark-util-chunked@1.1.0/node_modules/micromark-util-chunked/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+micromark-util-resolve-all@1.1.0/node_modules/micromark-util-resolve-all/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-emoji@3.1.2/node_modules/remark-emoji/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+rehype-slug@5.1.0/node_modules/rehype-slug/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-squeeze-paragraphs@5.0.1/node_modules/remark-squeeze-paragraphs/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+rehype-external-links@2.1.0/node_modules/rehype-external-links/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-gfm@3.0.1/node_modules/remark-gfm/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+rehype-sort-attribute-values@4.0.0/node_modules/rehype-sort-attribute-values/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+rehype-sort-attributes@4.0.0/node_modules/rehype-sort-attributes/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+rehype-raw@6.1.1/node_modules/rehype-raw/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-mdc@1.1.3/node_modules/remark-mdc/dist/index.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-parse@10.0.2/node_modules/remark-parse/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+remark-rehype@10.1.0/node_modules/remark-rehype/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+mdast-util-to-hast@12.3.0/node_modules/mdast-util-to-hast/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+detab@3.0.2/node_modules/detab/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unist-builder@4.0.0/node_modules/unist-builder/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+mdurl@1.0.1/node_modules/mdurl/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+slugify@1.6.6/node_modules/slugify/slugify.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unist-util-position@5.0.0/node_modules/unist-util-position/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unist-util-visit@5.0.0/node_modules/unist-util-visit/index.js';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+shiki-es@0.14.0/node_modules/shiki-es/dist/shiki.node.mjs';
+import 'file:///Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+unenv@1.7.3/node_modules/unenv/runtime/npm/consola.mjs';
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -54,36 +97,8 @@ const appRootTag = "div";
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
 const getClientManifest = () => import('./app/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getEntryIds = () => getClientManifest().then((r) => Object.values(r).filter(
-  (r2) => (
-    // @ts-expect-error internal key set by CSS inlining configuration
-    r2._globalCSS
-  )
-).map((r2) => r2.src));
 const getStaticRenderedHead = () => import('./rollup/_virtual_head-static.mjs').then((r) => r.default || r);
-const getServerEntry = () => import('./app/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => import('./app/styles.mjs').then((r) => r.default || r));
-const getSSRRenderer = lazyCachedFunction(async () => {
-  const manifest = await getClientManifest();
-  if (!manifest) {
-    throw new Error("client.manifest is not available");
-  }
-  const createSSRApp = await getServerEntry();
-  if (!createSSRApp) {
-    throw new Error("Server bundle is not available");
-  }
-  const options = {
-    manifest,
-    renderToString: renderToString$1,
-    buildAssetsURL
-  };
-  const renderer = createRenderer(createSSRApp, options);
-  async function renderToString$1(input, context) {
-    const html = await renderToString(input, context);
-    return `<${appRootTag} id="${appRootId}">${html}</${appRootTag}>`;
-  }
-  return renderer;
-});
 const getSPARenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   const spaTemplate = await import('./rollup/_virtual_spa-template.mjs').then((r) => r.template).catch(() => "");
@@ -116,9 +131,8 @@ const getSPARenderer = lazyCachedFunction(async () => {
     renderToString
   };
 });
-const PAYLOAD_CACHE = /* @__PURE__ */ new Map() ;
+const PAYLOAD_CACHE = null;
 const PAYLOAD_URL_RE = /\/_payload(\.[a-zA-Z0-9]+)?.json(\?.*)?$/ ;
-const PRERENDER_NO_SSR_ROUTES = /* @__PURE__ */ new Set(["/index.html", "/200.html", "/404.html"]);
 const renderer = defineRenderHandler(async (event) => {
   const nitroApp = useNitroApp();
   const ssrError = event.node.req.url?.startsWith("/__nuxt_error") ? getQuery(event) : null;
@@ -146,7 +160,7 @@ const renderer = defineRenderHandler(async (event) => {
     url,
     event,
     runtimeConfig: useRuntimeConfig(),
-    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false || (PRERENDER_NO_SSR_ROUTES.has(url) ),
+    noSSR: !!true   ,
     error: !!ssrError,
     nuxt: void 0,
     /* NuxtApp */
@@ -154,12 +168,10 @@ const renderer = defineRenderHandler(async (event) => {
     _payloadReducers: {},
     islandContext
   };
-  const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && !islandContext;
-  const payloadURL = _PAYLOAD_EXTRACTION ? joinURL(useRuntimeConfig().app.baseURL, url, "_payload.json" ) : void 0;
   {
     ssrContext.payload.prerenderedAt = Date.now();
   }
-  const renderer = ssrContext.noSSR ? await getSPARenderer() : await getSSRRenderer();
+  const renderer = await getSPARenderer() ;
   const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
     if (ssrContext._renderResponse && error.message === "skipping render") {
       return {};
@@ -182,27 +194,15 @@ const renderer = defineRenderHandler(async (event) => {
     }
     return response2;
   }
-  if (_PAYLOAD_EXTRACTION) {
-    appendResponseHeader(event, "x-nitro-prerender", joinURL(url, "_payload.json" ));
-    PAYLOAD_CACHE.set(withoutTrailingSlash(url), renderPayloadResponse(ssrContext));
-  }
   const renderedMeta = await ssrContext.renderMeta?.() ?? {};
-  {
-    const source = ssrContext.modules ?? ssrContext._registeredComponents;
-    if (source) {
-      for (const id of await getEntryIds()) {
-        source.add(id);
-      }
-    }
-  }
-  const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) ;
+  const inlinedStyles = Boolean(islandContext) ? await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) : "";
   const NO_SCRIPTS = routeOptions.experimentalNoScripts;
   const htmlContext = {
     island: Boolean(islandContext),
     htmlAttrs: normalizeChunks([renderedMeta.htmlAttrs]),
     head: normalizeChunks([
       renderedMeta.headTags,
-      _PAYLOAD_EXTRACTION ? `<link rel="preload" as="fetch" crossorigin="anonymous" href="${payloadURL}">` : null ,
+      null ,
       NO_SCRIPTS ? null : _rendered.renderResourceHints(),
       _rendered.renderStyles(),
       inlinedStyles,
@@ -215,7 +215,7 @@ const renderer = defineRenderHandler(async (event) => {
     ]),
     body: [_rendered.html],
     bodyAppend: normalizeChunks([
-      NO_SCRIPTS ? void 0 : _PAYLOAD_EXTRACTION ? renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: splitPayload(ssrContext).initial, src: payloadURL })  : renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: ssrContext.payload }) ,
+      NO_SCRIPTS ? void 0 : renderPayloadJsonScript({ id: "__NUXT_DATA__", ssrContext, data: ssrContext.payload }) ,
       routeOptions.experimentalNoScripts ? void 0 : _rendered.renderScripts(),
       // Note: bodyScripts may contain tags other than <script>
       renderedMeta.bodyScripts
@@ -288,7 +288,7 @@ function renderPayloadJsonScript(opts) {
   const attrs = [
     'type="application/json"',
     `id="${opts.id}"`,
-    `data-ssr="${!(opts.ssrContext.noSSR)}"`,
+    `data-ssr="${!(true )}"`,
     opts.src ? `data-src="${opts.src}"` : ""
   ].filter(Boolean);
   const contents = opts.data ? stringify(opts.data, opts.ssrContext._payloadReducers) : "";
@@ -302,10 +302,5 @@ function splitPayload(ssrContext) {
   };
 }
 
-const renderer$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: renderer
-});
-
-export { publicAssetsURL as p, renderer$1 as r };
+export { renderer as default };
 //# sourceMappingURL=renderer.mjs.map
