@@ -37,6 +37,7 @@ let list = await queryContent('articles')
 		@apply bg-gray-300;
 	}
 }
+
 .right-side {
 	position: sticky;
 	top: 50px;

@@ -1,11 +1,9 @@
 <template>
 	<div class="grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 md:grid-cols-2">
-		<div
-			v-for="(item, index) in list"
-			:key="index"
-			@click="handLink(item.label)"
-			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`"
-		>
+		<div v-for="(item, index) in list"
+			 :key="index"
+			 @click="handLink(item.label)"
+			 :class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`">
 			<div class="stat">
 				<div :class="`stat-figure  text-${item.class}`">
 					<div class="avatar">
@@ -30,6 +28,7 @@ import useArticleStore from '@/stores/articles'
 import type { ArticleStoreType } from '@/stores/articles'
 import type { ArticleType } from 'type'
 const { categoryMenu } = useAppConfig()
+const router = useRouter()
 let list = ref(categoryMenu)
 const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
 list.value = categoryMenu.map((item: any) => {
@@ -46,6 +45,6 @@ list.value = categoryMenu.map((item: any) => {
 	}
 })
 const handLink = (label: string) => {
-	window.location.href = `/category/${label}`
+	router.push({ path: `/category/${label}` });
 }
 </script>
