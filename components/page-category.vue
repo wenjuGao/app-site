@@ -28,7 +28,6 @@ import useArticleStore from '@/stores/articles'
 import type { ArticleStoreType } from '@/stores/articles'
 import type { ArticleType } from 'type'
 const { categoryMenu } = useAppConfig()
-const router = useRouter()
 let list = ref(categoryMenu)
 const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
 list.value = categoryMenu.map((item: any) => {
@@ -45,6 +44,6 @@ list.value = categoryMenu.map((item: any) => {
 	}
 })
 const handLink = (label: string) => {
-	router.push({ path: `/category/${label}` });
+	window.location.href = `/category/${label}`
 }
 </script>

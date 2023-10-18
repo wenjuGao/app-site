@@ -15,14 +15,16 @@
 	</div>
 </template>
 <script setup lang="ts">
-const router = useRouter()
 const banerList = await queryContent('articles')
 	.only(['_path', 'banner', 'img', 'category', 'title'])
 	.where({ banner: true })
 	.limit(5)
 	.sort({ date: -1 })
 	.find()
-const handleLink = (item: any) => router.push({ path: item._path });
+console.log(banerList);
+const handleLink = (item: any) => {
+	window.location.href = item._path
+}
 </script>
 
 <style lang="postcss" scoped>

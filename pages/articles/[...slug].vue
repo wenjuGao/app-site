@@ -1,20 +1,20 @@
 <template>
-	<ClientOnly fallback-tag="span"
-				fallback="Loading comments...">
+	<ContentDoc v-slot="{ doc }">
 		<main class="px-4 w-full pb-24">
 			<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
 				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
-					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ data.title }}</h1>
-					<img v-if="data.header"
+					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
+					<img v-if="doc.header"
 						 class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
-						 :src="data.header"
-						 :alt="data.title" />
-					<p v-if="data.description"
-					   v-html="data.description.replace(/\\n/g, '<br/>')"
+						 :src="doc.header"
+						 :alt="doc.title" />
+					<p v-if="doc.description"
+					   v-html="doc.description.replace(/\\n/g, '<br/>')"
 					   class="mt-6 text-md rounded-xl indent-8 text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
 					</p>
 					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
-						<ContentRenderer :value="data" />
+						<ContentRenderer :key="doc._id"
+										 :value="doc" />
 					</div>
 					<div class="divider"></div>
 					<div class="justify-between flex sm:flex-wrap"
@@ -57,20 +57,18 @@
 				</div>
 			</article>
 		</main>
-	</ClientOnly>
+	</ContentDoc>
 </template>
 <script setup lang="ts">
 import twikooComment from '@/components/twikoo-comment.vue'
 import tocMenu from '@/components/tools/toc-menu.vue'
-const router = useRouter()
-const route = useRoute()
-const { data }: any = await useAsyncData(`page-data`, () => queryContent().where({ _path: route.path }).findOne());
-
 definePageMeta({
 	layout: 'article'
 })
 const { page, next, prev, toc } = useContent()
-const handLink = (url: string) => router.push({ path: url });
+const handLink = (url: string) => {
+	window.location.href = url
+}
 </script>
 
 <style lang="postcss">
@@ -128,5 +126,4 @@ const handLink = (url: string) => router.push({ path: url });
 
 .article li::marker {
 	color: hsl(var(--af));
-}
-</style>
+}</style>

@@ -40,12 +40,14 @@ import menuSwap from './tools/menu-swap.vue'
 import selectTheme from './tools/select-theme.vue'
 
 const { headerMenu } = useAppConfig()
-const router = useRouter()
+// const router = useRouter()
 const route: any = useRoute()
 const config = useRuntimeConfig()
 const app: NitroRuntimeConfigApp = config.app
 
-const handleLink = (path: string) => router.push({ path: `${app.baseURL}${path}` })
+const handleLink = (path: string) => {
+	window.location.href = `${app.baseURL}${path}` // router.push({ path: `${app.baseURL}${path}` })
+}
 </script>
 <style lang="postcss" scoped>
 .page-header {

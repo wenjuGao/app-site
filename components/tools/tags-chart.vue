@@ -1,5 +1,6 @@
 <template>
-	<div id="tags-chart" class="h-72"></div>
+	<div id="tags-chart"
+		 class="h-72"></div>
 </template>
 <script setup lang="ts">
 import * as echarts from 'echarts'
@@ -51,7 +52,8 @@ onMounted(() => {
 		})
 		chart.on('dblclick', 'series', function (val: any) {
 			if (val.data && val.data.link) {
-				router.push(val.data.link)
+				// router.push(val.data.link)
+				window.location.href = val.data.link
 			}
 		})
 		window.onresize = chart.resize
