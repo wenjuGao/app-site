@@ -1,68 +1,80 @@
 <template>
-	<ContentDoc v-slot="{ doc }">
-		<main class="px-4 w-full pb-24">
-			<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
-				<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
-					<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
-					<img v-if="doc.header"
-						 class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
-						 :src="doc.header"
-						 :alt="doc.title" />
-					<p v-if="doc.description"
-					   v-html="doc.description.replace(/\\n/g, '<br/>')"
-					   class="mt-6 text-md rounded-xl indent-8 text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
-					</p>
-					<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
-						<ContentRenderer :key="doc._id"
-										 :value="doc" />
-					</div>
-					<div class="divider"></div>
-					<div class="justify-between flex sm:flex-wrap"
-						 v-if="prev || next">
-						<div v-if="prev"
-							 @click="handLink(prev._path)"
-							 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
-							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg"
-								 :src="prev.header" />
-							<div class="min-w-0 py-5 pl-28 pr-5">
-								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
-									上一篇</div>
-								<div
-									 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
-									{{ prev.title }}
+	<ContentDoc>
+		<template #default="{ doc }">
+			<main class="px-4 w-full pb-24">
+				<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
+					<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
+						<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">{{ doc.title }}</h1>
+						<img v-if="doc.header"
+							 class="mt-6 h-72 object-contain max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
+							 :src="doc.header"
+							 :alt="doc.title" />
+						<p v-if="doc.description"
+						   v-html="doc.description.replace(/\\n/g, '<br/>')"
+						   class="mt-6 text-md rounded-xl indent-8 text-accent-conten break-all text-left bg-base-200 p-2 leading-8">
+						</p>
+						<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
+							<ContentRenderer :key="doc._id"
+											 :value="doc" />
+						</div>
+						<div class="divider"></div>
+						<div class="justify-between flex sm:flex-wrap"
+							 v-if="prev || next">
+							<div v-if="prev"
+								 @click="handLink(prev._path)"
+								 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
+								<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg"
+									 :src="prev.header" />
+								<div class="min-w-0 py-5 pl-28 pr-5">
+									<div
+										 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										上一篇</div>
+									<div
+										 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										{{ prev.title }}
+									</div>
+								</div>
+							</div>
+							<div v-if="next"
+								 @click="handLink(next._path)"
+								 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
+								<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg"
+									 :src="next.header" />
+								<div class="min-w-0 py-5 pl-28 pr-5">
+									<div
+										 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										下一篇</div>
+									<div
+										 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										{{ next.title }}
+									</div>
 								</div>
 							</div>
 						</div>
-						<div v-if="next"
-							 @click="handLink(next._path)"
-							 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
-							<img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg"
-								 :src="next.header" />
-							<div class="min-w-0 py-5 pl-28 pr-5">
-								<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
-									下一篇</div>
-								<div
-									 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
-									{{ next.title }}
-								</div>
-							</div>
+						<div class="mt-20">
+							<twikoo-comment />
 						</div>
 					</div>
-					<div class="mt-20">
-						<twikoo-comment />
+					<div class="toc menu">
+						<toc-menu :list="toc ? toc.links : []" />
 					</div>
-				</div>
-				<div class="toc menu">
-					<toc-menu :list="toc ? toc.links : []" />
-				</div>
-			</article>
-		</main>
+				</article>
+			</main>
+		</template>
 	</ContentDoc>
 </template>
 <script setup lang="ts">
 import twikooComment from '@/components/twikoo-comment.vue'
 import tocMenu from '@/components/tools/toc-menu.vue'
 const router = useRouter()
+const route = useRoute()
+const queryData = await useAsyncData(`content/${route.path}`, () => {
+	// const query = queryContent().where({ _path: route.path }).findOne();
+	// const content = useContent();
+	return queryContent().where({ _path: route.path }).findOne()
+});
+
+console.log('queryData', queryData);
 definePageMeta({
 	layout: 'article'
 })
