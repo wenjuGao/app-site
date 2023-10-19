@@ -73,16 +73,17 @@
 <script setup lang="ts">
 import twikooComment from '@/components/twikoo-comment.vue'
 import tocMenu from '@/components/tools/toc-menu.vue'
+import useArticleStore from '@/stores/articles'
+const { setCategoryArticle, setTagsArticle, setAllArticles } = useArticleStore()
 const doc: any = ref({})
 import { handleLink } from "@/utils/util"
 definePageMeta({
 	layout: 'article'
 })
-const { data } = await useAsyncData('page', () => queryContent('articles').where({
+doc.value = await queryContent('articles').where({
 	'_path': useRoute().path
-}).findOne())
-console.log(data);
-doc.value = data
+}).findOne()
+console.log(doc.value);
 const { next, prev, toc } = useContent()
 const handleClick = (url: string) => handleLink(url, useRouter());
 </script>
