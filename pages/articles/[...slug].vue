@@ -3,8 +3,11 @@
 		<ContentDoc v-slot="{ doc }">
 			<ContentRenderer :key="doc._id"
 							 :value="doc">
-				<template #empty>
+				<template #empty="{ value, excerpt, tag }">
 					<p>No content found.</p>
+					<p>{{ value }}</p>
+					<p>{{ excerpt }}</p>
+					<p>{{ tag }}</p>
 				</template>
 				<main class="px-4 w-full pb-24">
 					<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible lg:px-0">
