@@ -78,7 +78,9 @@ import { handleLink } from "@/utils/util"
 definePageMeta({
 	layout: 'article'
 })
-const { data } = await useAsyncData('page', () => queryContent(useRoute().path).findOne())
+const { data } = await useAsyncData('page', () => queryContent('articles').where({
+	'_path': useRoute().path
+}).findOne())
 console.log(data);
 doc.value = data
 const { next, prev, toc } = useContent()
