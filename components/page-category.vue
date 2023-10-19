@@ -2,7 +2,7 @@
 	<div class="grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 md:grid-cols-2">
 		<div v-for="(item, index) in list"
 			 :key="index"
-			 @click="handLink(item.label)"
+			 @click="handleClick(item.label)"
 			 :class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`">
 			<div class="stat">
 				<div :class="`stat-figure  text-${item.class}`">
@@ -27,6 +27,7 @@
 import useArticleStore from '@/stores/articles'
 import type { ArticleStoreType } from '@/stores/articles'
 import type { ArticleType } from 'type'
+import { handleLink } from "@/utils/util"
 const { categoryMenu } = useAppConfig()
 let list = ref(categoryMenu)
 const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
@@ -43,7 +44,6 @@ list.value = categoryMenu.map((item: any) => {
 		count: articles.length
 	}
 })
-const handLink = (label: string) => {
-	window.location.href = `/category/${label}`
-}
+const handleClick = (label: string) => handleLink(`/category/${label}`, useRouter());
+
 </script>

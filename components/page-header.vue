@@ -2,7 +2,7 @@
 	<nav class="page-header bg-base-300">
 		<div class="flex-1">
 			<div class="flex items-center cursor-pointer"
-				 @click="handleLink('')">
+				 @click="handleClick('')">
 				<img :src="app.logo"
 					 class="h-8 mr-3"
 					 :alt="app.title" />
@@ -21,7 +21,7 @@
 					<li v-for="(item, index) in headerMenu"
 						:key="index"
 						class="group">
-						<span @click="handleLink(item.link)"
+						<span @click="handleClick(item.link)"
 							  :class="route.path == `${app.baseURL}${item.link}` ? 'active' : ''">
 							<span v-if="item.icon"
 								  :class="`${item.icon} text-xl`"> </span>
@@ -38,16 +38,16 @@
 import { NitroRuntimeConfigApp } from 'nitropack'
 import menuSwap from './tools/menu-swap.vue'
 import selectTheme from './tools/select-theme.vue'
+import { handleLink } from "@/utils/util"
 
 const { headerMenu } = useAppConfig()
-// const router = useRouter()
 const route: any = useRoute()
 const config = useRuntimeConfig()
 const app: NitroRuntimeConfigApp = config.app
 
-const handleLink = (path: string) => {
-	window.location.href = `${app.baseURL}${path}` // router.push({ path: `${app.baseURL}${path}` })
-}
+const handleClick = (path: string) => handleLink(`${app.baseURL}${path}`, useRouter());
+
+
 </script>
 <style lang="postcss" scoped>
 .page-header {

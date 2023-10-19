@@ -31,7 +31,6 @@ const init = async () => {
 		}
 	})
 	nextTick(() => {
-		// console.log(allArticles, categoryMap, tagsMap)
 		setCategoryArticle(categoryMap)
 		setTagsArticle(tagsMap)
 		// @ts-ignore

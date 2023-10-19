@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import * as echarts from 'echarts'
 import useArticleStore from '@/stores/articles'
+import { handleLink } from "@/utils/util"
 import type { ArticleStoreType } from '@/stores/articles'
 const { tagLinkArticles }: ArticleStoreType = useArticleStore()
 const router = useRouter()
@@ -52,8 +53,7 @@ onMounted(() => {
 		})
 		chart.on('dblclick', 'series', function (val: any) {
 			if (val.data && val.data.link) {
-				// router.push(val.data.link)
-				window.location.href = val.data.link
+				handleLink(val.data.link, router)
 			}
 		})
 		window.onresize = chart.resize

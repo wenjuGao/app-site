@@ -7,6 +7,7 @@ import * as echarts from 'echarts'
 import 'echarts-wordcloud'
 import useArticleStore from '@/stores/articles'
 import type { ArticleStoreType } from '@/stores/articles'
+import { handleLink } from "@/utils/util"
 const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
 const router = useRouter()
 const seriesData = ref<any[]>([])
@@ -74,8 +75,7 @@ onMounted(() => {
 		})
 		chart.on('click', 'series', function (val: any) {
 			if (val.data && val.data.link) {
-				// router.push(val.data.link)
-				window.location.href = val.data.link
+				handleLink(val.data.link, router);
 			}
 		})
 		window.onresize = chart.resize

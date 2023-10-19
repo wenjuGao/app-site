@@ -1,7 +1,7 @@
 <template>
 	<div v-for="(item, index) in props.list"
 		 :key="index"
-		 @click="handleLink(item)"
+		 @click="handleClick(item)"
 		 class="max-w-sm rounded overflow-hidden shadow-lg bg-white hover:shadow-xl cursor-pointer dark:bg-gray-900">
 		<img class="w-full h-44 object-cover"
 			 :src="item.header"
@@ -21,10 +21,10 @@
 </template>
 
 <script setup lang="ts">
+import { handleLink } from "@/utils/util"
 type propsType = {
 	list: any[]
 }
-const router = useRouter()
 const props: propsType = defineProps({
 	list: {
 		type: Array,
@@ -33,7 +33,5 @@ const props: propsType = defineProps({
 		}
 	}
 })
-const handleLink = (item: any) => {
-	window.location.href = item._path
-}
+const handleClick = (item: any) => handleLink(item._path, useRouter());
 </script>

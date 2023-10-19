@@ -1,5 +1,3 @@
-
-
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null
 
 export const readEnv = (id, defaultValue = '') => {
@@ -34,3 +32,5 @@ export const getOS = () => {
 export const subString = (input, from, to) => {
 	return input.slice(input.indexOf(from) + from.length, input.lastIndexOf(to))
 }
+
+export const handleLink = (link: String, router: any) => router.push(link)

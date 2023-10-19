@@ -8,18 +8,23 @@
 					<span :style="`--value: ${hour};`"></span>: <span :style="`--value: ${minute};`"></span>:
 					<span :style="`--value: ${second};`"></span>
 				</span> -->
-				<span @click="handleFullScreen" class="i-mdi-fit-to-screen-outline absolute right-0 cursor-pointer"></span>
+				<span @click="handleFullScreen"
+					  class="i-mdi-fit-to-screen-outline absolute right-0 cursor-pointer"></span>
 			</h4>
 			<div class="divider m-0 h-0.5"></div>
-			<div id="full-screen-clock" :class="`${fullScreen ? 'bg-base-300' : ''} flex-col flex justify-center items-center`">
+			<div id="full-screen-clock"
+				 :class="`${fullScreen ? 'bg-base-300' : ''} flex-col flex justify-center items-center`">
 				<div :class="`clock transition-all ${fullScreen ? 'w-72 h-72 bg-base-300' : 'w-full h-60'}`">
-					<div :style="`transform: rotateZ(${hourRota}deg);`" class="hours-container">
+					<div :style="`transform: rotateZ(${hourRota}deg);`"
+						 class="hours-container">
 						<div class="hours"></div>
 					</div>
-					<div :style="`transform: rotateZ(${minuteRota}deg);`" class="minutes-container">
+					<div :style="`transform: rotateZ(${minuteRota}deg);`"
+						 class="minutes-container">
 						<div class="minutes"></div>
 					</div>
-					<div :style="`transform: rotateZ(${secondRota}deg);`" class="seconds-container">
+					<div :style="`transform: rotateZ(${secondRota}deg);`"
+						 class="seconds-container">
 						<div class="seconds"></div>
 					</div>
 				</div>
@@ -113,9 +118,8 @@ onMounted(() => {
 const handleExit = () => {
 	fullScreen.value = !!getFullscreenElement()
 }
-const pointerlockchange = () => {}
+const pointerlockchange = () => { }
 const pointerlockerror = () => {
-	console.log('锁定指针时出错。')
 }
 
 const handleFullScreen = () => {
@@ -138,10 +142,12 @@ onUnmounted(() => {
 	@apply rounded-full bg-no-repeat bg-center relative;
 	background-image: url(/img/clock.svg);
 	background-size: 88%;
+
 	&::before {
 		content: '';
 		@apply rounded-full absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent-content w-4 h-4 z-10;
 	}
+
 	&::after {
 		content: '';
 		@apply rounded-full absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 bg-error w-4 h-4 z-20;
@@ -204,5 +210,4 @@ onUnmounted(() => {
 
 .seconds-container {
 	transition: transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44);
-}
-</style>
+}</style>

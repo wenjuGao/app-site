@@ -53,6 +53,7 @@ declare global {
   const getFullscreenElement: typeof import('../../utils/screen')['getFullscreenElement']
   const getOS: typeof import('../../utils/util')['getOS']
   const h: typeof import('vue')['h']
+  const handleLink: typeof import('../../utils/util')['handleLink']
   const hasInjectionContext: typeof import('vue')['hasInjectionContext']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -434,6 +435,7 @@ declare global {
   const useNthArg: typeof import('lodash-es')['nthArg']
   const useNuxtApp: typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtApp']
   const useNuxtData: typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtData']
+  const useNuxtDevTools: typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']
   const useObjectUrl: typeof import('@vueuse/core')['useObjectUrl']
   const useOffsetPagination: typeof import('@vueuse/core')['useOffsetPagination']
   const useOmit: typeof import('lodash-es')['omit']
@@ -721,6 +723,7 @@ declare module 'vue' {
     readonly getFullscreenElement: UnwrapRef<typeof import('../../utils/screen')['getFullscreenElement']>
     readonly getOS: UnwrapRef<typeof import('../../utils/util')['getOS']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleLink: UnwrapRef<typeof import('../../utils/util')['handleLink']>
     readonly hasInjectionContext: UnwrapRef<typeof import('vue')['hasInjectionContext']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -1102,6 +1105,7 @@ declare module 'vue' {
     readonly useNthArg: UnwrapRef<typeof import('lodash-es')['nthArg']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly useObjectUrl: UnwrapRef<typeof import('@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('@vueuse/core')['useOffsetPagination']>
     readonly useOmit: UnwrapRef<typeof import('lodash-es')['omit']>
@@ -1383,6 +1387,7 @@ declare module '@vue/runtime-core' {
     readonly getFullscreenElement: UnwrapRef<typeof import('../../utils/screen')['getFullscreenElement']>
     readonly getOS: UnwrapRef<typeof import('../../utils/util')['getOS']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleLink: UnwrapRef<typeof import('../../utils/util')['handleLink']>
     readonly hasInjectionContext: UnwrapRef<typeof import('vue')['hasInjectionContext']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -1764,6 +1769,7 @@ declare module '@vue/runtime-core' {
     readonly useNthArg: UnwrapRef<typeof import('lodash-es')['nthArg']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/app')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/.pnpm/registry.npmjs.org+@nuxt+devtools@0.8.3_nuxt@3.6.5_rollup@3.28.1_vite@4.4.9/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly useObjectUrl: UnwrapRef<typeof import('@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('@vueuse/core')['useOffsetPagination']>
     readonly useOmit: UnwrapRef<typeof import('lodash-es')['omit']>
