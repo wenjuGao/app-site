@@ -27,6 +27,11 @@ export default defineNuxtConfig({
       ],
       script: [
         {
+          // 老榕树广告
+          src: 'http://wm.lrswl.com/page/s.php?s=323276&w=950&h=150',
+          tagPosition: 'bodyClose'
+        },
+        {
           // 不蒜子
           src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
           tagPosition: 'bodyOpen'
