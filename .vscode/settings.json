@@ -3,17 +3,5 @@
 		"activityBar.background": "#5B0637",
 		"titleBar.activeBackground": "#80094D",
 		"titleBar.activeForeground": "#FFFBFD"
-	},
-	"tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"tailwindCSS.experimental.classRegex": [
-		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
-		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
-	],
-	"tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
-	"editor.quickSuggestions": {
-		"strings": true
 	}
 }

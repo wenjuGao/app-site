@@ -1,8 +1,20 @@
 
-import { defuFn } from '/Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+defu@6.1.2/node_modules/defu/dist/defu.mjs'
+import { updateAppConfig } from '#app/config'
+import { defuFn } from 'defu'
 
-const inlineConfig = {}
+const inlineConfig = {
+  "nuxt": {
+    "buildId": "dev"
+  }
+}
+
+// Vite - webpack is handled directly in #app/config
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    updateAppConfig(newModule.default)
+  })
+}
 
 import cfg0 from "/Users/gaowenju/my-job/app-site/app.config.ts"
 
-export default /* #__PURE__ */ defuFn(cfg0, inlineConfig)
+export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

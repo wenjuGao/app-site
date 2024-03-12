@@ -27,9 +27,8 @@
 
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core'
-import { NitroRuntimeConfigApp } from 'nitropack'
 const config = useRuntimeConfig()
-const app: NitroRuntimeConfigApp = config.app
+const app: any = config.app
 const router = useRouter()
 const route: any = useRoute()
 const handleLink = (path: string) => router.push({ path: `${app.baseURL}${path}` })

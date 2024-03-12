@@ -1,6 +1,6 @@
 
 import { defineStore } from 'pinia'
-import type { ArticleType } from "type"
+import type { ArticleType } from "./../type"
 
 type MapArticleType = Map<string, ArticleType[]>;
 

@@ -1,9 +1,11 @@
 <template>
 	<div class="grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 md:grid-cols-2">
-		<div v-for="(item, index) in list"
-			 :key="index"
-			 @click="handleClick(item.label)"
-			 :class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`">
+		<div
+			v-for="(item, index) in list"
+			:key="index"
+			@click="handleClick(item.label)"
+			:class="`stats border hover:shadow-xl cursor-pointer transition-all duration-300 shadow  shadow-${item.class} border-${item.class}`"
+		>
 			<div class="stat">
 				<div :class="`stat-figure  text-${item.class}`">
 					<div class="avatar">
@@ -15,8 +17,8 @@
 				<div class="stat-title">{{ item.label }}</div>
 				<div :class="`stat-value countdown text-${item.class}`">
 					<!-- {{ item.count || 0 }} -->
-					<span :style="`--value:${item.count || 0};`"></span>
-					{{ item.count && +item.count > 99 ? '+' : '' }}
+					<!-- <span :style="`--value:${item.count || 0};`"></span> -->
+					<!-- {{ item.count && +item.count > 99 ? '+' : '' }} -->
 				</div>
 				<div class="stat-desc"></div>
 			</div>
@@ -27,7 +29,7 @@
 import useArticleStore from '@/stores/articles'
 import type { ArticleStoreType } from '@/stores/articles'
 import type { ArticleType } from 'type'
-import { handleLink } from "@/utils/util"
+import { handleLink } from '@/utils/util'
 const { categoryMenu } = useAppConfig()
 let list = ref(categoryMenu)
 const { categoryLinkArticle }: ArticleStoreType = useArticleStore()
@@ -44,6 +46,5 @@ list.value = categoryMenu.map((item: any) => {
 		count: articles.length
 	}
 })
-const handleClick = (label: string) => handleLink(`/category/${label}`, useRouter());
-
+const handleClick = (label: string) => handleLink(`/category/${label}`, useRouter())
 </script>

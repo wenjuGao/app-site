@@ -1,10 +1,9 @@
 <template>
 	<div class="empty">
 		<slot name="image">
-			<img class="w-28 h-28"
-				 src="https://qiniu.gaowenju.com/app-site/empty.png" />
+			<img class="w-28 h-28" src="/img/empty.png" />
 		</slot>
-		<div class="mt-8  gray-400 text-sm">{{ props.emptyText }}</div>
+		<div class="mt-8 gray-400 text-sm">{{ props.emptyText }}</div>
 	</div>
 </template>
 

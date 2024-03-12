@@ -1,6 +1,6 @@
 import type { NavigationGuard } from 'vue-router'
 export type MiddlewareKey = "auth"
-declare module "/Users/gaowenju/my-job/app-site/node_modules/.pnpm/registry.npmjs.org+nuxt@3.6.5_@types+node@18.17.3_rollup@3.28.1_typescript@5.2.2/node_modules/nuxt/dist/pages/runtime/composables" {
+declare module "../../node_modules/.pnpm/nuxt@3.10.3_@types+node@18.19.21_rollup@3.29.4_typescript@5.3.3_vite@5.1.5/node_modules/nuxt/dist/pages/runtime/composables" {
   interface PageMeta {
     middleware?: MiddlewareKey | NavigationGuard | Array<MiddlewareKey | NavigationGuard>
   }

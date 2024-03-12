@@ -1,32 +1,22 @@
 <template>
-	<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl">
-		<page-banner />
-		<div class="divider"></div>
-		<div class="flex flex-row">
-			<div class="flex-1 pb-20">
-				<page-category />
-				<div class="divider"></div>
-				<!-- <div class="grid lg:grid-cols-3 pb-20 xl:grid-cols-3 2xl:grid-cols-3 gap-4 md:grid-cols-2"> -->
-				<list-item :list="list" />
-				<!-- </div> -->
-			</div>
-			<div class="right-side h-fit hidden md:block w-72 pl-4">
-				<home-side />
+	<NuxtLayout>
+		<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl">
+			<page-banner />
+			<div class="flex flex-row">
+				<div class="flex-1 pb-20">
+					<list-item />
+				</div>
+				<div class="right-side h-fit hidden md:block w-72 pl-4">
+					<home-side />
+				</div>
 			</div>
 		</div>
-	</div>
+	</NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import pageBanner from './../components/page-banner.vue'
-import pageCategory from './../components/page-category.vue'
-import listItem from './../components/tools/list-item.vue'
-import homeSide from './../components/home-side.vue'
-let list = await queryContent('articles')
-	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
-	.limit(20)
-	.sort({ date: -1 })
-	.find()
+import listItem from '@/components/tools/list-item.vue'
+import homeSide from '@/components/home-side.vue'
 </script>
 
 <style lang="postcss" scoped>
