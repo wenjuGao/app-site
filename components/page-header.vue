@@ -2,15 +2,17 @@
 	<nav class="page-header bg-base-300">
 		<div class="flex-1">
 			<div class="flex items-center cursor-pointer" @click="handleClick('')">
-				<img :src="app.logo" class="h-8 mr-3" :alt="app.title" />
-				<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-					{{ app.title }}
-				</span>
+				<img src="/img/logo.png" class="md:h-8 h-6 mr-3" :alt="app.title" />
 			</div>
 		</div>
 		<div class="flex-none">
 			<div class="flex items-center sm:order-2 md:hidden">
 				<ClientOnly fallback-tag="span" fallback="Loading">
+					<template #fallback>
+						<div class="ww-full h-full flex justify-center items-center">
+							<span className="loading loading-ring loading-lg"></span>
+						</div>
+					</template>
 					<menu-swap :menu="headerMenu" />
 				</ClientOnly>
 			</div>
@@ -39,7 +41,6 @@
 </template>
 <script setup lang="ts">
 import menuSwap from './tools/menu-swap.vue'
-import themeSwap from './tools/theme-swap.vue'
 import { handleLink } from '@/utils/util'
 
 const { headerMenu } = useAppConfig()

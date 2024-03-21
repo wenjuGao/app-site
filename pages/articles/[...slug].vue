@@ -1,7 +1,19 @@
 <template>
 	<NuxtLayout>
 		<main class="px-4 w-full pb-24">
-			<ClientOnly fallback-tag="span" fallback="Loading comments...">
+			<ClientOnly fallback-tag="div">
+				<template #fallback>
+					<div class="ww-full min-h-64 flex justify-center items-center">
+						<div class="text-center">
+							<span className="loading loading-ring loading-lg"></span>
+							<article class="prose">
+								<p>
+									加载中请稍后...
+								</p>
+							</article>
+						</div>
+					</div>
+				</template>
 				<ContentRenderer :value.sync="doc">
 					<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible">
 						<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">

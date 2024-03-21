@@ -19,7 +19,7 @@ tags:
 <div id="btn" onclick="console.log(1)"></div>
 ```
 
-### 2. JavaScript获得DOM后绑定
+### 2. javascript获得DOM后绑定
 
 ```javascript
 document.getElementById("btn").onclick = console.log(1)
@@ -66,9 +66,9 @@ function addHandler(element, type, handler) {
 ---
 ### 区别
 
-1. addeventlistener、attachEvent相同事件绑定多个逻辑，多个逻辑不相互覆盖，使用DOM中绑定、JavaScript获得DOM后绑定逻辑会覆盖，仅保留最后一次注册的逻辑
-2. addeventlistener、attachEvent被点击的DOM通过e.target得到，使用DOM中绑定、JavaScript获得DOM后绑定被点击的DOM通过一般通过this获得
-3. addeventlistener、attachEvent注销的事件分别通过removeListener、detachEvent注销，使用DOM中绑定、JavaScript获得DOM后绑定注销需要使用新的空逻辑拦截
+1. addeventlistener、attachEvent相同事件绑定多个逻辑，多个逻辑不相互覆盖，使用DOM中绑定、javascript获得DOM后绑定逻辑会覆盖，仅保留最后一次注册的逻辑
+2. addeventlistener、attachEvent被点击的DOM通过e.target得到，使用DOM中绑定、javascript获得DOM后绑定被点击的DOM通过一般通过this获得
+3. addeventlistener、attachEvent注销的事件分别通过removeListener、detachEvent注销，使用DOM中绑定、javascript获得DOM后绑定注销需要使用新的空逻辑拦截
 
 ---
 

@@ -28,7 +28,7 @@ cookie的创建动作可以从服务端发起返回给客户端，也可以从�
 	```js
 	document.cookie = `${cookie名}=${cookie值};${cookie名1}=${cookie值1};`
 	```
-	注意：通过 JavaScript 创建的 Cookie 不能包含 HttpOnly 标志。（设置了HttpOnly的cookie，客户端通过javascript无法访问）
+	注意：通过 javascript 创建的 Cookie 不能包含 HttpOnly 标志。（设置了HttpOnly的cookie，客户端通过javascript无法访问）
 
 
 #### 属性

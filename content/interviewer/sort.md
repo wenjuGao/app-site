@@ -190,7 +190,7 @@ binarySearch(arr, 34,0,arr.length - 1);
 ```
 
  arguments.callee 属性包含当前正在执行的函数。实现匿名函数递归
- [arguments.callee 从ES5严格模式中删除](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/callee)
+ [arguments.callee 从ES5严格模式中删除](https://developer.mozilla.org/zh-CN/docs/Web/javascript/Reference/Functions/arguments/callee)
  
 
 

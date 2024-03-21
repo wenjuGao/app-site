@@ -7,7 +7,7 @@
 			@click="handleLink(item)"
 		>
 			<figure class="w-full md:max-w-[180px] md:min-w-[120px]">
-				<img :src="imgHold || item.header" class="md:h-full h-40 w-full object-cover" :alt="item.title" />
+				<ProseImg :src="item.header" class="md:h-full h-40 w-full object-cover" :alt="item.title" />
 			</figure>
 			<div class="card-body flex-1 p-4">
 				<h2 class="card-title line-clamp-1 break-all">{{ item.title }}</h2>
@@ -23,13 +23,14 @@
 </template>
 
 <script setup lang="ts">
-const { imgHold } = useAppConfig()
+import ProseImg from '@/components/content/ProseImg.vue'
 const router = useRouter()
+const list: any[] = []
 
-const list = await queryContent('articles')
-	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
-	.sort({ date: -1 })
-	.find()
+// const list = await queryContent('articles')
+// 	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
+// 	.sort({ date: -1 })
+// 	.find()
 
 const handleLink = (item: any) => router.push({ path: item._path })
 </script>

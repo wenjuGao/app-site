@@ -10,7 +10,7 @@ category: 面试
 tags:
   - 面试
   - 回调函数
-  - javaScript
+  - javascript
 ---
 
  

@@ -1,8 +1,12 @@
 <template>
-	<img :src="imgUrl || imgHold" :key="props.src" :class="props.class" :alt="props.alt" />
+	<client-only>
+		<div class="skeleton w-full min-h-32" v-if="loading"></div>
+		<img :class="props.class" v-else :src="url" :onerror="handleError" />
+	</client-only>
 </template>
 <script setup lang="ts">
-const { imgHold } = useAppConfig()
+const loading = ref(false)
+const error = ref(false)
 const props = defineProps({
 	src: {
 		type: String,
@@ -23,14 +27,23 @@ const props = defineProps({
 		}
 	}
 })
+const url = computed(() => (error.value ? '/img/img-error.svg' : imgUrl.value))
 const imgUrl = ref()
+const handleError = () => {
+	error.value = true
+}
 onMounted(() => {
+	loading.value = true
 	$fetch('/api/qiniu-file', {
 		method: 'post',
 		cache: 'no-cache',
 		body: {
 			key: props.src
 		}
-	}).then((data) => (imgUrl.value = unref(data)))
+	})
+		.then((data) => {
+			imgUrl.value = unref(data)
+		})
+		.finally(() => (loading.value = false))
 })
 </script>

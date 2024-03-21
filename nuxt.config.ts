@@ -86,6 +86,9 @@ export default defineNuxtConfig({
         // Theme used if `html.sepia`
         sepia: 'monokai'
       },
+      langs: [
+        'json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml', 'xml', 'javascript', 'docker', 'py', 'mermaid'
+      ],
       preload: [
         'diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'
       ]
@@ -112,7 +115,6 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@element-plus/nuxt',
     'dayjs-nuxt',
     'nuxt-lodash',
     '@vueuse/nuxt',
@@ -120,9 +122,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    "@nuxt/image"
   ],
-  elementPlus: { /** Options */ },
   dayjs: {
     plugins: ['weekday', 'advancedFormat', 'timezone'],
   },
@@ -153,7 +153,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    "@nuxtjs/tailwindcss"
+    "@nuxtjs/tailwindcss",
+    '@nuxt/http'
   ],
   build: {
     // @ts-ignore

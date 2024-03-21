@@ -30,7 +30,7 @@ tags:
 - 不会对空数组进行检测；
 - 不会改变原始数组；
 
-```Javascript
+```javascript
 let list = [1, 2, 3, 4, 5];
 list.every((value, index) => {
     if(value > 3){

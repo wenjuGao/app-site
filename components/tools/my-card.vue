@@ -15,7 +15,7 @@
 			</h2>
 			<p class="break-all mt-3 chat-footer opacity-50">{{ myInfo.desc }}</p>
 			<div class="flex flex-row justify-between mt-6">
-				<div class="count-item">
+				<!-- <div class="count-item">
 					<custom-count :count="artTotal" :custom-class="customClass" />
 					<span class="count-item-label">文章</span>
 				</div>
@@ -33,7 +33,7 @@
 				<div class="count-item">
 					<custom-count :count="leetTotal" :custom-class="customClass" />
 					<span class="count-item-label">算法</span>
-				</div>
+				</div> -->
 			</div>
 			<template v-if="myInfo && myInfo.links && myInfo.links.length">
 				<div class="divider m-0"></div>
@@ -58,10 +58,10 @@
 <script setup>
 import CustomCount from './custom-count.vue'
 const customClass = 'text-xl font-mono'
-const artTotal = await queryContent('articles').count()
-const interTotal = await queryContent('interviewer').count()
-const leetTotal = await queryContent('leetcode').count()
-const timeTotal = await queryContent('time-line').count()
+// const artTotal = await queryContent('articles').count()
+// const interTotal = await queryContent('interviewer').count()
+// const leetTotal = await queryContent('leetcode').count()
+// const timeTotal = await queryContent('time-line').count()
 const { myInfo } = useAppConfig()
 const totalInfo = reactive({
 	tags: 0,
@@ -71,21 +71,21 @@ const totalInfo = reactive({
 const categoryMap = new Set(),
 	tagSet = new Set()
 
-const result = await queryContent('articles').only(['id', 'category', 'tags']).find()
+// const result = await queryContent('articles').only(['id', 'category', 'tags']).find()
 
 // 统计 分类及标签数量
-totalInfo.totals = result.length
-result.forEach((i) => {
-	const tags = Array.isArray(i.tags) ? i.tags : []
-	if (tags && tags.length) {
-		tags.forEach((child) => tagSet.add(child))
-	}
-	categoryMap.add(i.category)
-})
-nextTick(() => {
-	totalInfo.tags = tagSet.size
-	totalInfo.categories = categoryMap.size
-})
+// totalInfo.totals = result.length
+// result.forEach((i) => {
+// 	const tags = Array.isArray(i.tags) ? i.tags : []
+// 	if (tags && tags.length) {
+// 		tags.forEach((child) => tagSet.add(child))
+// 	}
+// 	categoryMap.add(i.category)
+// })
+// nextTick(() => {
+// 	totalInfo.tags = tagSet.size
+// 	totalInfo.categories = categoryMap.size
+// })
 
 // console.log(result)
 // Promise.all([

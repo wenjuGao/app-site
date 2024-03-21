@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 异步
-description: JavaScript 引擎负责解析，执行 JavaScript 代码，但它并不能单独运行，通常都得有一个宿主环境，一般如浏览器或 Node 服务器，前文说到的单线程是指在这些宿主环境创建单一线程，提供一种机制，调用 JavaScript 引擎完成多个 JavaScript 代码块的调度，这种机制就称为事件循环（ Event Loop ）
+description: javascript 引擎负责解析，执行 javascript 代码，但它并不能单独运行，通常都得有一个宿主环境，一般如浏览器或 Node 服务器，前文说到的单线程是指在这些宿主环境创建单一线程，提供一种机制，调用 javascript 引擎完成多个 javascript 代码块的调度，这种机制就称为事件循环（ Event Loop ）
 img: app-site/img/action-scope.jpg
 header: app-site/img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
@@ -9,14 +9,14 @@ category: 面试
 tags:
   - 面试
   - 异步
-  - javaScript
+  - javascript
 ---
 
 
 
 #### 关于事件循环流程分解如下：
 
-- 宿主环境为JavaScript 创建线程时，会创建堆 (heap) 和栈 (stack) ，堆内存储 JavaScript 对象，栈内存储执行上下文；
+- 宿主环境为javascript 创建线程时，会创建堆 (heap) 和栈 (stack) ，堆内存储 javascript 对象，栈内存储执行上下文；
 
 - 栈内执行上下文的同步任务按序执行，执行完即退栈，而当异步任务执行时，该异步任务进入等待状态（不入栈），同时通知线程：当触发该事件时（或该异步操作响应返回时），需向消息队列插入一个事件消息；
 

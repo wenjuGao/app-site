@@ -16,7 +16,7 @@ tags:
 
 ### Loader
 
-webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。
+webpack 可以使用 loader 来预处理文件。这允许你打包除 javascript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。
 loader 通过在 require() 语句中使用 loadername! 前缀来激活，或者通过 webpack 配置中的正则表达式来自动应用
 
 #### Loader 配置规则
@@ -43,13 +43,13 @@ module.exports = {
 1. **json-loader**：加载 JSON 文件（默认包含）
 1. **handlebars-loader**：将 Handlebars 模版编译成函数并返回
 1. **babel-loader**：把 ES6 转换成 ES5
-1. **ts-loader**：将 TypeScript 转换成 JavaScript
-1. **awesome-typescript-loader**：将 TypeScript 转换成 JavaScript，性能优于 ts-loader
+1. **ts-loader**：将 TypeScript 转换成 javascript
+1. **awesome-typescript-loader**：将 TypeScript 转换成 javascript，性能优于 ts-loader
 1. **sass-loader**：将 SCSS/SASS 代码转换成 CSS
 1. **css-loader**：加载 CSS，支持模块化、压缩、文件导入等特性
-1. **style-loader**：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS
+1. **style-loader**：把 CSS 代码注入到 javascript 中，通过 DOM 操作去加载 CSS
 1. **postcss-loader**：扩展 CSS 语法，使用下一代 CSS，可以配合 autoprefixer 插件自动补齐 CSS3 前缀
-1. **eslint-loader**：通过 ESLint 检查 JavaScript 代码
+1. **eslint-loader**：通过 ESLint 检查 javascript 代码
 1. **tslint-loader**：通过 TSLint 检查 TypeScript 代码
 1. **mocha-loader**：加载 Mocha 测试用例的代码
 1. **coverjs-loader**：计算测试的覆盖率
