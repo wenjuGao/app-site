@@ -1,0 +1,27 @@
+[
+	{
+		"img": "site/img/action-scope.jpg",
+		"title": "window指令之tree",
+		"description": "tree 命令显示当前文件夹的目录结构，这是一个非常有用的命令，可以帮我们迅速了解当前目录的结构"
+	},
+	{
+		"img": "site/img/action-scope-header.jpg",
+		"title": "正则表达式语法",
+		"description": "正则表达式(Regular Expression)是一种文本模式，包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为'元字符'），来描述、匹配一系列匹配某个句法规则的字符串。"
+	},
+	{
+		"img": "site/img/code-header.jpg",
+		"title": "javascript中的位运算符",
+		"description": "javascript中的位运算符"
+	},
+	{
+		"img": "site/img/forof-header.jpg",
+		"title": "好用的生僻属性",
+		"description": "好用的生僻属性"
+	},
+	{
+		"img": "site/img/forEach-header.jpg",
+		"title": "博客搭建之Hexo",
+		"description": "快速建站工具（主要适用：博客、文档等静态站点），可以将Markdown编写的文章解析成html页面。生成的站点可以无需服务器一键部署到github、gitlab或者gitee上。"
+	}
+]

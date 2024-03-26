@@ -39,12 +39,13 @@ export default defineAppConfig({
 		{
 			label: '归档',
 			link: 'archives',
+
 			class: 'primary',
 			icon: 'i-mdi-archive-star-outline group-hover:i-mdi-archive-star'
 		},
 		{
-			label: '图床',
-			link: 'iamges',
+			label: '实验室',
+			link: 'laboratory',
 			class: 'primary',
 			icon: 'i-mdi-toggle-switch-variant-off group-hover:i-mdi-toggle-switch-variant'
 		},

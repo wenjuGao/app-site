@@ -116,12 +116,12 @@ export default defineNuxtConfig({
   },
   modules: [
     'dayjs-nuxt',
-    'nuxt-lodash',
+    // 'nuxt-lodash',
     '@vueuse/nuxt',
     '@nuxt/content',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode',
+    // '@nuxtjs/color-mode',
   ],
   dayjs: {
     plugins: ['weekday', 'advancedFormat', 'timezone'],

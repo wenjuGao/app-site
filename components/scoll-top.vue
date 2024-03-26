@@ -1,6 +1,6 @@
 <template>
 	<div :class="`scroll-top ${show ? 'block' : 'hidden'}`" @click="handleTop">
-		<img class="w-full" src="/img/top.png" alt="" />
+		<img class="w-9 hover:scale-125 ease-in-out duration-300 delay-150" src="/img/top.png" alt="" />
 	</div>
 </template>
 <script setup>
@@ -42,6 +42,6 @@ onUnmounted(() => {
 
 <style lang="postcss" scoped>
 .scroll-top {
-	@apply fixed bottom-20 right-20 w-16 transition-all items-center justify-center cursor-pointer flex p-2 bg-base-200 rounded-full hover:bg-neutral-content;
+	@apply fixed bottom-20 right-20 w-16 h-16 transition-all items-center justify-center cursor-pointer flex bg-base-200 rounded-full hover:bg-neutral-content;
 }
 </style>

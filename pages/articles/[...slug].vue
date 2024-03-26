@@ -21,7 +21,7 @@
 								{{ doc.title }}
 							</h1>
 							<ProseImg
-								class="mt-6 object-contain min-h-40 max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
+								class="mt-6 object-contain min-h-20 max-h-48 max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
 								v-if="doc.header"
 								:src="doc.header"
 								:alt="doc.title"
@@ -35,14 +35,14 @@
 								<ContentRendererMarkdown :value="doc" />
 							</div>
 							<div class="divider"></div>
-							<div class="justify-between flex sm:flex-wrap" v-if="prev || next">
+							<div class="grid md:grid-cols-2 grid-cols-1 md:gap-2" v-if="prev || next">
 								<div
 									v-if="prev"
 									@click="handleClick(prev._path)"
 									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto"
 								>
-									<ProseImg class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="prev.header" :alt="prev.title" />
-									<div class="min-w-0 py-5 pl-28 pr-5">
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="prev.header" :alt="prev.title" />
+									<div class="w-full flex-1 pl-2">
 										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											上一篇
 										</div>
@@ -57,8 +57,8 @@
 									@click="handleClick(next._path)"
 									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto"
 								>
-									<ProseImg class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" :src="next.header" :alt="next.title" />
-									<div class="min-w-0 py-5 pl-28 pr-5">
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="next.header" :alt="next.title" />
+									<div class="w-full flex-1 pl-2">
 										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											下一篇
 										</div>
@@ -155,7 +155,7 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 }
 
 .link-page {
-	@apply mt-6 overflow-hidden w-full md:w-2/5 relative bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6;
+	@apply overflow-hidden w-full  mb-2 md:mb-0 bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center  hover:scale-105 ease-in-out duration-300 delay-150;
 }
 
 .article ol,
