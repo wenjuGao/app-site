@@ -46,7 +46,9 @@
 		}
 
 		const loadImage = (cb: Function) => {
-			imgUrl.value = `./api/img?key=${encodeURIComponent(props.src)}`
+			if (props.src) {
+				imgUrl.value = `./api/img?key=${encodeURIComponent(props.src)}`
+			}
 			// $fetch('/api/qiniu-file', {
 			// 	method: 'post',
 			// 	cache: 'no-cache',
