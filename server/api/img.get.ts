@@ -8,15 +8,16 @@ config.zone = qiniu.zone.Zone_z0
 const bucket = new qiniu.rs.BucketManager(mac, config)
 
 export default defineEventHandler(async (event) => {
-	const { key = '' } = await readBody(event)
+	const key = decodeURIComponent(getQuery(event).key + '')
 	// @ts-ignore
 	const deadline = parseInt(Date.now() / 1000) + 3600;
 	const file = /jpg|jpeg|png/.test(key) && !/watermark/.test(key) ? `${key}-watermark` : key
 	if (key) {
 		// @ts-ignore
-		return {
-			url: bucket.privateDownloadUrl(baseUrl, file, deadline)
-		}
+		// return {
+		// 	url: bucket.privateDownloadUrl(baseUrl, file, deadline)
+		// }
+		await sendRedirect(event, bucket.privateDownloadUrl(baseUrl, file, deadline), 302)
 	} else {
 		return createError({
 			statusCode: 400,

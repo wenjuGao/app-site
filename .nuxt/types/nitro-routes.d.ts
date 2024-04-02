@@ -9,6 +9,9 @@ declare module 'nitropack' {
     '/api/image': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/image').default>>>>
     }
+    '/api/img': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/img.get').default>>>>
+    }
     '/api/list': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/list').default>>>>
     }

@@ -2,13 +2,13 @@
 	<ClientOnly fallback-tag="span"
 				fallback="Loading">
 		<template #fallback>
-			<div class="skeleton w-full h-52 rounded-box my-3"></div>
+			<div class="skeleton w-full h-full min-h-52 rounded-box my-3"></div>
 		</template>
 		<div class="carousel carousel-center rounded-box mt-3">
 			<div class="skeleton w-full h-52"
 				 v-if="loading"></div>
 			<template v-else>
-				<div class="carousel-item min-h-60 cursor-pointer hover:font-bold"
+				<div class="carousel-item min-h-80 cursor-pointer hover:font-bold"
 					 v-for="(item, index) in banerList"
 					 @click="handleClick(item)"
 					 :key="index">
