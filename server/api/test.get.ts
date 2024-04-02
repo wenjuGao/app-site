@@ -9,21 +9,27 @@ const bucket = new qiniu.rs.BucketManager(mac, config)
 
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event)
-	const key = decodeURIComponent(query.key + '') || ''
-	// @ts-ignore
-	const deadline = parseInt(Date.now() / 1000) + 3600;
-	const file = /jpg|jpeg|png/.test(key) && !/watermark/.test(key) ? `${key}-watermark` : key
-	if (file && file !== undefined) {
-		return {
-			file,
-			qiniuUrl: bucket.privateDownloadUrl(baseUrl, file, deadline),
-			query,
-			key
-		}
-	} else {
-		return createError({
-			statusCode: 400,
-			statusMessage: '图床sdk请求错误❎',
-		})
+	const body = await readBody(event)
+	return {
+		query,
+		params: event.context.params,
+		body,
+		req: getRequestURL(event)
 	}
+	// // @ts-ignore
+	// const deadline = parseInt(Date.now() / 1000) + 3600;
+	// const file = /jpg|jpeg|png/.test(key) && !/watermark/.test(key) ? `${key}-watermark` : key
+	// if (file && file !== undefined) {
+	// 	return {
+	// 		file,
+	// 		qiniuUrl: bucket.privateDownloadUrl(baseUrl, file, deadline),
+	// 		query,
+	// 		key
+	// 	}
+	// } else {
+	// 	return createError({
+	// 		statusCode: 400,
+	// 		statusMessage: '图床sdk请求错误❎',
+	// 	})
+	// }
 })
