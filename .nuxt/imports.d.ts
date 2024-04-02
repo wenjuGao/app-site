@@ -42,5 +42,4 @@ export { useContentState, useContent } from '../node_modules/.pnpm/@nuxt+content
 export { flatUnwrap as unwrapSlot } from '../node_modules/.pnpm/@nuxtjs+mdc@0.6.1_rollup@3.29.4/node_modules/@nuxtjs/mdc/dist/runtime/utils/node';
 export { parseMarkdown } from '../node_modules/.pnpm/@nuxtjs+mdc@0.6.1_rollup@3.29.4/node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { usePinia, defineStore, defineStore as definePiniaStore } from '../node_modules/.pnpm/@pinia+nuxt@0.4.11_rollup@3.29.4_typescript@5.4.3_vue@3.4.21/node_modules/@pinia/nuxt/dist/runtime/composables';
-export { useNuxtDevTools } from '../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/pages/runtime/composables';
