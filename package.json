@@ -19,7 +19,7 @@
 		"@types/node": "^18.17.3",
 		"@vueuse/nuxt": "^10.3.0",
 		"daisyui": "^4.8.0",
-		"nuxt": "^3.6.5"
+		"nuxt": "^3.11.1"
 	},
 	"dependencies": {
 		"@egoist/tailwindcss-icons": "^1.1.0",
