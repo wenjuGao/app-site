@@ -2,7 +2,7 @@
 layout: article
 title: javascript中的位运算符
 description: javascript 中的位运算符
-img: /img/code.jpg
+img: /img/qrcode.jpg
 header: site/img/code-header.jpg
 banner: true
 date: 2023-04-01 12:12:12
