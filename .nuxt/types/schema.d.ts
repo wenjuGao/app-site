@@ -5,13 +5,14 @@ declare module 'nuxt/schema' {
     ["dayjs"]?: typeof import("dayjs-nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["lodash"]?: typeof import("nuxt-lodash").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["vueuse"]?: typeof import("@vueuse/nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    ["mdc"]?: typeof import("@nuxtjs/mdc").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["content"]?: typeof import("@nuxt/content").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["pinia"]?: typeof import("@pinia/nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["tailwindcss"]?: typeof import("@nuxtjs/tailwindcss").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["colorMode"]?: typeof import("@nuxtjs/color-mode").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["devtools"]?: typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    modules?: (undefined | null | false | NuxtModule | string | [NuxtModule | string, Record<string, any>] | ["/Users/gaowenju/my-job/app-site/modules/nuxt-tailwind-typo/index", Exclude<NuxtConfig["nuxt-tailwind-typo"], boolean>] | ["dayjs-nuxt", Exclude<NuxtConfig["dayjs"], boolean>] | ["nuxt-lodash", Exclude<NuxtConfig["lodash"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["@pinia/nuxt", Exclude<NuxtConfig["pinia"], boolean>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule | string | [NuxtModule | string, Record<string, any>] | ["/Users/gaowenju/my-job/app-site/modules/nuxt-tailwind-typo/index", Exclude<NuxtConfig["nuxt-tailwind-typo"], boolean>] | ["dayjs-nuxt", Exclude<NuxtConfig["dayjs"], boolean>] | ["nuxt-lodash", Exclude<NuxtConfig["lodash"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxtjs/mdc", Exclude<NuxtConfig["mdc"], boolean>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["@pinia/nuxt", Exclude<NuxtConfig["pinia"], boolean>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["@nuxtjs/color-mode", Exclude<NuxtConfig["colorMode"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
   }
   interface RuntimeConfig {
    app: {
@@ -77,6 +78,10 @@ declare module 'nuxt/schema' {
          },
 
          preload: Array<string>,
+
+         highlighter: string,
+
+         langs: Array<string>,
       },
 
       markdown: {
@@ -153,6 +158,8 @@ declare module 'nuxt/schema' {
          fields: Array<string>,
       },
 
+      contentHead: boolean,
+
       documentDriven: boolean,
 
       respectPathCase: boolean,
@@ -160,7 +167,13 @@ declare module 'nuxt/schema' {
       experimental: {
          clientDB: boolean,
 
+         cacheContents: boolean,
+
          stripQueryParameters: boolean,
+
+         advanceQuery: boolean,
+
+         search: any,
       },
 
       toc: {
@@ -173,6 +186,78 @@ declare module 'nuxt/schema' {
   interface PublicRuntimeConfig {
    apiBase: string,
 
+   mdc: {
+      components: {
+         prose: boolean,
+
+         map: {
+            p: string,
+
+            a: string,
+
+            blockquote: string,
+
+            "code-inline": string,
+
+            code: string,
+
+            em: string,
+
+            h1: string,
+
+            h2: string,
+
+            h3: string,
+
+            h4: string,
+
+            h5: string,
+
+            h6: string,
+
+            hr: string,
+
+            img: string,
+
+            ul: string,
+
+            ol: string,
+
+            li: string,
+
+            strong: string,
+
+            table: string,
+
+            thead: string,
+
+            tbody: string,
+
+            td: string,
+
+            th: string,
+
+            tr: string,
+         },
+      },
+
+      headings: {
+         anchorLinks: {
+            h1: boolean,
+
+            h2: boolean,
+
+            h3: boolean,
+
+            h4: boolean,
+
+            h5: boolean,
+
+            h6: boolean,
+         },
+      },
+   },
+
    content: {
       locales: Array<any>,
 
@@ -182,6 +267,8 @@ declare module 'nuxt/schema' {
 
       experimental: {
          stripQueryParameters: boolean,
+
+         advanceQuery: boolean,
 
          clientDB: boolean,
       },
@@ -256,6 +343,10 @@ declare module 'nuxt/schema' {
          },
 
          preload: Array<string>,
+
+         highlighter: string,
+
+         langs: Array<string>,
       },
 
       wsUrl: string,
@@ -277,6 +368,10 @@ declare module 'nuxt/schema' {
       host: string,
 
       trailingSlash: boolean,
+
+      search: any,
+
+      contentHead: boolean,
 
       anchorLinks: {
          depth: number,
