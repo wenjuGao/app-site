@@ -8,11 +8,14 @@ config.zone = qiniu.zone.Zone_z0
 const bucket = new qiniu.rs.BucketManager(mac, config)
 
 export default defineEventHandler((event) => {
-	const query = getQuery(event)
+	const query = {
+		...getQuery(event),
+	}
 	// const body = await readBody(event)
 	return {
 		query,
 		params: event.context.params,
+		event,
 		// body,
 		req: getRequestURL(event)
 	}
