@@ -282,6 +282,7 @@ declare global {
   const useNow: typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useNow']
   const useNuxtApp: typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']
   const useNuxtData: typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']
+  const useNuxtDevTools: typeof import('../../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']
   const useObjectUrl: typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useObjectUrl']
   const useOffsetPagination: typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOffsetPagination']
   const useOnline: typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOnline']
@@ -681,6 +682,7 @@ declare module 'vue' {
     readonly useNow: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useNow']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly useObjectUrl: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOffsetPagination']>
     readonly useOnline: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOnline']>
@@ -1073,6 +1075,7 @@ declare module '@vue/runtime-core' {
     readonly useNow: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useNow']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly useObjectUrl: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOffsetPagination']>
     readonly useOnline: UnwrapRef<typeof import('../../node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core')['useOnline']>

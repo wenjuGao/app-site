@@ -2,7 +2,6 @@
 	<button :data-set-theme="isDark ? 'light' : 'dark'"
 			class="pl-3 flex"
 			data-act-class="ACTIVECLASS">
-		{{ theme }}
 		<label class="swap swap-rotate"
 			   @click="changeClick">
 			<!-- sun icon -->
@@ -27,7 +26,9 @@
 		lang="ts">
 		import { themeChange } from "theme-change"
 		onMounted(() => {
-			themeChange(false)
+			nextTick(() => {
+				themeChange(false)
+			})
 		})
 		const dayjs = useDayjs()
 		const isDark = ref(dayjs().hour() >= 16 || dayjs().hour() <= 8)

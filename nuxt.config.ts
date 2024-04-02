@@ -48,24 +48,23 @@ export default defineNuxtConfig({
       script: [
         {
           // 不蒜子
-          src: './lib/busuanzi.pure.mini.js',
-          // src: '~/assets/lib/busuanzi.pure.mini.js',
-          // src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
-          tagPosition: 'bodyOpen'
+          src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
+          async: true,
+          tagPosition: 'bodyClose'
         },
         {
           // src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
           src: './lib/twikoo.all.min.js',
           // src: '~/assets/lib/twikoo.all.min.js',
           crossorigin: "anonymous",
-          tagPosition: 'bodyOpen'
+          tagPosition: 'bodyClose'
         },
         {
           // src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
           src: './lib/katex.min.js',
           // src: '~/assets/lib/katex.min.js',
           crossorigin: "anonymous",
-          tagPosition: 'bodyOpen',
+          tagPosition: 'bodyClose',
           integrity: "sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
 
         },
@@ -74,7 +73,7 @@ export default defineNuxtConfig({
           src: './lib/auto-render.min.js',
           // src: '~/assets/lib/contrib/auto-render.min.js',
           crossorigin: "anonymous",
-          tagPosition: 'bodyOpen',
+          tagPosition: 'bodyClose',
           integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
         },
         {
