@@ -7,17 +7,22 @@ const config: any = new qiniu.conf.Config()
 config.zone = qiniu.zone.Zone_z0
 const bucket = new qiniu.rs.BucketManager(mac, config)
 
-export default defineEventHandler((event) => {
-	const query = {
-		...getQuery(event),
-	}
-	// const body = await readBody(event)
+export default defineEventHandler(async (event) => {
+	console.log(`Request: ${event.toString()}`);
+
+	// Parse query parms
+	const query = getQuery(event)
+
+	// Try to read request body
+	const body = await readBody(event).catch(() => { })
+
+	// Echo back request as response
 	return {
+		path: event.path,
+		method: event.method,
 		query,
-		params: event.context.params,
-		event,
-		// body,
-		req: getRequestURL(event)
+		body,
+		url: event.node.req.url
 	}
 	// // @ts-ignore
 	// const deadline = parseInt(Date.now() / 1000) + 3600;
