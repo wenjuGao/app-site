@@ -9,11 +9,11 @@ const bucket = new qiniu.rs.BucketManager(mac, config)
 
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event)
-	const body = await readBody(event)
+	// const body = await readBody(event)
 	return {
 		query,
 		params: event.context.params,
-		body,
+		// body,
 		req: getRequestURL(event)
 	}
 	// // @ts-ignore
