@@ -1,5 +1,5 @@
 <template>
-	<nav class="page-header bg-base-300">
+	<nav :class="pageClass">
 		<div class="flex-1">
 			<div class="flex items-center cursor-pointer"
 				 @click="handleClick('')">
@@ -21,37 +21,43 @@
 				</ClientOnly>
 			</div>
 			<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-				<ul class="menu menu-horizontal rounded-box">
+				<ul class="menu p-0 menu-horizontal rounded-box">
 					<li v-for="(item, index) in headerMenu"
 						:key="index"
 						class="group">
 						<span @click="handleClick(item.link)"
 							  :class="route.path == `${app.baseURL}${item.link}` ? 'active' : ''">
 							<span v-if="item.icon"
-								  :class="`${item.icon} text-xl`"> </span>
-							{{ item.label }}
+								  :class="`${item.icon} text-xl`">
+							</span>
+							<template v-if="!item.icon || !pin">
+								{{ item.label }}
+							</template>
 						</span>
 					</li>
 				</ul>
 				<div class="dropdown dropdown-bottom mr-3 dropdown-end">
 					<div tabindex="0"
 						 role="button"
-						 class="m-1">
-						<img src="/img/lang.png"
-							 class="w-6 h-6"
-							 alt="" />
+						 class="flex p-1">
+						<div class="i-mdi-language w-6 h-6"></div>
 					</div>
 					<ul tabindex="0"
 						class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 						<li v-for="item in locales"
 							:key="item.value"
-							:class="`flex ${locale === item.value ? 'active' : ''}`">
-							<span>{{ item.__flag }}</span>
-							<span>{{ item.__name }}</span>
+							:class="`${locale === item.value ? 'active' : ''}`">
+							<span>
+								<i class="text-3xl">{{ item.__flag }}</i>
+								{{ item.__name }}</span>
 						</li>
 					</ul>
 				</div>
 				<theme-swap />
+				<div class="mr-3 p-1 flex cursor-pointer"
+					 @click="handlePin">
+					<div :class="`${pin ? 'i-mdi-pin-outline' : 'i-mdi-pin-off-outline'}  w-6 h-6`"></div>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -68,8 +74,18 @@
 		const route: any = useRoute()
 		const config = useRuntimeConfig()
 		const app: any = config.app
+		const pin = ref<Boolean>(false)
 
-		const handleClick = (path: string) => handleLink(`${app.baseURL}${path}`, useRouter())
+		const handleClick = (path: string) => handleLink(`${app.baseURL}${path}`, useRouter());
+
+		const handlePin = () => pin.value = !pin.value
+		const pageClass = computed(() => {
+			if (pin.value) {
+				return 'transition-all page-header bg-base-100 sticky top-2 btn-ghost rounded-3xl shadow-md'
+			} else {
+				return 'transition-all page-header bg-base-300'
+			}
+		})
 </script>
 <style lang="postcss"
 	   scoped>

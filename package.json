@@ -28,6 +28,7 @@
 		"@iconify/json": "^2.2.102",
 		"@nuxt-themes/docus": "^1.14.6",
 		"@pinia/nuxt": "^0.4.11",
+		"@vue-hero-icons/solid": "^1.7.2",
 		"@vueuse/core": "^10.3.0",
 		"chinese-workday": "^1.9.0",
 		"dayjs-nuxt": "^1.1.2",

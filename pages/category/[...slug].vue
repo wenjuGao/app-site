@@ -1,3 +1,5 @@
 <template>
-	<div class="category">category</div>
+	<NuxtLayout>
+		<div class="category">category</div>
+	</NuxtLayout>
 </template>

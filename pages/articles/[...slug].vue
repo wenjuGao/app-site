@@ -20,49 +20,52 @@
 							<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">
 								{{ doc.title }}
 							</h1>
-							<ProseImg
-								class="mt-6 object-contain min-h-20 max-h-48 max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
-								v-if="doc.header"
-								:src="doc.header"
-								:alt="doc.title"
-							/>
-							<p
-								v-if="doc.description"
-								v-html="doc.description.replace(/\\n/g, '<br/>')"
-								class="mt-6 text-md rounded-xl text-accent-conten break-all text-left bg-base-200 p-2 leading-8"
-							></p>
-							<div class="article-content mt-6 mb-6 text-accent-content article leading-7 break-all">
+							<ProseImg class="mt-6 object-contain min-h-20 max-h-48 max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
+									  v-if="doc.header"
+									  :src="doc.header"
+									  :alt="doc.title" />
+							<p v-if="doc.description"
+							   v-html="doc.description.replace(/\\n/g, '<br/>')"
+							   class="mt-6 text-md rounded-xl  break-all text-left bg-base-200 p-2 leading-8">
+							</p>
+							<div
+								 class="article-content mt-6 mb-6 light:text-accent-content article leading-7 break-all">
 								<ContentRendererMarkdown :value="doc" />
 							</div>
 							<div class="divider"></div>
-							<div class="grid md:grid-cols-2 grid-cols-1 md:gap-2" v-if="prev || next">
-								<div
-									v-if="prev"
-									@click="handleClick(prev._path)"
-									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto"
-								>
-									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="prev.header" :alt="prev.title" />
+							<div class="grid md:grid-cols-2 grid-cols-1 md:gap-2"
+								 v-if="prev || next">
+								<div v-if="prev"
+									 @click="handleClick(prev._path)"
+									 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg"
+											  :src="prev.header"
+											  :alt="prev.title" />
 									<div class="w-full flex-1 pl-2">
-										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										<div
+											 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											上一篇
 										</div>
-										<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										<div
+											 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
 											{{ prev.title }}
 										</div>
 									</div>
 								</div>
 
-								<div
-									v-if="next"
-									@click="handleClick(next._path)"
-									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto"
-								>
-									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="next.header" :alt="next.title" />
+								<div v-if="next"
+									 @click="handleClick(next._path)"
+									 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg"
+											  :src="next.header"
+											  :alt="next.title" />
 									<div class="w-full flex-1 pl-2">
-										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										<div
+											 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											下一篇
 										</div>
-										<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										<div
+											 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
 											{{ next.title }}
 										</div>
 									</div>
@@ -72,7 +75,7 @@
 								<!-- <twikoo-comment /> -->
 							</div>
 						</div>
-						<div class="toc menu">
+						<div class="toc menu sticky top-20">
 							<toc-menu :list="toc ? toc.links : []" />
 						</div>
 					</article>
@@ -84,30 +87,31 @@
 		</main>
 	</NuxtLayout>
 </template>
-<script setup lang="ts">
-// import twikooComment from '@/components/twikoo-comment.vue'
-import tocMenu from '@/components/tools/toc-menu.vue'
-import emptyCard from '@/components/tools/empty-card.vue'
-import ProseImg from '@/components/content/ProseImg.vue'
-import { handleLink } from '@/utils/util'
-const route = useRoute()
-const doc: any = ref({})
+<script setup
+		lang="ts">
+		// import twikooComment from '@/components/twikoo-comment.vue'
+		import tocMenu from '@/components/tools/toc-menu.vue'
+		import emptyCard from '@/components/tools/empty-card.vue'
+		import ProseImg from '@/components/content/ProseImg.vue'
+		import { handleLink } from '@/utils/util'
+		const route = useRoute()
+		const doc: any = ref({})
 
-definePageMeta({
-	layout: 'article'
-})
-const result = await queryContent('articles')
-	.where({
-		_path: route.path
-	})
-	.findOne()
-if (Array.isArray(result)) {
-	doc.value = result.find((i) => i._path === route.path) || {}
-} else {
-	doc.value = result || {}
-}
-const { next, prev, toc } = useContent()
-const handleClick = (url: string) => handleLink(url, useRouter())
+		definePageMeta({
+			layout: 'article'
+		})
+		const result = await queryContent('articles')
+			.where({
+				_path: route.path
+			})
+			.findOne()
+		if (Array.isArray(result)) {
+			doc.value = result.find((i) => i._path === route.path) || {}
+		} else {
+			doc.value = result || {}
+		}
+		const { next, prev, toc } = useContent()
+		const handleClick = (url: string) => handleLink(url, useRouter())
 </script>
 
 <style lang="postcss">
@@ -118,7 +122,7 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 .article h5,
 .article h6 {
 	line-height: 1.5;
-	@apply text-neutral mx-1 pb-2;
+	@apply mx-1 pb-2;
 }
 
 .article h1 {
@@ -155,7 +159,7 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 }
 
 .link-page {
-	@apply overflow-hidden w-full  mb-2 md:mb-0 bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center  hover:scale-105 ease-in-out duration-300 delay-150;
+	@apply overflow-hidden w-full mb-2 md:mb-0 bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center hover:scale-105 ease-in-out duration-300 delay-150;
 }
 
 .article ol,
@@ -170,9 +174,11 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 .demo-image__error .image-slot {
 	font-size: 30px;
 }
+
 .demo-image__error .image-slot .el-icon {
 	font-size: 30px;
 }
+
 .demo-image__error .el-image {
 	width: 100%;
 	height: 200px;

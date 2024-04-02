@@ -8,6 +8,20 @@ export default defineNuxtConfig({
     head: {
       title: '前端小书童',
       charset: 'utf-8',
+      meta: [
+        {
+          "name": "viewport",
+          "content": "width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover"
+        },
+        {
+          "charset": "utf-8"
+        },
+        {
+          "name": "keywords",
+          "vmid": "keywords",
+          "content": "前端,javascript,js,Vue,React,blog,nextjs,nuxtjs"
+        },
+      ],
       link: [
         {
           rel: 'icon',
@@ -15,6 +29,11 @@ export default defineNuxtConfig({
           sizes: "32x32",
           href: "img/logo.png"
         },
+        // {
+        //   rel: 'shortcut icon',
+        //   type: 'image/x-icon',
+        //   href: "favicon.ico"
+        // }
       ],
       style: [
         {
@@ -26,29 +45,29 @@ export default defineNuxtConfig({
         }
       ],
       script: [
-        // {
-        //   // 不蒜子
-        //   src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
-        //   tagPosition: 'bodyOpen'
-        // },
-        // {
-        //   src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
-        //   crossorigin: "anonymous",
-        //   tagPosition: 'bodyOpen'
-        // },
-        // {
-        //   src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
-        //   crossorigin: "anonymous",
-        //   tagPosition: 'bodyOpen',
-        //   integrity: "sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+        {
+          // 不蒜子
+          src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
+          tagPosition: 'bodyOpen'
+        },
+        {
+          src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
+          crossorigin: "anonymous",
+          tagPosition: 'bodyOpen'
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
+          crossorigin: "anonymous",
+          tagPosition: 'bodyOpen',
+          integrity: "sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
 
-        // },
-        // {
-        //   src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js',
-        //   crossorigin: "anonymous",
-        //   tagPosition: 'bodyOpen',
-        //   integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
-        // },
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js',
+          crossorigin: "anonymous",
+          tagPosition: 'bodyOpen',
+          integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+        },
         {
           innerHTML: `var _hmt = _hmt || [];
             (function () {

@@ -1,37 +1,45 @@
 <template>
-	<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl py-5">
-		<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-			<li v-for="(item, index) in list"
-				:key="index"
-				@click="handleLink(item)">
-				<template v-if="index > 0">
-					<hr />
-				</template>
-				<div class="timeline-middle">
-					<span class="i-mdi-clock-time-eight-outline"></span>
-				</div>
-				<div :class="`mb-10 ${index % 2 ? 'md:text-end timeline-start' : 'timeline-end'}`">
-					<time class="font-mono italic"
-						  v-if="item.date">{{ dayjs(item.date).format('YYYY-MM-DD') }}</time>
-					<div class="card w-96 glass bg-base-100 shadow-xl">
-						<figure>
-							<img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-								 alt="Shoes"
-								 class="rounded-xl" />
-						</figure>
-						<div class="card-body items-center text-left">
-							<p>{{ item.title }}</p>
+	<NuxtLayout>
+		<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl py-5">
+			<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+				<li v-for="(item, index) in list"
+					:key="index"
+					@click="handleLink(item)">
+					<template v-if="index > 0">
+						<hr />
+					</template>
+					<div class="timeline-middle">
+						<span class="i-mdi-clock-time-eight-outline"></span>
+					</div>
+					<div :class="`mb-10 ${index % 2 ? 'md:text-end timeline-start' : 'timeline-end'}`">
+						<time class="font-mono italic"
+							  v-if="item.date">{{ dayjs(item.date).format('YYYY-MM-DD') }}</time>
+						<div class="card w-96 glass card-side bg-base-100 shadow hover:shadow-xl">
+							<figure class="w-40">
+								<ProseImg :src="item.header"
+										  class="md:h-60 max-h-32 w-40 object-cover"
+										  :alt="item.title" />
+							</figure>
+							<article class="flex-1 p-2  text-left">
+								<h2 class="text-lg font-semibold text-slate-900 dark:text-slate-200 line-clamp-1">
+									{{ item.title }}
+								</h2>
+								<p class="line-clamp-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
+									{{ item.description }}
+								</p>
+							</article>
 						</div>
 					</div>
-				</div>
-				<hr />
-			</li>
-		</ul>
-	</div>
+					<hr />
+				</li>
+			</ul>
+		</div>
+	</NuxtLayout>
 </template>
 
 <script setup
 		lang="ts">
+		import ProseImg from '@/components/content/ProseImg.vue'
 		const dayjs = useDayjs()
 		const router = useRouter()
 		let list = await queryContent('articles')
