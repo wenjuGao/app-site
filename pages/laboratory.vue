@@ -1,8 +1,16 @@
 <template>
 	<NuxtLayout>
-		<div class="flex  py-4 px-2 lg:overflow-visible lg:px-0">
-			<div class="mb-2">
-				<custom-clock />
+		<div class="container pb-24 m-auto">
+			<article class="prose w-full max-w-full py-10">
+				<h1>Codeing 实验室</h1>
+				<p>
+					一些Idea，样式或者逻辑或者效果的最小实现，也包含整理遇到的有意思的Idea。当然也可以基于某个Idea实现个人商业项目，也期待小伙伴的加入一起快乐coding。
+				</p>
+			</article>
+			<div class="py-10">
+				<div class="grid md:grid-cols-3 md:gap-4 gap-0 grid-cols-1">
+					<custom-clock />
+				</div>
 			</div>
 		</div>
 	</NuxtLayout>
@@ -10,6 +18,14 @@
 <script setup
 		lang="ts">
 		import customClock from '~/components/laboratory/custom-clock.vue';
+		useSeoMeta({
+			title: 'Codeing 实验室',
+			ogTitle: 'Codeing 实验室',
+			description: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogDescription: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogImage: 'https://site.gaowenju.com/img/logo.png',
+			twitterCard: 'summary_large_image',
+		})
 </script>
 
 <style lang="postcss">

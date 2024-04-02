@@ -1,6 +1,6 @@
 <template>
 	<NuxtLayout>
-		<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl">
+		<div class="container pb-24 m-auto">
 			<page-banner />
 			<div class="flex flex-row">
 				<div class="flex-1 pb-20">
@@ -17,7 +17,16 @@
 <script setup
 		lang="ts">
 		import listItem from '@/components/tools/list-item.vue'
-		// import homeSide from '@/components/home-side.vue'
+		import homeSide from '@/components/home-side.vue'
+
+		useSeoMeta({
+			title: '小书童',
+			ogTitle: '小书童',
+			description: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogDescription: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogImage: 'https://site.gaowenju.com/img/logo.png',
+			twitterCard: 'summary_large_image',
+		})
 </script>
 
 <style lang="postcss"

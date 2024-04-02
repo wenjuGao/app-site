@@ -1,60 +1,66 @@
 <template>
-	<footer class="p-10 mt-20 bg-base-200">
-		<div class="text-base-content w-full footer items-end justify-between">
-			<div class="flex">
-				<img :src="app.footLogo"
-					 class="h-24 mr-3"
-					 :alt="app.title" />
-				<p class="flex-1">{{ app.description }}</p>
+	<footer class="pb-10 pt-20 bg-base-200">
+		<div class="container m-auto">
+			<div class="text-base-content  px-4 md:px-0 footer items-end justify-between">
+				<div class="flex">
+					<img :src="app.footLogo"
+						 class="h-24 mr-3"
+						 :alt="app.title" />
+					<p class="flex-1">{{ app.description }}</p>
+				</div>
 			</div>
 		</div>
 	</footer>
-	<footer class="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-		<aside class="items-center grid-flow-col">
-			<p>
-				Powered by
-				<a class="ink link-info mr-2"
-				   href="https://nuxt.com">Nuxtjs</a>
-				<a class="ink link-info"
-				   href="https://tailwindcss.com">tailwindcss</a>
-				<a class="ink link-info"
-				   href="https://tailwindcss.com">Typescript</a>
-			</p>
-		</aside>
-		<nav class="md:place-self-center md:justify-self-end">
-			<div class="site-num">
-				<span id="busuanzi_container_site_pv"
-					  class="site-pv site-item">
-					<span class="site-label">
-						<span class="i-mdi-chart-multiple"></span>
-						访问量
+	<footer class="footer  py-4 border-t bg-base-200 text-base-content border-base-300">
+		<div class="container  px-4 md:px-0 justify-between flex flex-wrap m-auto">
+			<aside class="items-center grid-flow-col">
+				<p class="leading-10">
+					Powered by
+					<a class="ink link-info mr-2"
+					   href="https://nuxt.com">Nuxtjs</a>
+					<a class="ink link-info"
+					   href="https://tailwindcss.com">tailwindcss</a>
+					<a class="ink link-info"
+					   href="https://tailwindcss.com">Typescript</a>
+				</p>
+			</aside>
+			<nav class="md:place-self-center md:justify-self-end">
+				<div class="site-num">
+					<span id="busuanzi_container_site_pv"
+						  class="site-pv site-item">
+						<span class="site-label">
+							<span class="i-mdi-chart-multiple"></span>
+							访问量
+						</span>
+						<em id="busuanzi_value_site_pv"></em>
 					</span>
-					<em id="busuanzi_value_site_pv"></em>
-				</span>
-				<span id="busuanzi_container_site_uv"
-					  class="site-uv site-item">
-					<span class="site-label">
-						<span class="i-mdi-cursor-default-click-outline"></span>
-						访客量
+					<span id="busuanzi_container_site_uv"
+						  class="site-uv site-item">
+						<span class="site-label">
+							<span class="i-mdi-cursor-default-click-outline"></span>
+							访客量
+						</span>
+						<em id="busuanzi_value_site_uv"></em>
 					</span>
-					<em id="busuanzi_value_site_uv"></em>
-				</span>
-				<span id="busuanzi_container_page_pv"
-					  class="page-pv site-item">
-					<span class="site-label">
-						<span class="i-mdi-chart-timeline-variant-shimmer"></span>
-						本页访客
+					<span id="busuanzi_container_page_pv"
+						  class="page-pv site-item">
+						<span class="site-label">
+							<span class="i-mdi-chart-timeline-variant-shimmer"></span>
+							本页访客
+						</span>
+						<em id="busuanzi_value_page_pv"></em>
 					</span>
-					<em id="busuanzi_value_page_pv"></em>
-				</span>
-			</div>
-		</nav>
+				</div>
+			</nav>
+		</div>
 	</footer>
 	<footer class="footer footer-center p-4 bg-base-300 text-base-content">
-		<aside>
-			<p>Copyright © 2024 - All right reserved by wenjugao’blog </p>
-			皖ICP备20001994号
-		</aside>
+		<div class="container m-auto">
+			<aside>
+				<p>Copyright © 2024 - All right reserved by wenjugao’blog </p>
+				皖ICP备20001994号
+			</aside>
+		</div>
 	</footer>
 </template>
 

@@ -100,6 +100,8 @@
 		definePageMeta({
 			layout: 'article'
 		})
+
+
 		const result = await queryContent('articles')
 			.where({
 				_path: route.path
@@ -110,7 +112,15 @@
 		} else {
 			doc.value = result || {}
 		}
-		const { next, prev, toc } = useContent()
+		const { next, prev, page, toc } = useContent()
+		useSeoMeta({
+			title: page.title,
+			ogTitle: page.title,
+			description: page.description,
+			ogDescription: page.description,
+			ogImage: 'https://site.gaowenju.com/img/logo.png',
+			twitterCard: 'summary_large_image',
+		})
 		const handleClick = (url: string) => handleLink(url, useRouter())
 </script>
 

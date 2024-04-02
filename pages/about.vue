@@ -1,13 +1,18 @@
 <template>
 	<NuxtLayout>
-		<section class="px-4 xl:w-10/12 m-auto max-w-screen-xl">
+		<section class="container m-auto">
 
 		</section>
 	</NuxtLayout>
 </template>
-<script>
-// This will work in both `<script setup>` and `<script>`
-// definePageMeta({
-// 	layout: 'custom'
-// })
+<script setup
+		lang="ts">
+		useSeoMeta({
+			title: '小书童-关于我',
+			ogTitle: '小书童-关于我',
+			description: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogDescription: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
+			ogImage: 'https://site.gaowenju.com/img/logo.png',
+			twitterCard: 'summary_large_image',
+		})
 </script>

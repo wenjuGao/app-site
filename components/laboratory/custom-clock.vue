@@ -14,7 +14,7 @@
 			<div class="divider m-0 h-0.5"></div>
 			<div id="full-screen-clock"
 				 :class="`${fullScreen ? 'bg-base-300' : ''} flex-col flex justify-center items-center`">
-				<div :class="`clock transition-all ${fullScreen ? 'w-72 h-72 bg-base-300' : 'w-full h-60'}`">
+				<div :class="`clock transition-all ${fullScreen ? 'w-72 h-72 bg-base-300' : 'w-60 h-60'}`">
 					<div :style="`transform: rotateZ(${hourRota}deg);`"
 						 class="hours-container">
 						<div class="hours"></div>

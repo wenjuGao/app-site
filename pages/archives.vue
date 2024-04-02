@@ -1,6 +1,6 @@
 <template>
 	<NuxtLayout>
-		<div class="px-4 xl:w-10/12 m-auto max-w-screen-xl py-5">
+		<div class="container m-auto py-5">
 			<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
 				<li v-for="(item, index) in list"
 					:key="index"
@@ -47,27 +47,14 @@
 			.limit(20)
 			.sort({ date: -1 })
 			.find()
-		// // 按照日期分组
-		// let mapList = ref<DayMap>({})
-		// let opens = ref<any[]>([])
-		// list.forEach((i) => {
-		// 	const day: string = dayjs(i.date).format('YYYY-MM-DD')
-		// 	if (mapList.value[day]) {
-		// 		mapList.value[day] = [...mapList.value[day], i]
-		// 	} else {
-		// 		mapList.value[day] = [i]
-		// 		opens.value.push(day)
-		// 	}
-		// })
-		const handleTigger = (day: string | number) => {
-			console.log(day)
-			// opens.value.includes(day)
-			// 	? opens.value.splice(
-			// 		opens.value.findIndex((i) => i === day),
-			// 		1
-			// 	)
-			// 	: opens.value.push(day)
-		}
+		useSeoMeta({
+			title: '归档-小书童',
+			ogTitle: '归档-小书童',
+			description: '文章归档，面试,codeing,javascript,Vue,React',
+			ogDescription: '文章归档，面试,自由工作,codeing,javascript,Vue,React',
+			ogImage: 'https://site.gaowenju.com/img/logo.png',
+			twitterCard: 'summary_large_image',
+		})
 		const handleLink = (item: any) => router.push({ path: item._path })
 </script>
 

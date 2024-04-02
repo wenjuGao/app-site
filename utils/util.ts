@@ -1,6 +1,6 @@
-export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null
+export const slugFromPath = (path: { match: (arg0: RegExp) => any[] }) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null
 
-export const readEnv = (id, defaultValue = '') => {
+export const readEnv = (id: string | number, defaultValue = '') => {
 	if (import.meta.env[id] !== undefined) {
 		return import.meta.env[id]
 	}
@@ -29,7 +29,7 @@ export const getOS = () => {
 	return os
 }
 
-export const subString = (input, from, to) => {
+export const subString = (input: string | any[], from: any, to: any) => {
 	return input.slice(input.indexOf(from) + from.length, input.lastIndexOf(to))
 }
 

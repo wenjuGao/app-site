@@ -1,9 +1,9 @@
 <template>
 	<button data-toggle-theme="dark,light"
-			class="mr-3 p-1 flex"
+			class="pl-3 z-10 flex"
+			@click="changeClick"
 			data-act-class="ACTIVECLASS">
-		<label class="swap swap-rotate"
-			   @click="changeClick">
+		<label class="swap swap-rotate">
 			<!-- sun icon -->
 			<svg :class="`${isDark ? 'swap-off' : 'swap-on'} fill-current w-6 h-6`"
 				 xmlns="http://www.w3.org/2000/svg"
