@@ -105,6 +105,12 @@
       "#color-mode-options": [
         "./color-mode-options"
       ],
+      "#image": [
+        "../node_modules/.pnpm/@nuxt+image@1.4.0_rollup@3.29.4/node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "../node_modules/.pnpm/@nuxt+image@1.4.0_rollup@3.29.4/node_modules/@nuxt/image/dist/runtime/*"
+      ],
       "#content/server": [
         "../node_modules/.pnpm/@nuxt+content@2.12.1_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@nuxt/content/dist/runtime/legacy/server"
       ]
@@ -114,6 +120,7 @@
     "./types/nitro-nuxt.d.ts",
     "../modules/nuxt-tailwind-typo/runtime/server",
     "../modules/tw-cjs-config.ts/runtime/server",
+    "../node_modules/.pnpm/@element-plus+nuxt@1.0.7_@element-plus+icons-vue@2.3.1_element-plus@2.6.1_rollup@3.29.4/node_modules/@element-plus/nuxt/runtime/server",
     "../node_modules/.pnpm/dayjs-nuxt@1.2.7_rollup@3.29.4/node_modules/dayjs-nuxt/runtime/server",
     "../node_modules/.pnpm/nuxt-lodash@2.5.3_rollup@3.29.4/node_modules/nuxt-lodash/runtime/server",
     "../node_modules/.pnpm/@vueuse+nuxt@10.9.0_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@vueuse/nuxt/runtime/server",
@@ -122,6 +129,7 @@
     "../node_modules/.pnpm/@pinia+nuxt@0.4.11_rollup@3.29.4_typescript@5.4.3_vue@3.4.21/node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/.pnpm/@nuxtjs+tailwindcss@6.11.4_rollup@3.29.4/node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/.pnpm/@nuxtjs+color-mode@3.3.3_rollup@3.29.4/node_modules/@nuxtjs/color-mode/runtime/server",
+    "../node_modules/.pnpm/@nuxt+image@1.4.0_rollup@3.29.4/node_modules/@nuxt/image/runtime/server",
     "../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/.pnpm/@nuxt+telemetry@2.5.3_rollup@3.29.4/node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",

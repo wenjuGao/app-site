@@ -8,6 +8,8 @@ declare global {
   const appendResponseHeader: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['appendResponseHeader']
   const appendResponseHeaders: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['appendResponseHeaders']
   const assertMethod: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['assertMethod']
+  const baseUrl: typeof import('../../server/utils/index')['baseUrl']
+  const bucketManager: typeof import('../../server/utils/index')['bucketManager']
   const cachedEventHandler: typeof import('../../node_modules/.pnpm/nitropack@2.9.4/node_modules/nitropack/dist/runtime')['cachedEventHandler']
   const cachedFunction: typeof import('../../node_modules/.pnpm/nitropack@2.9.4/node_modules/nitropack/dist/runtime')['cachedFunction']
   const callNodeListener: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['callNodeListener']
@@ -39,6 +41,7 @@ declare global {
   const dynamicEventHandler: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['dynamicEventHandler']
   const eventHandler: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['eventHandler']
   const fetchWithEvent: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['fetchWithEvent']
+  const fileLink: typeof import('../../server/utils/index')['fileLink']
   const fromNodeMiddleware: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['fromNodeMiddleware']
   const fromPlainHandler: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['fromPlainHandler']
   const fromWebHandler: typeof import('../../node_modules/.pnpm/h3@1.11.1/node_modules/h3')['fromWebHandler']
@@ -130,3 +133,4 @@ export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHead
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/core/runtime/nitro/paths';
 export { defineAppConfig } from '../../node_modules/.pnpm/nuxt@3.11.1_@types+node@18.19.26_@unocss+reset@0.58.6_floating-vue@5.2.2_rollup@3.29.4_typesc_f4ybvezt55use5n3ldxgxqrtky/node_modules/nuxt/dist/core/runtime/nitro/config';
 export { parseMarkdown } from '../../node_modules/.pnpm/@nuxtjs+mdc@0.6.1_rollup@3.29.4/node_modules/@nuxtjs/mdc/dist/runtime/parser';
+export { baseUrl, bucketManager, fileLink } from '../../server/utils/index';

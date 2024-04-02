@@ -13,7 +13,7 @@ export default defineNuxtConfig({
           rel: 'icon',
           type: 'image/png',
           sizes: "32x32",
-          href: "https://qiniu.gaowenju.com/app-site/logo.png-32X32"
+          href: "img/logo.png"
         },
       ],
       style: [
@@ -26,34 +26,29 @@ export default defineNuxtConfig({
         }
       ],
       script: [
-        {
-          // 老榕树广告
-          src: 'http://wm.lrswl.com/page/s.php?s=323276&w=950&h=150',
-          tagPosition: 'bodyClose'
-        },
-        {
-          // 不蒜子
-          src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
-          tagPosition: 'bodyOpen'
-        },
-        {
-          src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
-          crossorigin: "anonymous",
-          tagPosition: 'bodyOpen'
-        },
-        {
-          src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
-          crossorigin: "anonymous",
-          tagPosition: 'bodyOpen',
-          integrity: "sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+        // {
+        //   // 不蒜子
+        //   src: 'https://busuanzi.icodeq.com/busuanzi.pure.mini.js',
+        //   tagPosition: 'bodyOpen'
+        // },
+        // {
+        //   src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
+        //   crossorigin: "anonymous",
+        //   tagPosition: 'bodyOpen'
+        // },
+        // {
+        //   src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
+        //   crossorigin: "anonymous",
+        //   tagPosition: 'bodyOpen',
+        //   integrity: "sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
 
-        },
-        {
-          src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js',
-          crossorigin: "anonymous",
-          tagPosition: 'bodyOpen',
-          integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
-        },
+        // },
+        // {
+        //   src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js',
+        //   crossorigin: "anonymous",
+        //   tagPosition: 'bodyOpen',
+        //   integrity: "sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+        // },
         {
           innerHTML: `var _hmt = _hmt || [];
             (function () {
@@ -105,7 +100,7 @@ export default defineNuxtConfig({
     app: {
       baseURL: "/",
       title: "前端小书童",
-      logo: "https://qiniu.gaowenju.com/app-site/logo.png",
+      logo: "/img/logo.png",
       footLogo: "/img/qrcode.jpg",
       description: "前端工程师的杂货铺"
     },
@@ -117,14 +112,17 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    '@element-plus/nuxt',
     'dayjs-nuxt',
     'nuxt-lodash',
     '@vueuse/nuxt',
     '@nuxt/content',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    "@nuxt/image"
   ],
+  elementPlus: { /** Options */ },
   dayjs: {
     plugins: ['weekday', 'advancedFormat', 'timezone'],
   },
@@ -142,14 +140,14 @@ export default defineNuxtConfig({
   // },
   tailwindcss: {
     // Options
-    cssPath: '~/assets/styles/index.css',
     configPath: 'tailwind.config',
-    exposeConfig: true,
-    exposeLevel: 2,
+    exposeConfig: {
+      level: 2
+    },
     config: {
       plugins: [tailwindTypography]
     },
-    injectPosition: 'first',
+    cssPath: ["~/assets/styles/index.css", { injectPosition: "first" }],
     viewer: true,
   },
   devtools: { enabled: true },

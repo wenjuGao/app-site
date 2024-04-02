@@ -16,18 +16,23 @@
 			<p class="break-all mt-3 chat-footer opacity-50">{{ myInfo.desc }}</p>
 			<div class="flex flex-row justify-between mt-6">
 				<div class="count-item">
-					<custom-count :count="totalInfo.categories" :custom-class="customClass" />
-					<span class="count-item-label">分类</span>
-				</div>
-				<div class="divider m-0 divider-horizontal"></div>
-				<div class="count-item">
-					<custom-count :count="totalInfo.tags" :custom-class="customClass" />
-					<span class="count-item-label">标签</span>
-				</div>
-				<div class="divider m-0 divider-horizontal"></div>
-				<div class="count-item">
-					<custom-count :count="totalInfo.totals" :custom-class="customClass" />
+					<custom-count :count="artTotal" :custom-class="customClass" />
 					<span class="count-item-label">文章</span>
+				</div>
+				<div class="divider m-0 divider-horizontal"></div>
+				<div class="count-item">
+					<custom-count :count="interTotal" :custom-class="customClass" />
+					<span class="count-item-label">面试</span>
+				</div>
+				<div class="divider m-0 divider-horizontal"></div>
+				<div class="count-item">
+					<custom-count :count="timeTotal" :custom-class="customClass" />
+					<span class="count-item-label">日常</span>
+				</div>
+				<div class="divider m-0 divider-horizontal"></div>
+				<div class="count-item">
+					<custom-count :count="leetTotal" :custom-class="customClass" />
+					<span class="count-item-label">算法</span>
 				</div>
 			</div>
 			<template v-if="myInfo && myInfo.links && myInfo.links.length">
@@ -53,6 +58,10 @@
 <script setup>
 import CustomCount from './custom-count.vue'
 const customClass = 'text-xl font-mono'
+const artTotal = await queryContent('articles').count()
+const interTotal = await queryContent('interviewer').count()
+const leetTotal = await queryContent('leetcode').count()
+const timeTotal = await queryContent('time-line').count()
 const { myInfo } = useAppConfig()
 const totalInfo = reactive({
 	tags: 0,

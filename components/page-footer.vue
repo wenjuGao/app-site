@@ -44,9 +44,8 @@
 </template>
 
 <script setup lang="ts">
-import { NitroRuntimeConfigApp } from 'nitropack'
 const config = useRuntimeConfig()
-const app: NitroRuntimeConfigApp = config.app
+const app: any = config.app
 </script>
 
 <style lang="postcss" scoped>

@@ -3,8 +3,17 @@ import type { Serialize, Simplify } from 'nitropack'
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/image': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/image').default>>>>
+    }
+    '/api/list': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/list').default>>>>
+    }
     '/api/qiniu-file': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-file').default>>>>
+    }
+    '/api/qiniu-link': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-link').default>>>>
     }
     '/api/qiniu-preview': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/qiniu-preview').default>>>>
@@ -35,6 +44,9 @@ declare module 'nitropack' {
     }
     '/api/_content/navigation': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+content@2.12.1_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@nuxt/content/dist/runtime/server/api/navigation').default>>>>
+    }
+    '/_ipx/**': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+image@1.4.0_rollup@3.29.4/node_modules/@nuxt/image/dist/runtime/ipx').default>>>>
     }
   }
 }
