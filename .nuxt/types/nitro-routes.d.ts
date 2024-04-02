@@ -47,6 +47,12 @@ declare module 'nitropack' {
     }
     '/api/_content/navigation': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+content@2.12.1_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@nuxt/content/dist/runtime/server/api/navigation').default>>>>
+<<<<<<< HEAD
+=======
+    }
+    '/_ipx/**': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+image@1.4.0_rollup@3.29.4/node_modules/@nuxt/image/dist/runtime/ipx').default>>>>
+>>>>>>> edbc9063393234f7d37205b467043c1abf6a0433
     }
   }
 }
