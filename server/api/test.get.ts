@@ -7,7 +7,7 @@ const config: any = new qiniu.conf.Config()
 config.zone = qiniu.zone.Zone_z0
 const bucket = new qiniu.rs.BucketManager(mac, config)
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler((event) => {
 	const query = getQuery(event)
 	// const body = await readBody(event)
 	return {
