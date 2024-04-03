@@ -7,7 +7,7 @@ const config: any = new qiniu.conf.Config()
 config.zone = qiniu.zone.Zone_z0
 const bucket = new qiniu.rs.BucketManager(mac, config)
 
-export default function handler(req, res) {
+export default function handler(req: any, res: any) {
 
 	// Echo back request as response
 	return {
@@ -30,4 +30,4 @@ export default function handler(req, res) {
 	// 		statusMessage: '图床sdk请求错误❎',
 	// 	})
 	// }
-})
+}
