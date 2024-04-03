@@ -4,9 +4,6 @@ import tailwindTypography from '@tailwindcss/typography'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
-  "/**": {
-    isr: false,
-  },
   app: {
     head: {
       title: '前端小书童',
@@ -96,7 +93,7 @@ export default defineNuxtConfig({
   },
   $production: {
     routeRules: {
-      '/**': { isr: true }
+      '/**': { isr: false }
     }
   },
   $development: {
