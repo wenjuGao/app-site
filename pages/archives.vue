@@ -21,7 +21,7 @@
 										  :alt="item.title" />
 							</figure>
 							<article class="flex-1 p-2  text-left">
-								<h2 class="text-lg font-semibold text-slate-900 dark:text-slate-200 line-clamp-1">
+								<h2 class="text-lg font-semibold  line-clamp-1">
 									{{ item.title }}
 								</h2>
 								<p class="line-clamp-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
@@ -37,76 +37,74 @@
 	</NuxtLayout>
 </template>
 
-<script setup
-		lang="ts">
-		import ProseImg from '@/components/content/ProseImg.vue'
-		const dayjs = useDayjs()
-		const router = useRouter()
-		let list = await queryContent('articles')
-			.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
-			.limit(20)
-			.sort({ date: -1 })
-			.find()
-		useSeoMeta({
-			title: '归档-小书童',
-			ogTitle: '归档-小书童',
-			description: '文章归档，面试,codeing,javascript,Vue,React',
-			ogDescription: '文章归档，面试,自由工作,codeing,javascript,Vue,React',
-			ogImage: 'https://site.gaowenju.com/img/logo.png',
-			twitterCard: 'summary_large_image',
-		})
-		const handleLink = (item: any) => router.push({ path: item._path })
+<script setup lang="ts">
+import ProseImg from '@/components/content/ProseImg.vue'
+const dayjs = useDayjs()
+const router = useRouter()
+let list = await queryContent('articles')
+	.only(['_path', 'banner', 'date', 'description', 'header', 'tags', 'img', 'category', 'title'])
+	.limit(20)
+	.sort({ date: -1 })
+	.find()
+useSeoMeta({
+	title: '小书童-归档',
+	ogTitle: '小书童-归档',
+	description: '文章归档，面试,codeing,javascript,Vue,React',
+	ogDescription: '文章归档，面试,自由工作,codeing,javascript,Vue,React',
+	ogImage: 'https://site.gaowenju.com/img/logo.png',
+	twitterCard: 'summary_large_image',
+})
+const handleLink = (item: any) => router.push({ path: item._path })
 </script>
 
-<style lang="postcss"
-	   scoped>
-	.item {
+<style lang="postcss" scoped>
+.item {
+	position: relative;
+
+	.collapse-title {
 		position: relative;
-
-		.collapse-title {
-			position: relative;
-			padding: 10px;
-			min-height: fit-content;
-			margin-bottom: 20px;
-			/* width: calc(100% - 40px); */
-		}
-
-		.collapse-content {
-			width: calc(100% - 30px);
-		}
-
-		.collapse-title::before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			-webkit-transform: translateY(-50%);
-			transform: translateY(-50%);
-			left: -8px;
-			width: 0;
-			height: 0;
-			border-right: 8px solid hsl(var(--b2));
-			border-top: 8px solid transparent;
-			border-bottom: 8px solid transparent;
-		}
+		padding: 10px;
+		min-height: fit-content;
+		margin-bottom: 20px;
+		/* width: calc(100% - 40px); */
 	}
 
-	.item::after {
-		position: absolute;
+	.collapse-content {
+		width: calc(100% - 30px);
+	}
+
+	.collapse-title::before {
 		content: '';
-		top: 14px;
-		width: 13px;
-		height: 13px;
-		border-radius: 50%;
-		@apply bg-base-200;
-	}
-
-	.item::before {
 		position: absolute;
-		content: '';
-		left: 6px;
-		top: 22px;
-		width: 1px;
-		height: 100%;
-		@apply bg-base-200;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		left: -8px;
+		width: 0;
+		height: 0;
+		border-right: 8px solid hsl(var(--b2));
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
 	}
+}
+
+.item::after {
+	position: absolute;
+	content: '';
+	top: 14px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	@apply bg-base-200;
+}
+
+.item::before {
+	position: absolute;
+	content: '';
+	left: 6px;
+	top: 22px;
+	width: 1px;
+	height: 100%;
+	@apply bg-base-200;
+}
 </style>
