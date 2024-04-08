@@ -40,7 +40,7 @@ export default defineNuxtConfig({
           // @ts-ignore
           rel: 'stylesheet',
           // href: '~/assets/lib/katex.min.css',
-          href: `${process.env.NUXT_QINIU_ACCESS_KEY}/lib/katex.min.css`,
+          href: `${process.env.NUXT_HOST}/lib/katex.min.css`,
           integrity: 'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
           crossorigin: "anonymous"
         }
@@ -54,14 +54,14 @@ export default defineNuxtConfig({
         },
         {
           // src: 'https://cdn.staticfile.org/twikoo/1.6.18/twikoo.all.min.js',
-          src: `${process.env.NUXT_QINIU_ACCESS_KEY}/lib/twikoo.all.min.js`,
+          src: `${process.env.NUXT_HOST}/lib/twikoo.all.min.js`,
           // src: '~/assets/lib/twikoo.all.min.js',
           crossorigin: "anonymous",
           tagPosition: 'bodyClose'
         },
         {
           // src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js',
-          src: `${process.env.NUXT_QINIU_ACCESS_KEY}/lib/katex.min.js`,
+          src: `${process.env.NUXT_HOST}/lib/katex.min.js`,
           // src: '~/assets/lib/katex.min.js',
           crossorigin: "anonymous",
           tagPosition: 'bodyClose',
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
         },
         {
           // src: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js',
-          src: `${process.env.NUXT_QINIU_ACCESS_KEY}/lib/auto-render.min.js`,
+          src: `${process.env.NUXT_HOST}/lib/auto-render.min.js`,
           // src: '~/assets/lib/contrib/auto-render.min.js',
           crossorigin: "anonymous",
           tagPosition: 'bodyClose',
