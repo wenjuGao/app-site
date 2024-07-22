@@ -1,9 +1,9 @@
 <template>
 	<NuxtLayout>
-		<main class="px-4 w-full pb-24">
+		<main class="px-1.5 md:container md:m-auto pb-24">
 			<ClientOnly fallback-tag="div">
 				<template #fallback>
-					<div class="ww-full min-h-64 flex justify-center items-center">
+					<div class="w-full min-h-64 flex justify-center items-center">
 						<div class="text-center">
 							<span className="loading loading-ring loading-lg"></span>
 							<article class="prose">
@@ -15,57 +15,54 @@
 					</div>
 				</template>
 				<ContentRenderer :value.sync="doc">
-					<article class="relative isolate flex justify-center lg:px-6 pt-10 lg:overflow-visible">
-						<div class="grow max-w-4xl w-full pr-4 lg:pr-10 overflow-auto box-content">
-							<h1 class="mt-2 text-3xl font-bold tracking-tight break-all sm:text-4xl">
+					<article class="relative isolate flex justify-center lg:px-2 lg:pt-10 pt-4 lg:overflow-visible">
+						<div class="grow  md:pr-4 lg:pr-10 overflow-auto box-content">
+							<h1 class="mt-2 lg:text-3xl md::text-2xl text-xl font-bold tracking-tight break-all sm:text-4xl">
 								{{ doc.title }}
 							</h1>
-							<ProseImg class="mt-6 object-contain min-h-20 max-h-48 max-w-full m-auto rounded-xl shadow-xl ring-1 ring-gray-400/10"
-									  v-if="doc.header"
-									  :src="doc.header"
-									  :alt="doc.title" />
-							<p v-if="doc.description"
-							   v-html="doc.description.replace(/\\n/g, '<br/>')"
-							   class="mt-6 text-md rounded-xl  break-all text-left bg-base-200 p-2 leading-8">
-							</p>
-							<div
-								 class="article-content mt-6 mb-6 light:text-accent-content article leading-7 break-all">
+							<ProseImg
+								class="mt-6 object-cover min-h-20 max-h-80 max-w-full m-auto"
+								v-if="doc.header"
+								:src="doc.header"
+								:alt="doc.title"
+							/>
+							<p
+								v-if="doc.description"
+								v-html="doc.description.replace(/\\n/g, '<br/>')"
+								class="mt-6 text-md rounded-xl break-all text-left bg-base-200 p-2 leading-8"
+							></p>
+							<div class="article-content mt-6 mb-6 light:text-accent-content article leading-7 break-all">
 								<ContentRendererMarkdown :value="doc" />
 							</div>
 							<div class="divider"></div>
-							<div class="grid md:grid-cols-2 grid-cols-1 md:gap-2"
-								 v-if="prev || next">
-								<div v-if="prev"
-									 @click="handleClick(prev._path)"
-									 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto">
-									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg"
-											  :src="prev.header"
-											  :alt="prev.title" />
+							<div class="grid md:grid-cols-2 grid-cols-1 md:gap-2" v-if="prev || next">
+								<div
+									v-if="prev"
+									@click="handleClick(prev._path)"
+									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 mr-auto"
+								>
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="prev.header" :alt="prev.title" />
 									<div class="w-full flex-1 pl-2">
-										<div
-											 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											上一篇
 										</div>
-										<div
-											 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
 											{{ prev.title }}
 										</div>
 									</div>
 								</div>
 
-								<div v-if="next"
-									 @click="handleClick(next._path)"
-									 class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto">
-									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg"
-											  :src="next.header"
-											  :alt="next.title" />
+								<div
+									v-if="next"
+									@click="handleClick(next._path)"
+									class="cursor-pointer link-page dark:bg-slate-800 dark:highlight-white/5 ml-auto"
+								>
+									<ProseImg class="!w-28 h-28 rounded-bl shadow-lg" :src="next.header" :alt="next.title" />
 									<div class="w-full flex-1 pl-2">
-										<div
-											 class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
+										<div class="text-slate-900 font-medium text-sm sm:text-base truncate dark:text-slate-200">
 											下一篇
 										</div>
-										<div
-											 class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
+										<div class="text-slate-500 font-medium text-sm sm:text-base leading-tight truncate dark:text-slate-400">
 											{{ next.title }}
 										</div>
 									</div>
@@ -87,41 +84,39 @@
 		</main>
 	</NuxtLayout>
 </template>
-<script setup
-		lang="ts">
-		// import twikooComment from '@/components/twikoo-comment.vue'
-		import tocMenu from '@/components/tools/toc-menu.vue'
-		import emptyCard from '@/components/tools/empty-card.vue'
-		import ProseImg from '@/components/content/ProseImg.vue'
-		import { handleLink } from '@/utils/util'
-		const route = useRoute()
-		const doc: any = ref({})
+<script setup lang="ts">
+// import twikooComment from '@/components/twikoo-comment.vue'
+import tocMenu from '@/components/tools/toc-menu.vue'
+import emptyCard from '@/components/tools/empty-card.vue'
+import ProseImg from '@/components/content/ProseImg.vue'
+import { handleLink } from '@/utils/util'
+const route = useRoute()
+const doc: any = ref({})
 
-		definePageMeta({
-			layout: 'article'
-		})
+definePageMeta({
+	layout: 'article'
+})
 
-
-		const result = await queryContent('articles')
-			.where({
-				_path: route.path
-			})
-			.findOne()
-		if (Array.isArray(result)) {
-			doc.value = result.find((i) => i._path === route.path) || {}
-		} else {
-			doc.value = result || {}
-		}
-		const { next, prev, page, toc } = useContent()
-		useSeoMeta({
-			title: page.title,
-			ogTitle: page.title,
-			description: page.description,
-			ogDescription: page.description,
-			ogImage: 'https://site.gaowenju.com/img/logo.png',
-			twitterCard: 'summary_large_image',
-		})
-		const handleClick = (url: string) => handleLink(url, useRouter())
+const result = await queryContent('articles')
+	.where({
+		_path: route.path
+	})
+	.findOne()
+if (Array.isArray(result)) {
+	doc.value = result.find((i) => i._path === route.path) || {}
+} else {
+	doc.value = result || {}
+}
+const { next, prev, page, toc } = useContent()
+useSeoMeta({
+	title: page.title,
+	ogTitle: page.title,
+	description: page.description,
+	ogDescription: page.description,
+	ogImage: 'https://site.gaowenju.com/img/logo.png',
+	twitterCard: 'summary_large_image'
+})
+const handleClick = (url: string) => handleLink(url, useRouter())
 </script>
 
 <style lang="postcss">
@@ -131,29 +126,29 @@
 .article h4,
 .article h5,
 .article h6 {
-	line-height: 1.5;
-	@apply mx-1 pb-2;
+	line-height: 2.5;
+	@apply mx-2 pb-2;
 }
 
 .article h1 {
-	@apply text-2xl my-2 font-bold mt-6;
+	@apply text-2xl my-4 font-extrabold mt-6;
 }
 
 .article h2 {
-	@apply text-xl my-1 border-b-2 border-amber-400 font-bold mt-4;
+	@apply text-xl my-4 border-b-2 border-amber-400 font-bold mt-4;
 }
 
 .article h3 {
-	@apply text-lg my-0.5 font-semibold;
+	@apply text-lg my-2.5 font-bold;
 }
 
 .article h4 {
-	@apply text-base my-0.5 font-medium;
+	@apply text-base my-2.5 font-semibold;
 }
 
 .article h5,
 .article h6 {
-	@apply text-base my-0.5;
+	@apply text-base my-1.5 font-medium;
 }
 
 .article p {

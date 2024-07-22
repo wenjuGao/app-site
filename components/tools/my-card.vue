@@ -1,5 +1,12 @@
 <template>
-	<div class="card bg-base-100 shadow-xl">
+	<div class="card my-card bg-base-100 overflow-hidden shadow-2xl rounded-2xl">
+		<svg class="absolute w-0 h-0">
+			<clipPath id="my-clip-path" clipPathUnits="objectBoundingBox" stroke="white" stroke-width="2">
+				<path
+					d="M0.001,0.031 C0.001,0.014,0.026,0.001,0.055,0.001 H0.492 C0.506,0.001,0.52,0.004,0.53,0.009 L0.61,0.052 C0.62,0.057,0.634,0.06,0.649,0.06 H0.947 C0.977,0.06,1,0.074,1,0.091 V0.971 C1,0.987,0.977,1,0.947,1 H0.055 C0.026,1,0.001,0.987,0.001,0.971 V0.031"
+				></path>
+			</clipPath>
+		</svg>
 		<figure>
 			<img :src="myInfo.bgImg" class="h-40 object-cover w-full" />
 		</figure>
@@ -14,27 +21,7 @@
 				{{ myInfo.name }}
 			</h2>
 			<p class="break-all mt-3 chat-footer opacity-50">{{ myInfo.desc }}</p>
-			<div class="flex flex-row justify-between mt-6">
-				<!-- <div class="count-item">
-					<custom-count :count="artTotal" :custom-class="customClass" />
-					<span class="count-item-label">文章</span>
-				</div>
-				<div class="divider m-0 divider-horizontal"></div>
-				<div class="count-item">
-					<custom-count :count="interTotal" :custom-class="customClass" />
-					<span class="count-item-label">面试</span>
-				</div>
-				<div class="divider m-0 divider-horizontal"></div>
-				<div class="count-item">
-					<custom-count :count="timeTotal" :custom-class="customClass" />
-					<span class="count-item-label">日常</span>
-				</div>
-				<div class="divider m-0 divider-horizontal"></div>
-				<div class="count-item">
-					<custom-count :count="leetTotal" :custom-class="customClass" />
-					<span class="count-item-label">算法</span>
-				</div> -->
-			</div>
+			<div class="flex flex-row justify-between mt-6"></div>
 			<template v-if="myInfo && myInfo.links && myInfo.links.length">
 				<div class="divider m-0"></div>
 				<div class="flex flex-row justify-between mt-3">
@@ -97,6 +84,9 @@ const categoryMap = new Set(),
 </script>
 
 <style lang="postcss">
+.my-card {
+	clip-path: url(#my-clip-path);
+}
 .card-message {
 	@apply relative p-5;
 	.avatar {

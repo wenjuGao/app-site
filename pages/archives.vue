@@ -2,9 +2,7 @@
 	<NuxtLayout>
 		<div class="container m-auto py-5">
 			<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-				<li v-for="(item, index) in list"
-					:key="index"
-					@click="handleLink(item)">
+				<li v-for="(item, index) in list" :key="index" @click="handleLink(item)">
 					<template v-if="index > 0">
 						<hr />
 					</template>
@@ -12,16 +10,13 @@
 						<span class="i-mdi-clock-time-eight-outline"></span>
 					</div>
 					<div :class="`mb-10 ${index % 2 ? 'md:text-end timeline-start' : 'timeline-end'}`">
-						<time class="font-mono italic"
-							  v-if="item.date">{{ dayjs(item.date).format('YYYY-MM-DD') }}</time>
-						<div class="card w-96 glass card-side bg-base-100 shadow hover:shadow-xl">
+						<time class="font-mono italic" v-if="item.date">{{ dayjs(item.date).format('YYYY-MM-DD') }}</time>
+						<div class="card w-96 glass group cursor-pointer card-side bg-base-100 shadow hover:shadow-xl">
 							<figure class="w-40">
-								<ProseImg :src="item.header"
-										  class="md:h-60 max-h-32 w-40 object-cover"
-										  :alt="item.title" />
+								<ProseImg :src="item.header" class="md:h-60 max-h-32 w-40 object-cover" :alt="item.title" />
 							</figure>
-							<article class="flex-1 p-2  text-left">
-								<h2 class="text-lg font-semibold  line-clamp-1">
+							<article class="flex-1 p-2 text-left">
+								<h2 class="text-lg font-semibold line-clamp-1">
 									{{ item.title }}
 								</h2>
 								<p class="line-clamp-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
@@ -52,7 +47,7 @@ useSeoMeta({
 	description: '文章归档，面试,codeing,javascript,Vue,React',
 	ogDescription: '文章归档，面试,自由工作,codeing,javascript,Vue,React',
 	ogImage: 'https://site.gaowenju.com/img/logo.png',
-	twitterCard: 'summary_large_image',
+	twitterCard: 'summary_large_image'
 })
 const handleLink = (item: any) => router.push({ path: item._path })
 </script>

@@ -3,6 +3,71 @@
 @tailwind utilities;
 
 @layer components {
+}
+:after,
+:before {
+	--tw-content: '';
+}
+body {
+	--tw-bg-opacity: 1;
+	background-color: rgb(242 245 248 / var(--tw-bg-opacity));
+	font-size: 1rem;
+	line-height: 1.5rem;
+	line-height: 1.875;
+}
 
+:is(html[data-theme='dark'] body) {
+	--tw-bg-opacity: 1;
+	background-color: rgb(24 25 26 / var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+}
 
+@keyframes bottomToTop {
+	0% {
+		content: var(--tw-content);
+		bottom: -4rem;
+	}
+
+	to {
+		content: var(--tw-content);
+		bottom: 100%;
+	}
+}
+@keyframes bottomToTop {
+	0% {
+		content: var(--tw-content);
+		bottom: -4rem;
+	}
+
+	to {
+		content: var(--tw-content);
+		bottom: 100%;
+	}
+}
+
+.before:bg-theme::before {
+	content: var(--tw-content);
+	--tw-bg-opacity: 1;
+	background-color: rgb(0 188 145 / var(--tw-bg-opacity));
+}
+.before:animate-bottom_top::before {
+	content: var(--tw-content);
+	animation: bottomToTop 25s linear infinite;
+}
+
+@keyframes topToBottom {
+	0% {
+		content: var(--tw-content);
+		top: -4rem;
+	}
+
+	to {
+		content: var(--tw-content);
+		top: 100%;
+	}
+}
+
+.before:animate-top_bottom::before {
+	content: var(--tw-content);
+	animation: topToBottom 25s linear infinite;
 }
