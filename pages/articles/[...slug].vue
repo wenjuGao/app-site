@@ -16,7 +16,7 @@
 				</template>
 				<ContentRenderer :value.sync="doc">
 					<article class="relative isolate flex justify-center lg:px-2 lg:pt-10 pt-4 lg:overflow-visible">
-						<div class="grow  md:pr-4 lg:pr-10 overflow-auto box-content">
+						<div class="grow  md:pr-2 lg:pr-4 overflow-auto box-content">
 							<h1 class="mt-2 lg:text-3xl md::text-2xl text-xl font-bold tracking-tight break-all sm:text-4xl">
 								{{ doc.title }}
 							</h1>
@@ -129,26 +129,30 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 	line-height: 2.5;
 	@apply mx-2 pb-2;
 }
+.article p a,
+.article div a {
+color: #3880ff;
+}
 
 .article h1 {
-	@apply text-2xl my-4 font-extrabold mt-6;
+	@apply text-2xl my-4  pt-4 font-extrabold mt-6;
 }
 
 .article h2 {
-	@apply text-xl my-4 border-b-2 border-amber-400 font-bold mt-4;
+	@apply text-xl my-4 border-b-2  pt-4 border-amber-400 font-bold mt-4;
 }
 
 .article h3 {
-	@apply text-lg my-2.5 font-bold;
+	@apply text-lg my-2.5 pt-3 font-bold;
 }
 
 .article h4 {
-	@apply text-base my-2.5 font-semibold;
+	@apply text-base my-2.5 pt-2 font-semibold;
 }
 
 .article h5,
 .article h6 {
-	@apply text-base my-1.5 font-medium;
+	@apply text-base my-1.5 pt-1 font-medium;
 }
 
 .article p {
@@ -169,7 +173,14 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 
 .article ol,
 .article ul {
-	@apply my-2 list-decimal pl-10 pr-8 rounded py-4 bg-base-200;
+	@apply my-1.5 pl-6 pr-2 rounded py-2;
+}
+
+.article ul {
+  @apply bg-base-200 list-disc;
+}
+.article ol {
+	@apply list-decimal;
 }
 
 .article li::marker {

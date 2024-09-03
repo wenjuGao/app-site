@@ -22,12 +22,12 @@ tags:
 
 ### 1. 做什么，有没有搞头
 
-##### 1.1 定位：客户端资源能用就用，服务端资源能省就省
+#### 1.1 定位：客户端资源能用就用，服务端资源能省就省
 
 现在大家是全干工程师，可是落实项目的时候，还是有侧重的。因为我一直都是做前端靓仔的，所以自己的产品自然要选择重前端，服务端轻量处理下就好了，而且简化后端逻辑，毕竟自家小产品，请不起王多鱼😂
 
 
-##### 1.2 需求：离线浏览时长统计
+#### 1.2 需求：离线浏览时长统计
 
 由于在公司内部一直做的是个埋点的产品，除了最常用的PV/UV被使用的最多的数据就是浏览时长和自定义的操作，可以参考[神策](https://www.sensorsdata.cn/)这种商业化的工具。
 
@@ -61,100 +61,91 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 
 ### 2. 怎么做
 
-##### 2.1 实现方式：浏览器插件
+#### 2.1 实现方式：浏览器插件
 
 我们的主体需求是记录用户浏览行为，现在普遍的形式是在站点引入埋点的JS文件，而我们的需求下指望用户或者开发者插入js是不是不太现实的。那还有什么方式能获取到用户浏览行为呢？
 
-这嗑唠的不加绕回主体了吗，浏览器插件（[chrome插件文档](https://developer.chrome.com/docs/extensions)）,在浏览器插件中我们可以通过浏览器提供的api在页面变更或者新建、切换tab时获取到tab和窗口的信息，这样就可以记录浏览历史和浏览记录了
+这嗑唠的不加绕回主题了吗，浏览器插件（[chrome插件文档](https://developer.chrome.com/docs/extensions)）,在浏览器插件中我们可以通过浏览器提供的api在页面变更或者新建、切换tab时获取到tab和窗口的信息，这样就可以记录浏览历史和浏览记录了
 
-##### 2.2 离线数据存储
+#### 2.2 离线数据存储
 
 问：客户端存储方案有哪些？
 答：cookies、Web Storage（sessionStorage、localStorage）、IndexedDB。[客户端存储方案](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
-<img src="site/chrome/004.jpg" alt="浏览记录" class="w-2/3 mx-auto my-1.5 rounded" />
+
+<img src="site/chrome/004.jpg" alt="浏览记录" class="md:w-1/3 w-1/2 mx-auto my-1.5 rounded" />
+
 怎么选呢？我当然选东莞仔啦，他跨栏最帅的嘛
 <img src="site/chrome/005.jpeg" alt="东莞仔" class="md:w-5/6 w-full mx-auto my-1.5 rounded" />
 
 考虑到数据量（十万级别），方便查询的机构数据。满足这两点的就只有IndexedDB了
 
-##### 2.3 用户标识及其他点缀功能
+#### 2.3 用户标识及其他点缀功能
 
 对插件而言单一功能是会让产品更简洁，但是我们既然已经获取了浏览记录，把浏览记录看做浏览器自身浏览记录，那书签也是基于浏览记录发起的也可以加进来，另外作为前端开发者，URL或者内容转到手机这种场景也会常常需要，按基于浏览记录可以也吧二维码的功能加进来那产品的全貌基本就成型了：
 
 <img src="site/chrome/20240955.png" alt="功能" class="w-full mx-auto my-1.5 rounded" />
 
+[power by excalidraw](https://excalidraw.com/#json=gTBlalrkzjQ9lb6CIJXLq,F_O04xbqjWpQERv9QzW7gw)
 
-##### 2.4 产品对标及技术选项
+
+#### 2.4 产品对标及技术选项
 
 又名~~抄~~借鉴谁的产品，~~抄什么家伙~~用什么工具库。
 
-###### 产品
-1. 浏览记录 => [chrome历史记录](chrome://history/)
-2. 书签 => [掘金闪念笔记](https://juejin.cn/extension)
+##### 产品对标
+- 浏览记录 => [chrome历史记录](chrome://history/)
+- 书签 => [掘金闪念笔记](https://juejin.cn/extension)
 
-###### 工具
+##### 工具选择
 
-客户侧
-1. webpack
-2. Reat+antd
-3. jsstore、fingerprintjs等
+1. 客户侧
+- webpack
+- Reat+antd
+- jsstore、fingerprintjs等
 
-服务侧
-1. nextjs、apollo/server
-2. mysql、graphql、typeorm
+2. 服务侧
+- nextjs、apollo/server
+- mysql、graphql、typeorm
 
 <img src="site/chrome/20240956.png" alt="服务侧" class="w-full mx-auto my-1.5 rounded" />
 
+[power by excalidraw](https://excalidraw.com/#json=OiiE2XwCE_6L1sfpokuS5,X806H0I4veB-LeLiCh-mAg)
 
-### 3. 前戏结束，就是干
 
-##### 3.1 产品对标及技术选项
+### 3. 前戏结束，正文开始
 
-- 项目工程化：使用webpack编译
-- 根据功能划分项目模块
-- 组织项目
-- 功能部分：
-   - popup
-   - contextMenu
-   - service-worker
-   - 替换 Chrome 网页：【书签管理器(chrome://bookmarks)、历史记录(chrome://history)、打开新的标签页(chrome://newtab)、无痕式窗口(chrome_url_overrides)】
-   - 浏览记录
-   - 收藏
-   - 登录
-   - 意见反馈
-- 项目回顾
+#### 3.1 插件项目搭建
 
-需求
+**搭建插件项目,要做些什么**
 
-### copy 
-- manifest.*.json 根据环境copy到指定目录（extension根目录）
-- public下copy到指定目录（extension根目录，保持文件夹和文件名）
+简单了解些浏览器插件(v3)包括些什么东西：
 
-### js编译
-- worker.js 编译成cmd 输出到指定目录（extension根目录）
-- content.js  编译成cmd 输出到指定目录（extension根目录）
-- contextMenu.js  编译成cmd 输出到指定目录（extension根目录）
-? 公共依赖引用？
+1. manifest.json 用户配置权限、指定操作对应的文件、语言、插件作用的域名、icon等
+1. service_worker.js（v2的background.js）在[Web Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker)中运行的脚本，它不会阻塞作用站点
+1. content_scripts 配置向作用站点注入的js文件
+1. side_panel 配置侧边加载的页面
+1. options_page 配置页面
+1. 支持打开自定义页面
+更多浏览器插件配置就方案的介绍可以参考[chrome浏览器插件文档](https://developer.chrome.com/docs/extensions/reference)，或者参考(了解chrome浏览器插件)[./chrome.extensions.02.md]
 
-### spa页面编译（pages文件夹下）
-- content
-- debugger
-- options
-- popup
-- sidepanel
-- uninstall
-- welcome
-? 公共依赖引用？
+从工程化角度，可以把插件的项目的需求分为Js 脚本和页面，换种方式就是我们要做的就是编译 js （service_worker.js、content_scripts）和 React 页面（配置页面及自定义页面等）：
 
-### 热更新
-- js编译部分需要属性插件及当前打开的tab
-- spa页面编译的部分属性页面
+1. 拷贝代码到指定目录
+
+- 插件的配置文件manifest.json无需做任何处理，直接拷贝到指定目录
+- service_worker设置的js文件，编译之后拷贝到指定目录
+
+2. react项目编译
+
+- 指定多个入口文件输出到指定目录
+- scss编译
+- 图片处理
+
+
+3. 热更新问题
+插件的热更新和页面的热更新不同，热更新分部分
 
 
 
-Supports Chrome, Firefox, Opera, and Edge!
 
-
-power https://excalidraw.com/#json=gTBlalrkzjQ9lb6CIJXLq,F_O04xbqjWpQERv9QzW7gw
-
-https://excalidraw.com/#json=OiiE2XwCE_6L1sfpokuS5,X806H0I4veB-LeLiCh-mAg
+##### 3.2 服务侧项目搭建
