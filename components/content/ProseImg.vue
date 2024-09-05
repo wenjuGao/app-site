@@ -3,7 +3,10 @@
 		<template #fallback>
 			<div class="skeleton w-full h-full min-h-32"></div>
 		</template>
-		<div :class="`custom-img group-hover:scale-102 duration-300 ease-in-out hover:scale-102 w-full ${props.class}`" ref="imgRef">
+		<div
+			:class="`custom-img group-hover:scale-102 flex justify-center duration-300 ease-in-out hover:scale-102 w-full ${props.class}`"
+			ref="imgRef"
+		>
 			<div class="h-full w-full min-h-32" v-if="loading"></div>
 			<img class="object-cover rounded" v-else :src="url" :onerror="handleError" />
 		</div>

@@ -15,6 +15,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "/Users/gaowenju/my-job/app-site/app.config.ts"
+import cfg0 from "/Users/gaowenju/github/app-site/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)
