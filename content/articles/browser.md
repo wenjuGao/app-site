@@ -2,8 +2,8 @@
 layout: article
 title: 浏览器内核
 description: 不同的内核对网页编写语法的解释也有不同，进而导致同一个页面在不同内核的浏览器下显示出来的效果也会有所出入，这也是作为一个前端工程师需要了解不同浏览器所使用的内核和各种兼容性问题。\n浏览器内核是浏览器的核心，也叫“渲染引擎”，解释html并渲染绘制。\n浏览器内核决定了浏览器该如何显示网页内容以及页面的格式信息。\n不同的浏览器内核对网页的语法解释也不同，因此网页开发者需要在不同内核的浏览器中测试网页的渲染效果
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 category: 浏览器
 tags:

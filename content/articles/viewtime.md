@@ -2,8 +2,8 @@
 layout: article
 title:  前端访问时长监控
 description:  前端访问时长监控
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-08-25 09:35:09
 category: 浏览器
 tags:

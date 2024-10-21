@@ -2,8 +2,8 @@
 layout: article
 title: window指令之tree
 description: tree 命令显示当前文件夹的目录结构，这是一个非常有用的命令，可以帮我们迅速了解当前目录的结构
-img: app-site/img/action-scope.jpg
-header: site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 banner: true
 category: 工具
@@ -193,7 +193,3 @@ PS D:\******> treee -h
 
 ```
 
-博客: [小书童博客](http://gaowenju.com/)(http://gaowenju.com/)
-
-公号: 坑人的小书童
-![坑人的小书童](qrcode.jpg)

@@ -2,8 +2,8 @@
 layout: article
 title: webpack常见配置及插件
 description: 
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 category: 工具
 tags:

@@ -2,8 +2,8 @@
 date: 2024-08-30 17:45:11
 title: Linux安装git
 description: 
-img: https://qiniu.gaowenju.com/app-site/
-header: https://qiniu.gaowenju.com/app-site/
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 banner: false
 category: 
 tags: 

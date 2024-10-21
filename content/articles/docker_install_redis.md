@@ -2,8 +2,8 @@
 date: 2024-08-30 13:44:49
 title: docker 安装及卸载redis
 description: 
-img: https://qiniu.gaowenju.com/app-site/
-header: https://qiniu.gaowenju.com/app-site/
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 banner: false
 category: 
 tags: 

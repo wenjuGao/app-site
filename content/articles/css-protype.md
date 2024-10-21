@@ -2,8 +2,8 @@
 layout: article
 title:  好用的生僻属性
 description:  好用的生僻属性
-img: site/img/action-scope.jpg
-header: site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-08-28 21:49:01
 banner: true
 category: css

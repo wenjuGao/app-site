@@ -46,7 +46,7 @@ useSeoMeta({
 	ogTitle: '小书童-归档',
 	description: '文章归档，面试,codeing,javascript,Vue,React',
 	ogDescription: '文章归档，面试,自由工作,codeing,javascript,Vue,React',
-	ogImage: 'https://site.gaowenju.com/img/logo.png',
+	ogImage: '/img/logo.png',
 	twitterCard: 'summary_large_image'
 })
 const handleLink = (item: any) => router.push({ path: item._path })

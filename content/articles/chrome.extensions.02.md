@@ -2,8 +2,8 @@
 layout: article
 title: 浏览器插件项目工程化：使用webpack编译
 description: 介绍从项目构建到浏览器api调用，代码组织的完成开发流程。
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2024-07-08 12:12:12
 category: note
 tags:
@@ -32,7 +32,6 @@ tags:
 - worker.js 编译成cmd 输出到指定目录（extension根目录）
 - content.js  编译成cmd 输出到指定目录（extension根目录）
 - contextMenu.js  编译成cmd 输出到指定目录（extension根目录）
-? 公共依赖引用？
 
 ### spa页面编译（pages文件夹下）
 - content
@@ -42,7 +41,6 @@ tags:
 - sidepanel
 - uninstall
 - welcome
-? 公共依赖引用？
 
 ### 热更新
 - js编译部分需要属性插件及当前打开的tab

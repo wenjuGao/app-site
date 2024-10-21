@@ -2,8 +2,8 @@
 layout: article
 title: SpiderBag一个帮助你了解自己的浏览器插件
 description: 使用离线方式帮助你记录和分析浏览器记录，也支持你随手收藏网页图片或者页面内容。本文简要介绍了项目的最开始的idea和工具选择。
-img: site/banner/ChromeExtensionsHeader.png
-header: site/banner/ChromeExtensions.png
+img: /img/ChromeExtensionsHeader.png
+header: /img/ChromeExtensions.png
 date: 2024-07-08 12:12:12
 category: chrome
 tags:
@@ -16,7 +16,7 @@ tags:
 
 最近有些精力过剩，潘驴邓小闲，可谓除了“邓”的富有其他都都实现了。苦于没有王干娘这样的复合型人才的帮忙，只能自己琢磨点有意思的事了
 
-<img src="site/chrome/001.jpeg" alt="潘驴邓小闲" class="md:w-3/5 mx-auto my-1.5 rounded" />
+<img src="/img/chrome/001.jpeg" alt="潘驴邓小闲" class="md:w-3/5 mx-auto my-1.5 rounded" />
 
 
 
@@ -39,23 +39,23 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 
 那么做一个类似，“屏幕使用时长”的个工具，来记录用户在浏览中的浏览记录和浏览时长分析，是不是有搞头呢（应该比少林功夫+唱歌跳舞有搞头💪）。
 
-<img src="site/chrome/006.jpeg" alt="少林功夫+唱歌跳舞" class="md:w-2/3 w-full mx-auto my-1.5 rounded" />
+<img src="/img/chrome/006.jpeg" alt="少林功夫+唱歌跳舞" class="md:w-2/3 w-full mx-auto my-1.5 rounded" />
 
 **搞个头！！**
 
 什么？想看我的浏览记录！你是想看我P站的口味还是想偷我的种子？！！
 
-<img src="site/chrome/002.jpeg" alt="浏览记录" class="md:w-3/5 mx-auto my-1.5 rounded" />
+<img src="/img/chrome/002.jpeg" alt="浏览记录" class="md:w-3/5 mx-auto my-1.5 rounded" />
 
 **那么离线的呢？数据只保存在本地拿这样是不是就安心多了，有没有搞头？**
 
 每天刷的那么多 ~~种子~~ 网页，本地处理十万级别的报表，我你说有没有搞头？
 
-<img src="site/chrome/003.jpeg" alt="浏览记录" class="md:w-1/3 w-2/3 mx-auto my-1.5 rounded" />
+<img src="/img/chrome/003.jpeg" alt="浏览记录" class="md:w-1/3 w-2/3 mx-auto my-1.5 rounded" />
 
 那支持用户设置最大数据存储时长，最长3个月，三个月以前的数据就清除掉。数据的计算可以使用WebAssembly引入其他语言解决，嘿嘿嘿，这不就可以在项目里面使用Rust尝尝鲜了吗。
 
-<img src="site/chrome/007.jpeg" alt="少林功夫+足球" class="md:w-2/3 w-full mx-auto my-1.5 rounded" />
+<img src="/img/chrome/007.jpeg" alt="少林功夫+足球" class="md:w-2/3 w-full mx-auto my-1.5 rounded" />
 
 **有搞头**
 
@@ -72,10 +72,10 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 问：客户端存储方案有哪些？
 答：cookies、Web Storage（sessionStorage、localStorage）、IndexedDB。[客户端存储方案](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
 
-<img src="site/chrome/004.jpg" alt="浏览记录" class="md:w-1/3 w-1/2 mx-auto my-1.5 rounded" />
+<img src="/img/chrome/004.jpg" alt="浏览记录" class="md:w-1/3 w-1/2 mx-auto my-1.5 rounded" />
 
 怎么选呢？我当然选东莞仔啦，他跨栏最帅的嘛
-<img src="site/chrome/005.jpeg" alt="东莞仔" class="md:w-5/6 w-full mx-auto my-1.5 rounded" />
+<img src="/img/chrome/005.jpeg" alt="东莞仔" class="md:w-5/6 w-full mx-auto my-1.5 rounded" />
 
 考虑到数据量（十万级别），方便查询的机构数据。满足这两点的就只有IndexedDB了
 
@@ -83,7 +83,7 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 
 对插件而言单一功能是会让产品更简洁，但是我们既然已经获取了浏览记录，把浏览记录看做浏览器自身浏览记录，那书签也是基于浏览记录发起的也可以加进来，另外作为前端开发者，URL或者内容转到手机这种场景也会常常需要，按基于浏览记录可以也吧二维码的功能加进来那产品的全貌基本就成型了：
 
-<img src="site/chrome/20240955.png" alt="功能" class="w-full mx-auto my-1.5 rounded" />
+<img src="/img/chrome/20240955.png" alt="功能" class="w-full mx-auto my-1.5 rounded" />
 
 [power by excalidraw](https://excalidraw.com/#json=gTBlalrkzjQ9lb6CIJXLq,F_O04xbqjWpQERv9QzW7gw)
 
@@ -107,7 +107,7 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 - nextjs、apollo/server
 - mysql、graphql、typeorm
 
-<img src="site/chrome/20240956.png" alt="服务侧" class="w-full mx-auto my-1.5 rounded" />
+<img src="/img/chrome/20240956.png" alt="服务侧" class="w-full mx-auto my-1.5 rounded" />
 
 [power by excalidraw](https://excalidraw.com/#json=OiiE2XwCE_6L1sfpokuS5,X806H0I4veB-LeLiCh-mAg)
 
@@ -143,9 +143,9 @@ apple有“屏幕使用时长”，浏览器中似乎没有类似的工具帮忙
 
 
 3. 热更新问题
-插件的热更新和页面的热更新不同，热更新分部分
+插件的热更新和页面的热更新不同，热更新分部分暂时人肉刷新
 
-
+具体实现可以参考[./chrome.extensions.02.md]
 
 
 ##### 3.2 服务侧项目搭建

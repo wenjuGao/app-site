@@ -2,8 +2,8 @@
 layout: article
 title: javascript中的位运算符
 description: javascript 中的位运算符
-img: /img/qrcode.jpg
-header: site/img/code-header.jpg
+img: /img/action-scope.jpg
+header: /img/operator.png
 banner: true
 date: 2023-04-01 12:12:12
 category: javascript
@@ -13,8 +13,11 @@ tags:
 ---
 
 
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
 
-![img](leecode/banner/operator.png)
 
 - 位与（&）、位或（|）、位异或（^）、非位（~）
 - 左移（<<）、右移（>>）、无符号右移（>>>）
@@ -120,6 +123,4 @@ console.log(-5 >>> 1) // 2147483645
 - ~~
   ~~a 等价 ~(~a) 等价 a
 
-博客: [小书童博客](http://gaowenju.com/)(http://gaowenju.com/)
-公号: 坑人的小书童
-![坑人的小书童](qrcode.jpg)
+

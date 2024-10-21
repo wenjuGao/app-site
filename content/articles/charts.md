@@ -2,8 +2,8 @@
 layout: article
 title: 常用数据可视化
 description: 常用数据可视化
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 category: 数据可视化
 tags:

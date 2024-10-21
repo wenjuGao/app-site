@@ -2,8 +2,8 @@
 layout: article
 title: markdown文档中使用图标
 description: nuxtContent中使用自定义组件实现markdown中展示图标
-img: site/img/echarts-view.jpg
-header: site/img/echarts-view.jpg
+img: /img/echarts-view.jpg
+header: /img/echarts-view.jpg
 date: 2024-04-12 12:12:12
 category: 
 tags:

@@ -19,7 +19,8 @@
 		"@types/node": "^18.17.3",
 		"@vueuse/nuxt": "^10.3.0",
 		"daisyui": "^4.8.0",
-		"nuxt": "^3.11.1"
+		"nuxt": "^3.11.1",
+		"shiki": "^1.22.0"
 	},
 	"dependencies": {
 		"@antv/g6": "^4.8.24",

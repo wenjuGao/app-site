@@ -95,6 +95,9 @@
       "#tailwind-config/*": [
         "./tailwind.config/*"
       ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
       "#vue-router": [
         "./vue-router-stub"
       ],
@@ -145,6 +148,7 @@
     "../node_modules/.pnpm/@nuxt+content@2.12.1_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@nuxt/content/runtime",
     "../node_modules/.pnpm/@pinia+nuxt@0.4.11_rollup@3.29.4_typescript@5.4.3_vue@3.4.21/node_modules/@pinia/nuxt/runtime",
     "../node_modules/.pnpm/@nuxtjs+tailwindcss@6.11.4_rollup@3.29.4/node_modules/@nuxtjs/tailwindcss/runtime",
+    "../node_modules/.pnpm/@nuxtjs+color-mode@3.3.3_rollup@3.29.4/node_modules/@nuxtjs/color-mode/runtime",
     "../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/runtime",
     "../node_modules/.pnpm/@nuxt+telemetry@2.5.3_rollup@3.29.4/node_modules/@nuxt/telemetry/runtime",
     ".."
@@ -161,6 +165,7 @@
     "../node_modules/.pnpm/@nuxt+content@2.12.1_nuxt@3.11.1_rollup@3.29.4_vue@3.4.21/node_modules/@nuxt/content/runtime/server",
     "../node_modules/.pnpm/@pinia+nuxt@0.4.11_rollup@3.29.4_typescript@5.4.3_vue@3.4.21/node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/.pnpm/@nuxtjs+tailwindcss@6.11.4_rollup@3.29.4/node_modules/@nuxtjs/tailwindcss/runtime/server",
+    "../node_modules/.pnpm/@nuxtjs+color-mode@3.3.3_rollup@3.29.4/node_modules/@nuxtjs/color-mode/runtime/server",
     "../node_modules/.pnpm/@nuxt+devtools@1.1.1_@unocss+reset@0.58.6_floating-vue@5.2.2_nuxt@3.11.1_rollup@3.29.4_unocss_ov5kt7f3vcgcjbvyt65bqidnsa/node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/.pnpm/@nuxt+telemetry@2.5.3_rollup@3.29.4/node_modules/@nuxt/telemetry/runtime/server",
     "../dist",

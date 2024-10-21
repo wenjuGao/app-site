@@ -16,7 +16,7 @@
 				</template>
 				<ContentRenderer :value.sync="doc">
 					<article class="relative isolate flex justify-center lg:px-2 lg:pt-10 pt-4 lg:overflow-visible">
-						<div class="grow  md:pr-2 lg:pr-4 overflow-auto box-content">
+						<div class="grow md:pr-2 lg:pr-4 overflow-auto box-content">
 							<h1 class="mt-2 lg:text-3xl md::text-2xl text-xl font-bold tracking-tight break-all sm:text-4xl">
 								{{ doc.title }}
 							</h1>
@@ -113,7 +113,7 @@ useSeoMeta({
 	ogTitle: page.title,
 	description: page.description,
 	ogDescription: page.description,
-	ogImage: 'https://site.gaowenju.com/img/logo.png',
+	ogImage: '/img/logo.png',
 	twitterCard: 'summary_large_image'
 })
 const handleClick = (url: string) => handleLink(url, useRouter())
@@ -131,7 +131,7 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 }
 .article p a,
 .article div a {
-color: #3880ff;
+	color: #3880ff;
 }
 
 .article h1 {
@@ -177,7 +177,7 @@ color: #3880ff;
 }
 
 .article ul {
-  @apply bg-base-200 list-disc;
+	@apply bg-base-200 list-disc;
 }
 .article ol {
 	@apply list-decimal;
@@ -198,5 +198,21 @@ color: #3880ff;
 .demo-image__error .el-image {
 	width: 100%;
 	height: 200px;
+}
+.shiki code {
+	--shiki-default-bg: #121212;
+	--shiki-default-font-weight: 400;
+	--shiki-default-text-decoration: none;
+	@apply rounded-2xl overflow-hidden py-3;
+	background-color: #121212;
+	span.line:before {
+		content: attr(line);
+		@apply h-5  box-content px-2 mr-1 align-middle w-5 text-center sticky left-0;
+	}
+}
+pre code {
+	@apply p-1;
+	display: flex;
+	flex-direction: column;
 }
 </style>

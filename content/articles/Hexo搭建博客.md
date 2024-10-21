@@ -2,8 +2,8 @@
 layout: article
 title: 博客搭建之Hexo
 description: 快速建站工具（主要适用：博客、文档等静态站点），可以将Markdown编写的文章解析成html页面。生成的站点可以无需服务器一键部署到github、gitlab或者gitee上。
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 category: 工具
 tags:

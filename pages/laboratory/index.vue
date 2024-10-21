@@ -8,14 +8,14 @@
 				</p>
 			</article>
 			<div class="py-10">
-				<div class="grid md:grid-cols-4 sm:grid-cols-2 sm:gap-2 md:gap-4 gap-3  grid-cols-1">
-					<div v-for="item in list"
-						 :key="item.url"
-						 @click="handleLink(item)"
-						 className="bg-secondary-content cursor-pointer rounded w-full shadow-xl">
-						<ProseImg :src="item.img"
-								  :class="`h-48 w-full object-cover rounded`"
-								  :alt="item.label" />
+				<div class="grid md:grid-cols-4 sm:grid-cols-2 sm:gap-2 md:gap-4 gap-3 grid-cols-1">
+					<div
+						v-for="item in list"
+						:key="item.url"
+						@click="handleLink(item)"
+						className="bg-secondary-content cursor-pointer rounded w-full shadow-xl"
+					>
+						<ProseImg :src="item.img" :class="`h-48 w-full object-cover rounded`" :alt="item.label" />
 						<div className="card-body py-2 px-2">
 							<div class="my-2">
 								<p className="text-lg font-medium">{{ item.label }}</p>
@@ -33,45 +33,45 @@ const router = useRouter()
 
 const list = [
 	{
-		label: "时钟",
-		url: "clock",
-		img: "laboratory/clock.jpg",
-		description: "时钟时钟时钟时钟时钟时钟时钟",
+		label: '时钟',
+		url: 'clock',
+		img: '/img/laboratory/clock.jpg',
+		description: '时钟时钟时钟时钟时钟时钟时钟'
 	},
 	{
-		label: "房贷计算器",
-		url: "interest-rate",
-		img: "laboratory/interest-rate.jpg",
-		description: "房贷计算器房贷计算器房贷计算器房贷计算器房贷计算器房贷计算器"
+		label: '房贷计算器',
+		url: 'interest-rate',
+		img: '/img/laboratory/interest-rate.jpg',
+		description: '房贷计算器房贷计算器房贷计算器房贷计算器房贷计算器房贷计算器'
 	},
 	{
-		label: "图片转base64",
-		url: "img-to-base64",
-		img: "laboratory/img-base.jpg",
-		description: "图片转base64图片转base64图片转base64图片转base64图片转base64"
+		label: '图片转base64',
+		url: 'img-to-base64',
+		img: '/img/laboratory/img-base.jpg',
+		description: '图片转base64图片转base64图片转base64图片转base64图片转base64'
 	},
 	{
-		label: "base64加解密",
-		url: "base64",
-		img: "laboratory/base64.jpg",
-		description: "base64加解密base64加解密base64加解密base64加解密"
+		label: 'base64加解密',
+		url: 'base64',
+		img: '/img/laboratory/base64.jpg',
+		description: 'base64加解密base64加解密base64加解密base64加解密'
 	},
 	{
-		label: "JSON格式化",
-		url: "json",
-		img: "laboratory/json.jpg",
-		description: "JSON格式化JSON格式化JSON格式化"
+		label: 'JSON格式化',
+		url: 'json',
+		img: '/img/laboratory/json.jpg',
+		description: 'JSON格式化JSON格式化JSON格式化'
 	},
 	{
-		label: "转码解码",
-		url: "encode-decode",
-		img: "laboratory/decode.jpg",
-		description: "转码解码转码解码转码解码"
+		label: '转码解码',
+		url: 'encode-decode',
+		img: '/img/laboratory/decode.jpg',
+		description: '转码解码转码解码转码解码'
 	}
 ]
 
 const handleLink = (item: any) => {
-	router.push(`/laboratory/${item.url}`)
+	router.push(`//img/laboratory/${item.url}`)
 }
 
 useSeoMeta({
@@ -79,8 +79,8 @@ useSeoMeta({
 	ogTitle: 'Codeing 实验室',
 	description: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
 	ogDescription: '前端开发,全职开发,自由工作,codeing,javascript,Vue,React',
-	ogImage: 'https://site.gaowenju.com/img/logo.png',
-	twitterCard: 'summary_large_image',
+	ogImage: '/img/logo.png',
+	twitterCard: 'summary_large_image'
 })
 </script>
 
@@ -102,8 +102,7 @@ useSeoMeta({
 	}
 
 	.view-box {
-		background-color: rgba(0, 0, 0, .5);
-
+		background-color: rgba(0, 0, 0, 0.5);
 	}
 }
 

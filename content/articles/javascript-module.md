@@ -2,8 +2,8 @@
 layout: article
 title: javascript模块化
 description: 异步加载 JS 文件，按照模块加载方法，通过 define()函数定义，第一个参数是一个数组，里面定义一些需要依赖的包，第二个参数是一个回调函数，通过变量来引用模块里面的方法，最后通过 return 来输出
-img: app-site/img/js-module.jpg
-header: app-site/img/js-module-header.jpg
+img: /img/js-module.jpg
+header: /img/js-module-header.jpg
 date: 2023-04-04 12:12:12
 category: javascript
 tags:

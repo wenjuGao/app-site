@@ -4,6 +4,7 @@
 /// <reference types="@nuxt/content" />
 /// <reference types="@pinia/nuxt" />
 /// <reference types="@nuxtjs/tailwindcss" />
+/// <reference types="@nuxtjs/color-mode" />
 /// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="nuxt" />

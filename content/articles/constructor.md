@@ -2,8 +2,8 @@
 layout: article
 title: 字面量与构造器的区别
 description: 字面量与 构造器 构建变量的区别
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-03 12:12:12
 category: javascript
 tags:

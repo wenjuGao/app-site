@@ -103,15 +103,23 @@ export default defineNuxtConfig({
 	},
 	content: {
 		documentDriven: true,
+		markdown: {
+			remarkPlugins: {
+				'remark-emoji': {
+					emoticon: true
+				},
+				'remark-gfm': true,
+			},
+		},
 		highlight: {
 			// Theme used in all color schemes.
 			// theme: 'github-light'
 			// OR
 			theme: {
 				// Default theme (same as single string)
-				default: 'github-light',
+				default: 'vitesse-dark',
 				// Theme used if `html.dark`
-				dark: 'github-dark',
+				dark: 'vitesse-dark',
 				// Theme used if `html.sepia`
 				sepia: 'monokai'
 			},
@@ -145,8 +153,8 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt',
 		'@nuxt/content',
 		'@pinia/nuxt',
-		'@nuxtjs/tailwindcss'
-		// '@nuxtjs/color-mode',
+		'@nuxtjs/tailwindcss',
+		'@nuxtjs/color-mode',
 	],
 	dayjs: {
 		plugins: ['weekday', 'advancedFormat', 'timezone']

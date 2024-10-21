@@ -2,8 +2,8 @@
 layout: article
 title: watch与watchEffect
 description: 
-img: app-site/img/seal.jpg
-header: app-site/img/seal-header.jpg
+img: /img/seal.jpg
+header: /img/seal-header.jpg
 date: 2023-04-01 12:12:12
 category: javascript
 tags:

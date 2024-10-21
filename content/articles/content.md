@@ -2,8 +2,8 @@
 layout: article
 title: javascript作用域
 description: javascript作用域
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-04-01 12:12:12
 category: javascript
 tags:

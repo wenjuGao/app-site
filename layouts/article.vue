@@ -1,6 +1,6 @@
 <template>
 	<page-header />
-	<main class="bg-base-100">
+	<main class="px-2">
 		<slot />
 	</main>
 	<ClientOnly>

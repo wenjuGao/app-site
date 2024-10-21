@@ -2,8 +2,8 @@
 layout: article
 title:  flex布局
 description:  flex布局
-img: app-site/img/action-scope.jpg
-header: app-site/img/action-scope-header.jpg
+img: /img/action-scope.jpg
+header: /img/action-scope-header.jpg
 date: 2023-08-28 21:49:01
 category: css
 tags:
