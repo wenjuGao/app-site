@@ -73,7 +73,6 @@
 							</div>
 						</div>
 						<div class="toc menu sticky top-20">
-							<span id="twikoo_visitors">0</span>
 							<toc-menu :list="toc ? toc.links : []" />
 						</div>
 					</article>
