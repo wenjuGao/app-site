@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import mermaid from 'mermaid'
+// import mermaid from 'mermaid'
 const el = ref(null)
 const rendered = ref(false)
 const props = defineProps({
@@ -42,8 +42,8 @@ async function render () {
 }
 
 onMounted(() => {
-	mermaid.initialize({ startOnLoad: true });
-	render()
+	// mermaid.initialize({ startOnLoad: true });
+	// render()
 })
 </script>
 
