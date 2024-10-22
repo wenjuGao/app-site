@@ -120,6 +120,9 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 </script>
 
 <style lang="postcss">
+.article {
+	--tw-prose-links: #00dc82;
+}
 .article h1,
 .article h2,
 .article h3,
@@ -127,11 +130,19 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 .article h5,
 .article h6 {
 	line-height: 2.5;
-	@apply mx-2 pb-2;
+	@apply pb-2;
 }
-.article p a,
-.article div a {
-	color: #3880ff;
+.article a.router-link-active,
+.article a.router-link-exact-active,
+.article li > a {
+	border-bottom: 1px solid #0000;
+	color: var(--fallback-bc, oklch(var(--bc) / 1));
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		border-color: var(--fallback-bc, oklch(var(--bc) / 1));
+	}
 }
 
 .article h1 {
@@ -164,7 +175,7 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 }
 
 .toc {
-	@apply lg:sticky flex-none h-fit lg:top-32 menu bg-base-200 w-56 rounded-box lg:overflow-hidden md:block hidden;
+	@apply lg:sticky flex-none h-fit lg:top-32 menu bg-base-200 w-56 rounded-box  md:block hidden max-h-144 overflow-auto;
 }
 
 .link-page {
@@ -207,6 +218,8 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 	background-color: #121212;
 	span.line:before {
 		content: attr(line);
+		color: #758575dd;
+		opacity: 0.7;
 		@apply h-5  box-content px-2 mr-1 align-middle w-5 text-center sticky left-0;
 	}
 }

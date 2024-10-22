@@ -19,6 +19,7 @@
 		"@types/node": "^18.17.3",
 		"@vueuse/nuxt": "^10.3.0",
 		"daisyui": "^4.8.0",
+		"mermaid": "^11.3.0",
 		"nuxt": "^3.11.1",
 		"shiki": "^1.22.0"
 	},
@@ -32,6 +33,7 @@
 		"@pinia/nuxt": "^0.4.11",
 		"@vue-hero-icons/solid": "^1.7.2",
 		"@vueuse/core": "^10.3.0",
+		"autoprefixer": "^10.4.20",
 		"chinese-workday": "^1.9.0",
 		"dayjs-nuxt": "^1.1.2",
 		"echarts": "^5.4.3",
@@ -39,13 +41,14 @@
 		"lunar-typescript": "^1.6.10",
 		"nuxt-lodash": "^2.5.0",
 		"pinia": "^2.1.6",
+		"postcss": "^8.4.47",
 		"postcss-color-gray": "5.0.0",
 		"qiniu": "^7.9.0",
 		"qiniu-js": "^3.4.1",
 		"scss": "^0.2.4",
 		"scss-loader": "^0.0.1",
 		"sitemap": "^7.1.1",
-		"tailwindcss": "^3.3.3",
+		"tailwindcss": "^3.4.14",
 		"theme-change": "^2.5.0",
 		"v-runtime-template": "^1.10.0"
 	}

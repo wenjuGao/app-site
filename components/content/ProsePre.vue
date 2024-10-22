@@ -1,9 +1,16 @@
 <template>
-	<pre :class="$props.class"><slot /></pre>
+	<Mermaid :class="$props.class"
+			 :code="props.code"
+			 v-if="isMermaid">
+		<slot />
+	</Mermaid>
+	<pre :class="$props.class"
+		 v-else><slot /></pre>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import Mermaid from './Mermaid.vue'
+const props = defineProps({
 	class: {
 		type: String,
 		default: null
@@ -29,6 +36,11 @@ defineProps({
 		default: null
 	}
 })
+
+console.log(props)
+
+const isMermaid = ref(props.language === 'mermaid')
+
 </script>
 
 <style lang="postcss"></style>
