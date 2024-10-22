@@ -82,12 +82,12 @@ deploy:
 
 1. 新建仓库
 
-![新建仓库](site/github-newrepository.png)
+![新建仓库](/img/site/github-newrepository.png)
 
 
 2. 设置Pages
 
-![新建仓库](site/github-site-pages.png)
+![新建仓库](/img/site/github-site-pages.png)
 
 3. 部署
 
@@ -104,12 +104,12 @@ npm run deploy
 
 1. 新建仓库
 
-![新建仓库](site/gitee-newrepository.png)
+![新建仓库](/img/site/gitee-newrepository.png)
 
 
 2. 设置Pages
 
-![新建仓库](site/gitee-site-pages.png)
+![新建仓库](/img/site/gitee-site-pages.png)
 
 3. 部署
 
@@ -216,10 +216,6 @@ hexo d
 ----
 
 
-![部署完成](site/hexo-default-pages.png)
+![部署完成](/img/site/hexo-default-pages.png)
 
-网站到此就部署完成喽，后面你就可以在source下创建你自定义的md或者html来展示你的内容喽。
-
-当然，如果你觉得默认的样式和布局不是那么满足你的需求，你可以在[这里](https://hexo.io/themes/)找到不同的主题来丰富你的站点，另外还有[这里](https://hexo.io/plugins/)提供的插件来满足你不同的功能需求。
-后续这边，关于Hexo，还会整理关于主题插件的使用，主题插件的开发等知识点，欢迎关注公众号[前端小书童](wechat-new.png)来催更！
 

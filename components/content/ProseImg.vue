@@ -8,7 +8,7 @@
 			ref="imgRef"
 		>
 			<div class="h-full w-full min-h-32" v-if="loading"></div>
-			<img class="object-cover rounded" v-else :src="url" :onerror="handleError" />
+			<img class="object-cover w-full rounded" v-else :src="url" :onerror="handleError" />
 		</div>
 	</ClientOnly>
 </template>
