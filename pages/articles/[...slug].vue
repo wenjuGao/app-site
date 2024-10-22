@@ -69,10 +69,11 @@
 								</div>
 							</div>
 							<div class="mt-20">
-								<!-- <twikoo-comment /> -->
+								<twikoo-comment />
 							</div>
 						</div>
 						<div class="toc menu sticky top-20">
+							<span id="twikoo_visitors">0</span>
 							<toc-menu :list="toc ? toc.links : []" />
 						</div>
 					</article>
@@ -85,7 +86,7 @@
 	</NuxtLayout>
 </template>
 <script setup lang="ts">
-// import twikooComment from '@/components/twikoo-comment.vue'
+import twikooComment from '@/components/twikoo-comment.vue'
 import tocMenu from '@/components/tools/toc-menu.vue'
 import emptyCard from '@/components/tools/empty-card.vue'
 import ProseImg from '@/components/content/ProseImg.vue'
