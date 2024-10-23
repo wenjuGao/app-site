@@ -1,15 +1,16 @@
 <template>
-	<pre ref="el"
-		 class="mermaid"
-		 :style="{ display: rendered ? 'block' : 'none' }">
-{{ props.code }}
-	<slot />
-  </pre>
+	<figure ref="root"
+			class="mermaid-container">
+		<pre ref="codeBlock"
+			 :class="{
+				'opacity-0': isDiagramLoading
+			}"
+			 v-text="decodedCode" />
+	</figure>
 </template>
 
 <script setup>
-// import mermaid from 'mermaid'
-const el = ref(null)
+import mermaid from 'mermaid'
 const rendered = ref(false)
 const props = defineProps({
 	code: {
@@ -18,36 +19,52 @@ const props = defineProps({
 	}
 })
 
-async function render () {
-	if (!el.value) {
-		return
-	}
-	if (el.value.querySelector('svg')) {
-		// Already rendered
-		return
-	}
-	el.value.classList.add('mermaid')
-	rendered.value = true
-	// mermaid.initialize({ startOnLoad: true });
-	// Iterate children to remove comments
-	for (const child of el.value.childNodes) {
-		if (child.nodeType === Node.COMMENT_NODE) {
-			el.value.removeChild(child)
+const decodedCode = computed(() => props.code)
+
+const codeBlock = ref(null)
+const isDiagramLoading = ref(true)
+
+async function renderMermaidDiagram () {
+	isDiagramLoading.value = true
+	if (codeBlock.value && mermaid) {
+		try {
+			await mermaid.run({
+				nodes: [codeBlock.value],
+				suppressErrors: true
+			})
+		} catch (e) {
+			console.warn(e)
 		}
+
+		isDiagramLoading.value = false
 	}
-	console.log(mermaid, el.value)
-	nextTick(() => {
-		mermaid.run()
-	})
 }
 
 onMounted(() => {
-	// mermaid.initialize({ startOnLoad: true });
-	// render()
+	setTimeout(() => {
+		renderMermaidDiagram()
+	}, 100)
 })
 </script>
 
 <style>
+.mermaid-container {
+	position: relative;
+}
+
+.mermaid-placeholder {
+	position: absolute;
+	inset: 0;
+}
+
+.mermaid-placeholder__spinner {
+	max-height: calc(100% - 2rem);
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
 .mermaid rect {
 	stroke: #6195ff !important;
 	fill: #fff !important;

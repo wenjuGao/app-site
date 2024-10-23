@@ -1,12 +1,12 @@
 <template>
-	<section class="p-1 ease-out">
-		<div class="content" @click="handleClick">
-			<slot />
-		</div>
-		<div class="translate ease-in" v-show="show">
-			<slot name="translate" />
-		</div>
-	</section>
+	<figure class="content"
+			@click="handleClick">
+		<slot />
+	</figure>
+	<figure class="translate py-1 mb-2 ease-in"
+			v-show="show">
+		<slot name="translate" />
+	</figure>
 </template>
 
 <script setup lang="ts">

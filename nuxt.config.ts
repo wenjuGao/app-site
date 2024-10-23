@@ -50,10 +50,6 @@ export default defineNuxtConfig({
 			],
 			script: [
 				{
-					src: `${process.env.NUXT_HOST}/lib/mermaid.esm.min.mjs`,
-					type: 'module',
-				},
-				{
 					// 不蒜子
 					src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
 					async: true,

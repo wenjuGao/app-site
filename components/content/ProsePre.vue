@@ -37,7 +37,6 @@ const props = defineProps({
 	}
 })
 
-console.log(props)
 
 const isMermaid = ref(props.language === 'mermaid')
 
