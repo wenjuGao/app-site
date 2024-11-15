@@ -33,6 +33,8 @@ docker pull mysql
 docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
 ```
 
+进入容器
+
 ```shell
 ## 通过Docker命令进入Mysql容器内部
 docker exec -it mysql /bin/bash
@@ -65,6 +67,9 @@ use mysql;
 select host, user, plugin from user;
 ```
 
+数据库表
+
+```shell
 +-----------+------------------+-----------------------+
 | host      | user             | plugin                |
 +-----------+------------------+-----------------------+
@@ -74,6 +79,7 @@ select host, user, plugin from user;
 | localhost | mysql.sys        | caching_sha2_password |
 | localhost | root             | caching_sha2_password |
 +-----------+------------------+-----------------------+
+```
 
 
 #### 卸载
