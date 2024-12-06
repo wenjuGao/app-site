@@ -78,22 +78,19 @@
         "../node_modules/.pnpm/nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@18.19.26_@unocss+reset@0.58.6_async-validator@4_4hniqsuiy64r7hq2xdqx2ihbpi/node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#mdc-configs": [
-        "./mdc-configs"
+        "./mdc-configs.mjs"
       ],
       "#mdc-highlighter": [
-        "./mdc-highlighter"
+        "./mdc-highlighter.mjs"
       ],
       "#mdc-imports": [
-        "./mdc-imports"
+        "./mdc-imports.mjs"
       ],
       "pinia": [
         "../node_modules/.pnpm/pinia@2.1.7_typescript@5.4.3_vue@3.4.21_typescript@5.4.3_/node_modules/pinia/dist/pinia"
       ],
       "#tailwind-config": [
         "./tailwind.config"
-      ],
-      "#tailwind-config/*": [
-        "./tailwind.config/*"
       ],
       "#color-mode-options": [
         "./color-mode-options.mjs"
@@ -105,7 +102,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev"
+        "./manifest/meta/d5598f7b-0a24-45d6-8424-e8ca7220ab26.json"
       ],
       "#build": [
         "."
