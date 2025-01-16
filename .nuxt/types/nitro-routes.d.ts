@@ -39,7 +39,7 @@ declare module 'nitropack' {
     '/api/_content/query': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+content@2.12.1_ioredis@5.3.2_nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@18.19.26_@un_n24hl7hihjezsfnsjdsdc4jba4/node_modules/@nuxt/content/dist/runtime/server/api/query').default>>>>
     }
-    '/api/_content/cache.1733470011714.json': {
+    '/api/_content/cache.1737030620953.json': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+content@2.12.1_ioredis@5.3.2_nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@18.19.26_@un_n24hl7hihjezsfnsjdsdc4jba4/node_modules/@nuxt/content/dist/runtime/server/api/cache').default>>>>
     }
     '/api/_content/navigation/:qid/**:params': {

@@ -7,12 +7,10 @@ FROM node:20-slim AS base
 ARG PROJECT_DIR
 
 
-ENV APP_PORT=3000 \
-    PNPM_HOME="/pnpm" \
-    PATH="$PNPM_HOME:$PATH"
+ENV APP_PORT=3000 
 
 RUN npm config set registry https://registry.npmmirror.com
-RUN npm install -g pnpm \
+RUN npm install -g yarn \
     && npm install -g pm2
 
 # WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录)，该指令在Dockerfile文件中可以出现多次，
@@ -26,15 +24,15 @@ COPY ./ $PROJECT_DIR
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone
 
-RUN pnpm config set registry https://registry.npmmirror.com
+RUN yarn config set registry https://registry.npmmirror.com
 
 # see https://pnpm.io/docker
 FROM base AS prod-deps
-RUN pnpm install
+RUN yarn install
 
 FROM base AS build
-RUN pnpm install
-RUN pnpm run build
+RUN yarn install
+RUN yarn run build
 
 
 # mirror acceleration
