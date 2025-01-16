@@ -9,7 +9,7 @@ ARG PROJECT_DIR
 
 ENV APP_PORT=3000 
 
-RUN npm config set registry https://registry.npmmirror.com
+# RUN npm config set registry https://registry.npmmirror.com
 # RUN npm install -g yarn
 
 # WORKDIR指令用于设置Dockerfile中的RUN、CMD和ENTRYPOINT指令执行命令的工作目录(默认为/目录)，该指令在Dockerfile文件中可以出现多次，
@@ -29,9 +29,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 # FROM base AS prod-deps
 # RUN yarn install
 
-FROM base AS build
-RUN npm install
-RUN npm run build
+# FROM base AS build
+# RUN npm install
+# RUN npm run build
 
 
 # mirror acceleration
