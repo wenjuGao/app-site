@@ -42,7 +42,7 @@ ENV APP_PORT=3000
 
 # FROM base
 # COPY --from=prod-deps $PROJECT_DIR/node_modules $PROJECT_DIR/node_modules
-COPY --from=build $PROJECT_DIR/.output $PROJECT_DIR/.output
+COPY --from=build ./.output ./.output
 
 # EXPOSE port
 ENV HOST 0.0.0.0
