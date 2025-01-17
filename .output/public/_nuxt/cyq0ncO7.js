@@ -1,0 +1,1 @@
+import{f as c}from"./CxYJgpPD.js";import{x as n,o,v as s,a as i,ah as l}from"./C9vD4Dkv.js";const u=(e,t,a,...r)=>e[t]?n({...e,[t]:()=>c(e[t](),a==null?void 0:a.unwrap)},t,a,...r):n(e,t,a,...r),_={class:"my-2"},d={class:"type"},y={__name:"Tip",props:["type"],setup(e){return(t,a)=>(o(),s("div",_,[i("p",d,l(e.type),1),u(t.$slots,"default",{unwrap:"p"})]))}};export{y as default};

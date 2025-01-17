@@ -1,0 +1,1 @@
+import{d as s,o,v as a,x as t,$ as r}from"./C9vD4Dkv.js";const d=s({__name:"FirstChild",props:{class:{type:String,default:null}},setup(l){return(e,n)=>(o(),a("div",{class:r(`bg-neutral-content py-3 my-2 overflow-auto rounded-md ${e.$props.class}`)},[t(e.$slots,"default")],2))}});export{d as default};

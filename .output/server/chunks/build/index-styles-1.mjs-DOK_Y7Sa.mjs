@@ -1,0 +1,4 @@
+const index_vue_vue_type_style_index_0_scoped_37e89888_lang = ".badge[data-v-37e89888]{border-radius:9999px;display:inline-block;--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1));font-size:.875rem;font-weight:600;line-height:1.25rem;padding:.25rem .75rem;--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.badge[data-v-37e89888]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(3 7 18/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.badge .badge[data-v-37e89888]:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity,1))}.right-side[data-v-37e89888]{position:sticky;top:70px}";
+
+export { index_vue_vue_type_style_index_0_scoped_37e89888_lang as i };
+//# sourceMappingURL=index-styles-1.mjs-DOK_Y7Sa.mjs.map

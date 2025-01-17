@@ -1,0 +1,1 @@
+import{_ as t,o,v as s,x as r}from"./C9vD4Dkv.js";const a={},c={class:"table table-bordered"};function l(e,n){return o(),s("table",c,[r(e.$slots,"default")])}const d=t(a,[["render",l]]);export{d as default};

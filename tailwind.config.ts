@@ -24,7 +24,7 @@ const config: ModuleOptions['config'] = {
 		}
 	},
 	plugins: [
-		require('@tailwindcss/typography'),
+		// require('@tailwindcss/typography'),
 		require('daisyui'),
 		iconsPlugin({
 			// Select the icon collections you want to use

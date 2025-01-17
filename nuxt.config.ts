@@ -109,8 +109,8 @@ export default defineNuxtConfig({
 				'remark-emoji': {
 					emoticon: true
 				},
-				'remark-gfm': true,
-			},
+				'remark-gfm': true
+			}
 		},
 		highlight: {
 			// Theme used in all color schemes.
@@ -172,9 +172,16 @@ export default defineNuxtConfig({
 	//   dataValue: 'theme', // activate data-theme in <html> tag
 	//   classSuffix: ''
 	// },
+
+	devtools: { enabled: true },
+	buildModules: [
+		// Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+		'@nuxtjs/tailwindcss',
+		'@nuxt/http'
+	],
 	tailwindcss: {
 		// Options
-		configPath: 'tailwind.config',
+		configPath: './tailwind.config',
 		exposeConfig: {
 			level: 2
 		},
@@ -182,20 +189,17 @@ export default defineNuxtConfig({
 			plugins: [tailwindTypography]
 		},
 		cssPath: ['~/assets/styles/index.css', { injectPosition: 'first' }],
-		viewer: true
+		viewer: true,
+		quiet: true
 	},
-	devtools: { enabled: true },
-	buildModules: [
-		// Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-		'@nuxtjs/tailwindcss',
-		'@nuxt/http'
-	],
 	css: ['~/assets/styles/index.css'],
 	postcss: {
 		plugins: {
-			tailwindcss: {},
-			autoprefixer: {},
-		},
+			tailwindcss: {
+				configPath: './tailwind.config'
+			},
+			autoprefixer: {}
+		}
 	},
 	build: {
 		// @ts-ignore

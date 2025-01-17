@@ -1,0 +1,1 @@
+import{_ as c}from"./SaQFlxSM.js";import{_ as e,c as n,w as s,o as a,a as _}from"./C9vD4Dkv.js";const r={};function l(f,o){const t=c;return a(),n(t,null,{default:s(()=>o[0]||(o[0]=[_("div",{class:"flex"}," clock ",-1)])),_:1})}const p=e(r,[["render",l]]);export{p as default};

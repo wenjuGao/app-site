@@ -1,0 +1,4 @@
+const myCard_vue_vue_type_style_index_0_lang = '.my-card{clip-path:url(#my-clip-path)}.card-message{padding:1.25rem;position:relative}.card-message .avatar{left:0;position:absolute;right:0;top:-5rem;z-index:10}.card-message .count-item{align-items:center;display:flex;flex-direction:column;justify-content:center}.card-message .count-item .count-item-label{font-size:.875rem;grid-row-start:3;line-height:1.25rem}.card-message .count-item .chat-start .count-item-label{grid-column-start:2}.card-message .count-item .chat-end .count-item-label{grid-column-start:1}.card-message .count-item .count-item-label{display:inline-block;opacity:.5}.card-message:before{background-image:linear-gradient(to bottom,#fff0,hsl(var(--b1)/var(--tw-bg-opacity)));content:"";height:5rem;left:0;position:absolute;right:0;top:-5rem;width:100%;z-index:10}';
+
+export { myCard_vue_vue_type_style_index_0_lang as m };
+//# sourceMappingURL=my-card-styles-1.mjs-ZFPnb3Ku.mjs.map

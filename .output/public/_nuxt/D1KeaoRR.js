@@ -1,0 +1,1 @@
+import{_ as o}from"./SaQFlxSM.js";import{_ as n,c as s,w as a,o as r,a as _}from"./C9vD4Dkv.js";const c={};function f(i,t){const e=o;return r(),s(e,null,{default:a(()=>t[0]||(t[0]=[_("div",{class:"flex"}," interest-rate ",-1)])),_:1})}const m=n(c,[["render",f]]);export{m as default};
