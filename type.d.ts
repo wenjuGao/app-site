@@ -1,5 +1,3 @@
-
-
 interface ArticleType {
 	_path: string
 	title: string
@@ -12,20 +10,19 @@ interface ArticleType {
 }
 
 interface ArticleLinkType {
-	[x: string]: any;
+	[x: string]: any
 	count?: Number
 	value?: any[]
 	list?: ArticleType[]
 }
 
 interface CategoryMenuType extends ArticleLinkType {
-	label: string;
-	link: string;
-	class: string;
-	img?: string;
-	icon?: string;
+	label: string
+	link: string
+	class: string
+	img?: string
+	icon?: string
 }
-
 
 declare module 'nuxt/schema' {
 	interface AppConfig {
@@ -35,8 +32,4 @@ declare module 'nuxt/schema' {
 }
 
 // It is always important to ensure you import/export something when augmenting a type
-export {
-	CategoryMenuType,
-	ArticleType,
-	ArticleLinkType
-}
+export { CategoryMenuType, ArticleType, ArticleLinkType }

@@ -1,1 +1,0 @@
-import{_ as t,o as s,v as r,ag as a,x as n}from"./C9vD4Dkv.js";const c={};function l(o,e){return s(),r("div",null,[e[0]||(e[0]=a(" Some *custom* layout ")),n(o.$slots,"default")])}const d=t(c,[["render",l]]);export{d as default};

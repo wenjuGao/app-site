@@ -1,4 +1,0 @@
-const FirstChild_vue_vue_type_style_index_0_lang = "pre code .line:before{box-sizing:content-box;content:attr(line);height:1.25rem;left:0;position:sticky;width:1.25rem;--tw-bg-opacity:1;background-color:var(--fallback-nc,oklch(var(--nc)/var(--tw-bg-opacity,1)));padding-left:.5rem;padding-right:.5rem;text-align:center;vertical-align:middle;--tw-text-opacity:1;color:var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity,1)))}";
-
-export { FirstChild_vue_vue_type_style_index_0_lang as F };
-//# sourceMappingURL=FirstChild-styles-1.mjs-CN00cA-z.mjs.map

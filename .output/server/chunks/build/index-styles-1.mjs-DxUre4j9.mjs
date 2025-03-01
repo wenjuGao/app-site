@@ -1,4 +1,0 @@
-const index_vue_vue_type_style_index_0_lang = ".img-box{-moz-column-gap:10px;column-gap:10px;counter-reset:count}.img-box li,.img-box ul{list-style:none;padding:0}.img-box img{height:auto;vertical-align:middle}.img-box .view-box{background-color:#00000080}.img-modal img{max-height:80vh;vertical-align:middle}.close{align-items:center;border-radius:9999px;cursor:pointer;display:flex;height:2.5rem;justify-content:center;position:absolute;right:3rem;width:2.5rem;--tw-bg-opacity:1;background-color:var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity,1)))}.close:hover{--tw-bg-opacity:1;background-color:var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity,1)))}";
-
-export { index_vue_vue_type_style_index_0_lang as i };
-//# sourceMappingURL=index-styles-1.mjs-DxUre4j9.mjs.map

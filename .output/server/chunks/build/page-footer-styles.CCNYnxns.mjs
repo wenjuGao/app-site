@@ -1,6 +1,0 @@
-import { p as pageFooter_vue_vue_type_style_index_0_scoped_093260d9_lang } from './page-footer-styles-1.mjs-CRWFelCD.mjs';
-
-const pageFooterStyles_CCNYnxns = [pageFooter_vue_vue_type_style_index_0_scoped_093260d9_lang, pageFooter_vue_vue_type_style_index_0_scoped_093260d9_lang];
-
-export { pageFooterStyles_CCNYnxns as default };
-//# sourceMappingURL=page-footer-styles.CCNYnxns.mjs.map

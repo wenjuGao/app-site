@@ -1,9 +1,9 @@
 ---
 layout: article
-title:  好用的生僻属性
-description:  好用的生僻属性
-img: /img/action-scope.jpg
-header: /img/action-scope-header.jpg
+title:  CSS--文本排板
+description:  CSS之一文本排板
+img: https://qiniusite.gaowenju.com/20250228001.jpg
+header: https://qiniusite.gaowenju.com/20250228001.jpg-header
 date: 2023-08-28 21:49:01
 banner: true
 category: css
@@ -11,7 +11,7 @@ tags:
   - css
 ---
 
-## 好用的生僻属性
+## CSS--文本排板
 
 >>> writing-mode：文本水平或垂直排布以及在块级元素中文本的行进方向；
 >>> font-variant-numeric：控制数字，分数和序号标记的替代字形的使用；

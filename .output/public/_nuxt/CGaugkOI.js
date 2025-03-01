@@ -1,1 +1,0 @@
-import{_ as e}from"./SaQFlxSM.js";import{_ as s,c as a,w as n,o as _,a as c}from"./C9vD4Dkv.js";const r={};function f(m,o){const t=e;return _(),a(t,null,{default:n(()=>o[0]||(o[0]=[c("div",{class:"flex"}," img-to-base64 ",-1)])),_:1})}const u=s(r,[["render",f]]);export{u as default};

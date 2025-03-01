@@ -3,6 +3,7 @@ import tailwindTypography from '@tailwindcss/typography'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	ssr: true,
+
 	app: {
 		head: {
 			title: '前端小书童',
@@ -80,12 +81,12 @@ export default defineNuxtConfig({
 				},
 				{
 					innerHTML: `var _hmt = _hmt || [];
-            (function () {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87";
-              var s = document.getElementsByTagName("script")[0];
-              s.parentNode.insertBefore(hm, s);
-            })(); `
+									(function () {
+											var hm = document.createElement("script");
+											hm.src = "https://hm.baidu.com/hm.js?3f484b76ee9be574223c2becdbcb6d87";
+											var s = document.getElementsByTagName("script")[0];
+											s.parentNode.insertBefore(hm, s);
+									})(); `
 				}
 			],
 			htmlAttrs: {
@@ -93,14 +94,17 @@ export default defineNuxtConfig({
 			}
 		}
 	},
+
 	$production: {
 		routeRules: {
 			'/**': { isr: false }
 		}
 	},
+
 	$development: {
 		//
 	},
+
 	content: {
 		documentDriven: true,
 		markdown: {
@@ -133,6 +137,7 @@ export default defineNuxtConfig({
 			searchDepth: 2
 		}
 	},
+
 	runtimeConfig: {
 		app: {
 			baseURL: '/',
@@ -148,6 +153,7 @@ export default defineNuxtConfig({
 			apiBase: '/api'
 		}
 	},
+
 	modules: [
 		'dayjs-nuxt',
 		// 'nuxt-lodash',
@@ -157,9 +163,11 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 		'@nuxtjs/color-mode'
 	],
+
 	dayjs: {
 		plugins: ['weekday', 'advancedFormat', 'timezone']
 	},
+
 	pinia: {
 		autoImports: [
 			// automatically imports `defineStore`
@@ -167,6 +175,9 @@ export default defineNuxtConfig({
 			['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
 		]
 	},
+
+	experimental: { appManifest: false },
+
 	// colorMode: {
 	//   preference: 'system', // default theme
 	//   dataValue: 'theme', // activate data-theme in <html> tag
@@ -174,11 +185,13 @@ export default defineNuxtConfig({
 	// },
 
 	devtools: { enabled: true },
+
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/nuxt-tailwindcss
 		'@nuxtjs/tailwindcss',
 		'@nuxt/http'
 	],
+
 	tailwindcss: {
 		// Options
 		configPath: './tailwind.config',
@@ -192,7 +205,9 @@ export default defineNuxtConfig({
 		viewer: true,
 		quiet: true
 	},
+
 	css: ['~/assets/styles/index.css'],
+
 	postcss: {
 		plugins: {
 			tailwindcss: {
@@ -201,6 +216,7 @@ export default defineNuxtConfig({
 			autoprefixer: {}
 		}
 	},
+
 	build: {
 		// @ts-ignore
 		postcss: {
@@ -210,5 +226,7 @@ export default defineNuxtConfig({
 				'postcss-color-gray': {}
 			}
 		}
-	}
+	},
+
+	compatibilityDate: '2025-02-28'
 })
