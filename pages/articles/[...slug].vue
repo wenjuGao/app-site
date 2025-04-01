@@ -226,19 +226,18 @@ const handleClick = (url: string) => handleLink(url, useRouter())
 	--shiki-default-bg: #121212;
 	--shiki-default-font-weight: 400;
 	--shiki-default-text-decoration: none;
-	@apply rounded-2xl overflow-hidden py-3;
+	@apply rounded-2xl overflow-y-hidden overflow-x-auto py-3;
 	background-color: #121212;
 
 	span.line:before {
 		content: attr(line);
 		color: #758575dd;
-		opacity: 0.7;
+		background-color: var(--shiki-default-bg);
 		@apply h-5 box-content px-2 mr-1 align-middle w-5 text-center sticky left-0;
 	}
 }
 
 pre code {
-	@apply p-1;
 	display: flex;
 	flex-direction: column;
 }

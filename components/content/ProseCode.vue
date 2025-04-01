@@ -1,5 +1,6 @@
 <template>
 	<div :class="`py-3 my-2 overflow-auto rounded-md ${$props.class}`">
+		
 		<code><slot /></code>
 	</div>
 </template>
