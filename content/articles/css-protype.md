@@ -22,7 +22,7 @@ tags:
 
 ---
 
-### 1. writing-mode
+### 1. writing-mode <sup>[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode)</sup>
 
 **writing-mode**属性定义了文本水平或垂直排布以及在块级元素中文本的行进方向。为整个文档设置书时，应在根元素上设置它（对于 HTML 文档应该在 html 元素上设置）。
 
@@ -98,7 +98,7 @@ writing-mode: unset;
 
 ---
 
-### 2. user-select
+### 2. user-select <sup>[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/user-select)</sup>
 
 控制用户能否选中文本。除了文本框内，它对被载入为 chrome 的内容没有影响。
 
@@ -123,9 +123,8 @@ user-select: unset;
 /* WebKit-specific values */
 -webkit-user-select: none;
 -webkit-user-select: text;
--webkit-user-select: all; /* Doesn't work in Safari; use only
-                             "none" or "text", or else it will
-                             allow typing in the <html> container */
+-webkit-user-select: all; 
+/* Doesn't work in Safari; use only "none" or "text", or else it will allow typing in the <html> container */
 
 /* Microsoft-specific values */
 -ms-user-select: none;
@@ -155,14 +154,73 @@ user-select 不是继承属性，即使默认的属性值 auto 的表现基本�
     -   否则，如果此元素的父元素的 user-select 采用的属性值为 all，则该元素采用的属性值也为 all;
     -   否则，如果此元素的父元素的 user-select 采用的属性值为 none，则该元素采用的属性值也为 none;
     -   否则，采用的属性值为 text
+<div class="border-2 border-dotted my-2 p-2">
+
+```html
+<span style="user-select:auto;">前端小书童</span>
+<span class='user-before-auto'></span>
+<input style="user-select:auto;" value="前端小书童"></input>
+<style>
+    .user-before-auto::before {
+      user-select:auto;
+      content:"前端小书童";
+      display:block;
+    }
+</style>
+```
+
+<div class="flex justify-center items-center flex-col">
+<div style="user-select:auto;" class="py-2 text-center">前端小书童</div>
+<span class='user-before-auto' class="py-2 text-center"></span>
+<input style="user-select:auto;"  class="py-2 text-center rounded" value="前端小书童"></input>
+<style>
+    .user-before-auto::before {
+      user-select:auto;
+      content:"前端小书童";
+      display:block;
+    }
+</style>
+</div>
+
+</div>
+
 -   **text**：用户可以选择文本。
+<div class="border-2 border-dotted my-2 p-2">
+
+```html
+<span style="user-select:text;">前端小书童</span>
+```
+
+<div style="user-select:text;" class="py-2 text-center">前端小书童</div>
+
+</div>
+
 -   **all**：在一个 HTML 编辑器中，当双击子元素或者上下文时，那么包含该子元素的最顶层元素也会被选中。
+<div class="border-2 border-dotted my-2 p-2">
+
+```html
+<span style="user-select:all;">前端小书童</span>
+```
+
+<div style="user-select:all;" class="py-2 text-center">前端小书童</div>
+
+</div>
+
 -   **contain**：允许在元素内选择；但是，选区将被限制在该元素的边界之内。
+<div class="border-2 border-dotted my-2 p-2">
+
+```html
+<span style="user-select:contain;">前端小书童</span>
+```
+
+<div style="user-select:contain;" class="py-2 text-center">前端小书童</div>
+
+</div>
 -   **element（IE 专有别名）**：与 contain 相同，但仅在 Internet Explorer 中受支持。
 
 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/user-select)
 
-### clip-path
+### 3. clip-path <sup>[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)</sup>
 
 clip-path CSS 属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。剪切区域是被引用内嵌的 URL 定义的路径或者外部 svg 的路径，或者作为一个形状例如 circle().。clip-path 属性代替了现在已经弃用的剪切 clip 属性
 
@@ -197,8 +255,6 @@ clip-path: initial;
 clip-path: unset;
 ```
 
-![clip-path](app-site/img/css/2.gif 'clip-path')
-
 -   **clip-source**：用 url 表示剪切元素的路径
 -   **basic-shape**：一种形状，其大小和位置由<几何盒>值定义。如果没有指定几何框，则边框将用作参考框
 -   **geometry-box**：如果同 basic-shape 一起声明，它将为基本形状提供相应的参考框盒。通过自定义，它将利用确定的盒子边缘包括任何形状边角（比如说，被 border-radius 定义的剪切路径）。几何框盒可以有以下的值中的一个：
@@ -212,9 +268,9 @@ clip-path: unset;
 -   **none**：不创建的剪切路径。
 -   circle(radius at pair)值有两个参数，第一个参数是圆的半径，第二个参数是表示圆心的点。polygon(pair, pair, pair ...)值取 3 个或更多的点，表示一个三角形、一个矩形等等。
 
-[MDN 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path)
 
-### shape-outside
+
+### 4. shape-outside <sup>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside)</sup>
 
 shape-outside 的 CSS 属性定义了一个可以是非矩形的形状，相邻的内联内容应围绕该形状进行包装。 默认情况下，内联内容包围其边距框; shape-outside 提供了一种自定义此包装的方法，可以将文本包装在复杂对象周围而不是简单的框中。指定使用下面列表的值来定义浮动元素的浮动区域。这个浮动区域决定了行内内容（浮动元素）所包裹的形状。
 
@@ -261,9 +317,8 @@ shape-outside: unset;
 -   如果两个形状都是 polygon()， 两个多边形之间有相同的定点数量并且 <fill-rule> 相同，则将两个形状对应值之间的值插入到 shape 方法中。
 -   其余所有情况都不会发生插入。
 
-    [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside)
 
-### background-clip
+### 5. background-clip <sup>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)</sup>
 
 设置元素的背景（背景图片或颜色）是否延伸到边框、内边距盒子、内容盒子下面。
 如果没有设置背景图片（background-image）或背景颜色（background-color），那么这个属性只有在边框（ border）被设置为非固实（soild）、透明或半透明时才能看到视觉效果（与 border-style 或 border-image 有关），否则，本属性产生的样式变化会被边框覆盖。
@@ -286,15 +341,9 @@ background-clip: unset;
 -   **content-box** : 背景被裁剪至内容区（content box）外沿。
 -   **text** : 背景被裁剪成文字的前景色
 
-    ![background-clip](app-site/img/css/3.gif 'background-clip')
 
-    [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)
 
-### 总结
-
-![background-clip](app-site/img/css/9ltj1qqohlcr4ca2klim.png 'background-clip')
-
-### 引用
+----- 
 
 -   [掘金](https://juejin.im/post/5ea8c37fe51d454dc55c8de7)
 -   [dev.to](https://dev.to/mustapha/7-amazing-css-properties-you-may-not-know-yet-eej)
