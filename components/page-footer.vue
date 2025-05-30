@@ -3,7 +3,9 @@
 		<div class="container m-auto">
 			<div class="text-base-content px-4 md:px-0 footer items-end justify-between">
 				<div class="flex">
-					<img :src="app.footLogo" class="h-24 mr-3" :alt="app.title" />
+					<img :src="app.footLogo"
+						 class="h-24 mr-3"
+						 :alt="app.title" />
 					<p class="flex-1">{{ app.description }}</p>
 				</div>
 			</div>
@@ -14,28 +16,34 @@
 			<aside class="items-center grid-flow-col">
 				<p class="leading-10">
 					Powered by
-					<a class="ink link-info mr-2" href="https://nuxt.com">Nuxtjs</a>
-					<a class="ink link-info" href="https://tailwindcss.com">tailwindcss</a>
-					<a class="ink link-info" href="https://tailwindcss.com">Typescript</a>
+					<a class="ink link-info mr-2"
+					   href="https://nuxt.com">Nuxtjs</a>
+					<a class="ink link-info"
+					   href="https://tailwindcss.com">tailwindcss</a>
+					<a class="ink link-info"
+					   href="https://tailwindcss.com">Typescript</a>
 				</p>
 			</aside>
 			<nav class="md:place-self-center md:justify-self-end">
 				<div class="site-num">
-					<span id="busuanzi_container_site_pv" class="site-pv site-item">
+					<span id="busuanzi_container_site_pv"
+						  class="site-pv site-item">
 						<span class="site-label">
 							<span class="i-mdi-chart-multiple"></span>
 							访问量
 						</span>
 						<em id="busuanzi_value_site_pv"></em>
 					</span>
-					<span id="busuanzi_container_site_uv" class="site-uv site-item">
+					<span id="busuanzi_container_site_uv"
+						  class="site-uv site-item">
 						<span class="site-label">
 							<span class="i-mdi-cursor-default-click-outline"></span>
 							访客量
 						</span>
 						<em id="busuanzi_value_site_uv"></em>
 					</span>
-					<span id="busuanzi_container_page_pv" class="page-pv site-item">
+					<span id="busuanzi_container_page_pv"
+						  class="page-pv site-item">
 						<span class="site-label">
 							<span class="i-mdi-chart-timeline-variant-shimmer"></span>
 							本页访客
@@ -49,8 +57,9 @@
 	<footer class="footer footer-center p-4 page-footer text-base-content">
 		<div class="container m-auto">
 			<aside>
-				<p>Copyright © 2024 - All right reserved by wenjugao’blog</p>
-				皖ICP备20001994号
+				<p>Copyright © 2025 - All right reserved by wenjugao’blog</p>
+				<a href="https://beian.miit.gov.cn/#/Integrated/index"
+				   target="_blank">皖ICP备20001994号</a>
 			</aside>
 		</div>
 	</footer>

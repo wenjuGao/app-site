@@ -45,5 +45,4 @@ export { flatUnwrap as unwrapSlot } from '../node_modules/.pnpm/@nuxtjs+mdc@0.9.
 export { parseMarkdown } from '../node_modules/.pnpm/@nuxtjs+mdc@0.9.5_rollup@3.29.5/node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { usePinia, defineStore, defineStore as definePiniaStore } from '../node_modules/.pnpm/@pinia+nuxt@0.4.11_rollup@3.29.5_typescript@5.7.3_vue@3.5.13/node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useColorMode } from '../node_modules/.pnpm/@nuxtjs+color-mode@3.5.2_rollup@3.29.5/node_modules/@nuxtjs/color-mode/dist/runtime/composables';
-export { useNuxtDevTools } from '../node_modules/.pnpm/@nuxt+devtools@1.7.0_rollup@3.29.5_vite@6.0.7_vue@3.5.13/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/.pnpm/nuxt@3.15.2_@types+node@18.19.71_rollup@3.29.5_typescript@5.7.3_vite@6.0.7/node_modules/nuxt/dist/pages/runtime/composables';

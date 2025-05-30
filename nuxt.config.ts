@@ -218,6 +218,7 @@ export default defineNuxtConfig({
 	},
 
 	build: {
+		cache: true,
 		// @ts-ignore
 		postcss: {
 			plugins: {
@@ -227,6 +228,18 @@ export default defineNuxtConfig({
 			}
 		}
 	},
-
+	// 代码分割配置
+	vite: {
+		build: {
+			chunkSizeWarningLimit: 1000,
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						vendor: ['vue', 'nuxt']
+					}
+				}
+			}
+		}
+	},
 	compatibilityDate: '2025-02-28'
 })

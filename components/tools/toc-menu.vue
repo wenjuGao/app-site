@@ -2,7 +2,7 @@
 	<ul class="w-full box-border">
 		<li v-for="(item, key) in props.list" :key="key + item.id">
 			<a :href="`#${item.id}`" :data-value="item.id" @click="handleLink(item.id)" :class="`toc-item ${item.depth <= 2 ? 'font-semibold' : ''}`">
-				{{ item.text.replaceAll('MDN','') }}
+				{{ item.text.replaceAll('MDN','').trim() }}
 			</a>
 			<template v-if="item.children && item.children.length">
 				<toc-menu :list="item.children" :style="`width:calc(100% - 20px);`" />
