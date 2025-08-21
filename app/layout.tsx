@@ -67,24 +67,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link
-        rel="icon"
-        type="image/png"
-        href={`${basePath}/static/favicons/favicon-96x96.png`}
-        sizes="96x96"
-      />
-      <link rel="icon" type="image/svg+xml" href={`${basePath}/static/favicons/favicon.svg`} />
-      <link rel="shortcut icon" href={`${basePath}/static/favicons/favicon.ico`} />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href={`${basePath}/static/favicons/apple-touch-icon.png`}
-      />
-      <meta name="apple-mobile-web-app-title" content="小书童" />
-      <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          href={`${basePath}/static/favicons/favicon-96x96.png`}
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href={`${basePath}/static/favicons/favicon.svg`} />
+        <link rel="shortcut icon" href={`${basePath}/static/favicons/favicon.ico`} />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={`${basePath}/static/favicons/apple-touch-icon.png`}
+        />
+        <meta name="apple-mobile-web-app-title" content="小书童" />
+        <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9679007327890282"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
