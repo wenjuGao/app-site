@@ -19,6 +19,11 @@
 public/sitemap.xml
 .vercel
 
+# vite
+/dist
+/.ssr
+/src/generated
+
 /.vscode/
 .vscode
 

@@ -1,14 +1,18 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { useLocation } from 'react-router-dom'
 import { slug } from 'github-slugger'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
+import { formatDate, type CoreContent } from '@/lib/content'
 import type { Blog } from 'contentlayer/generated'
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, LayoutGridIcon } from 'lucide-react'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
+import tagData from '@/src/generated/tag-data.json'
+import FadeContent from '@/components/reactbits/FadeContent'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 interface PaginationProps {
   totalPages: number
@@ -22,7 +26,7 @@ interface ListLayoutProps {
 }
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname()
+  const { pathname } = useLocation()
   const segments = pathname.split('/')
   const lastSegment = segments[segments.length - 1]
   const basePath = pathname
@@ -33,36 +37,36 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
+    <nav className="flex items-center justify-between pt-6 pb-8">
+      <Button asChild={prevPage} variant="outline" size="sm" disabled={!prevPage}>
+        {prevPage ? (
           <Link
             href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
             rel="prev"
           >
-            Previous
+            <ChevronLeftIcon /> 上一页
           </Link>
+        ) : (
+          <span className="inline-flex items-center gap-2">
+            <ChevronLeftIcon /> 上一页
+          </span>
         )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
+      </Button>
+      <span className="text-muted-foreground text-sm">
+        {currentPage} / {totalPages}
+      </span>
+      <Button asChild={nextPage} variant="outline" size="sm" disabled={!nextPage}>
+        {nextPage ? (
           <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
+            下一页 <ChevronRightIcon />
           </Link>
+        ) : (
+          <span className="inline-flex items-center gap-2">
+            下一页 <ChevronRightIcon />
+          </span>
         )}
-      </nav>
-    </div>
+      </Button>
+    </nav>
   )
 }
 
@@ -72,7 +76,7 @@ export default function ListLayoutWithTags({
   initialDisplayPosts = [],
   pagination,
 }: ListLayoutProps) {
-  const pathname = usePathname()
+  const { pathname } = useLocation()
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
@@ -81,89 +85,96 @@ export default function ListLayoutWithTags({
 
   return (
     <>
-      <div>
-        <div className="pt-6 pb-6">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
-            {title}
-          </h1>
-        </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto rounded-sm bg-gray-50 pt-5 shadow-md sm:flex dark:bg-gray-900/70 dark:shadow-gray-800/40">
-            <div className="px-6 py-4">
+      <div className="pt-6 pb-8">
+        <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl dark:text-gray-100">
+          {title}
+        </h1>
+      </div>
+      <div className="flex gap-8">
+        <aside className="hidden sm:block">
+          <Card className="sticky top-20 max-h-[calc(100vh-6rem)] w-[240px] gap-0 overflow-auto py-4">
+            <CardHeader className="px-4 pb-2">
               {pathname.startsWith('/blog') ? (
-                <h3 className="text-primary-500 font-bold uppercase">All Posts</h3>
+                <span className="text-primary inline-flex items-center gap-2 text-sm font-bold uppercase">
+                  <LayoutGridIcon className="size-4" /> All Posts
+                </span>
               ) : (
                 <Link
                   href={`/blog`}
-                  className="hover:text-primary-500 dark:hover:text-primary-500 font-bold text-gray-700 uppercase dark:text-gray-300"
+                  className="hover:text-primary inline-flex items-center gap-2 text-sm font-bold text-gray-700 uppercase transition-colors dark:text-gray-300"
                 >
-                  All Posts
+                  <LayoutGridIcon className="size-4" /> All Posts
                 </Link>
               )}
+            </CardHeader>
+            <CardContent className="px-2">
               <ul>
                 {sortedTags.map((t) => {
+                  const active = decodeURI(pathname.split('/tags/')[1] ?? '') === slug(t)
                   return (
-                    <li key={t} className="my-3">
-                      {decodeURI(pathname.split('/tags/')[1]) === slug(t) ? (
-                        <h3 className="text-primary-500 inline px-3 py-2 text-sm font-bold uppercase">
-                          {`${t} (${tagCounts[t]})`}
-                        </h3>
-                      ) : (
-                        <Link
-                          href={`/tags/${slug(t)}`}
-                          className="hover:text-primary-500 dark:hover:text-primary-500 px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
-                          aria-label={`View posts tagged ${t}`}
-                        >
-                          {`${t} (${tagCounts[t]})`}
-                        </Link>
-                      )}
+                    <li key={t}>
+                      <Link
+                        href={`/tags/${slug(t)}`}
+                        aria-label={`View posts tagged ${t}`}
+                        aria-current={active ? 'page' : undefined}
+                        className={cn(
+                          'my-0.5 flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium uppercase transition-colors',
+                          active
+                            ? 'bg-accent text-primary'
+                            : 'text-muted-foreground hover:bg-accent/60 hover:text-primary'
+                        )}
+                      >
+                        <span>{t}</span>
+                        <span className="text-xs opacity-70">{tagCounts[t]}</span>
+                      </Link>
                     </li>
                   )
                 })}
               </ul>
-            </div>
-          </div>
-          <div>
-            <ul>
-              {displayPosts.map((post) => {
-                const { path, date, title, summary, tags } = post
-                return (
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+            </CardContent>
+          </Card>
+        </aside>
+        <div className="min-w-0 flex-1">
+          <ul className="space-y-4">
+            {displayPosts.map((post, index) => {
+              const { path, date, title, summary, tags } = post
+              return (
+                <li key={path}>
+                  <FadeContent delay={Math.min(index, 5) * 60}>
+                    <Card className="group gap-0 py-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                      <CardContent className="space-y-3">
+                        <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                          <CalendarIcon className="size-4" />
                           <time dateTime={date} suppressHydrationWarning>
                             {formatDate(date, siteMetadata.locale)}
                           </time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <div>
-                          <h2 className="text-2xl leading-8 font-bold tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags?.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
                         </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                        <h2 className="text-2xl leading-8 font-bold tracking-tight">
+                          <Link
+                            href={`/${path}`}
+                            className="group-hover:text-primary text-gray-900 transition-colors dark:text-gray-100"
+                          >
+                            {title}
+                          </Link>
+                        </h2>
+                        <div className="flex flex-wrap">
+                          {tags?.map((tag) => (
+                            <Tag key={tag} text={tag} />
+                          ))}
+                        </div>
+                        <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
                           {summary}
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                )
-              })}
-            </ul>
-            {pagination && pagination.totalPages > 1 && (
-              <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-            )}
-          </div>
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </FadeContent>
+                </li>
+              )
+            })}
+          </ul>
+          {pagination && pagination.totalPages > 1 && (
+            <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+          )}
         </div>
       </div>
     </>

@@ -1,12 +1,14 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import { Separator } from '@/components/ui/separator'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
+    <footer className="mt-16">
+      <Separator className="mb-10" />
+      <div className="flex flex-col items-center">
+        <div className="mb-4 flex space-x-5">
           {siteMetadata.email ? (
             <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
           ) : null}
@@ -26,10 +28,14 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+          <Link className="hover:text-primary transition-colors" href="/">
+            {siteMetadata.title}
+          </Link>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="https://beian.miit.gov.cn">皖ICP备20001994号</Link>
+          <Link className="hover:text-primary transition-colors" href="https://beian.miit.gov.cn">
+            皖ICP备20001994号
+          </Link>
         </div>
       </div>
     </footer>

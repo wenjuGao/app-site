@@ -1,5 +1,8 @@
-import Link from 'next/link'
+import Link from './Link'
 import { slug } from 'github-slugger'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+
 interface Props {
   text: string
   className?: string
@@ -7,12 +10,16 @@ interface Props {
 
 const Tag = ({ text, className = '' }: Props) => {
   return (
-    <Link
-      href={`/tags/${slug(text)}`}
-      className={`text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 mr-3 text-sm font-medium uppercase ${className}`}
+    <Badge
+      asChild
+      variant="secondary"
+      className={cn(
+        'hover:bg-primary hover:text-primary-foreground mr-2 mb-2 transition-colors',
+        className
+      )}
     >
-      {text.split(' ').join('-')}
-    </Link>
+      <Link href={`/tags/${slug(text)}`}>{text.split(' ').join('-')}</Link>
+    </Badge>
   )
 }
 

@@ -9,11 +9,28 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-xs bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200 dark:bg-gray-800;
+  @apply rounded-t-xl border border-b-0 border-gray-800 bg-gray-800 px-5 py-2.5 font-mono text-xs font-medium tracking-wide text-gray-300 dark:bg-gray-900;
 }
 
 .remark-code-title + div > pre {
   @apply mt-0 rounded-t-none;
+}
+
+/* Code block scrollbar */
+.prose pre {
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-600;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 /* Code block styles */

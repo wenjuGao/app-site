@@ -1,5 +1,5 @@
 import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer2/source-files'
-import { writeFileSync } from 'fs'
+import { writeFileSync, mkdirSync } from 'fs'
 import readingTime from 'reading-time'
 import { slug } from 'github-slugger'
 import path from 'path'
@@ -8,12 +8,13 @@ import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { remarkAlert } from 'remark-github-blockquote-alert'
+// Local mdx plugins (replaces pliny/mdx-plugins)
 import {
   remarkExtractFrontmatter,
   remarkCodeTitles,
   remarkImgToJsx,
   extractTocHeadings,
-} from 'pliny/mdx-plugins/index.js'
+} from './lib/mdx-plugins'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -23,11 +24,26 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import prettier from 'prettier'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
+
+// ---------- contentlayer utils (replaces pliny/utils/contentlayer) ----------
+function sortPosts(allBlogs, dateKey = 'date') {
+  return allBlogs.sort((a, b) => (a[dateKey] > b[dateKey] ? -1 : a[dateKey] < b[dateKey] ? 1 : 0))
+}
+
+function coreContent(content) {
+  const { body: _body, _raw: _rawContent, _id: _idValue, ...rest } = content
+  return rest
+}
+
+function allCoreContent(contents) {
+  return contents
+    .map((c) => coreContent(c))
+    .filter((c) => !(isProduction && 'draft' in c && c.draft === true))
+}
 
 // heroicon mini link
 const icon = fromHtmlIsomorphic(
@@ -77,7 +93,8 @@ async function createTagCount(allBlogs) {
     }
   })
   const formatted = await prettier.format(JSON.stringify(tagCount, null, 2), { parser: 'json' })
-  writeFileSync('./app/tag-data.json', formatted)
+  mkdirSync('./src/generated', { recursive: true })
+  writeFileSync('./src/generated/tag-data.json', formatted)
 }
 
 function createSearchIndex(allBlogs) {

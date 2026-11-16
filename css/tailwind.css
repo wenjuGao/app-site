@@ -1,12 +1,82 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @plugin "@tailwindcss/forms";
 @plugin '@tailwindcss/typography';
-@source '../node_modules/pliny';
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* ============ shadcn/ui design tokens ============ */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.21 0.034 264.665);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.034 264.665);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.034 264.665);
+  --primary: oklch(0.57 0.18 137.5);
+  --primary-foreground: oklch(0.985 0.002 247.839);
+  --secondary: oklch(0.967 0.003 264.542);
+  --secondary-foreground: oklch(0.21 0.034 264.665);
+  --muted: oklch(0.967 0.003 264.542);
+  --muted-foreground: oklch(0.551 0.027 264.364);
+  --accent: oklch(0.94 0.06 137.5);
+  --accent-foreground: oklch(0.34 0.1 137.5);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.928 0.006 264.531);
+  --input: oklch(0.928 0.006 264.531);
+  --ring: oklch(0.57 0.18 137.5);
+}
+
+.dark {
+  --background: oklch(0.13 0.028 261.692);
+  --foreground: oklch(0.985 0.002 247.839);
+  --card: oklch(0.17 0.03 261.5);
+  --card-foreground: oklch(0.985 0.002 247.839);
+  --popover: oklch(0.17 0.03 261.5);
+  --popover-foreground: oklch(0.985 0.002 247.839);
+  --primary: oklch(0.72 0.16 137.5);
+  --primary-foreground: oklch(0.16 0.04 137.5);
+  --secondary: oklch(0.278 0.033 256.848);
+  --secondary-foreground: oklch(0.985 0.002 247.839);
+  --muted: oklch(0.278 0.033 256.848);
+  --muted-foreground: oklch(0.707 0.022 261.325);
+  --accent: oklch(0.28 0.08 137.5);
+  --accent-foreground: oklch(0.89 0.09 137.5);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.16 137.5);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
 
 /* Core theme configuration */
 @theme {
   /* Font families */
+  --font-space-grotesk: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-sans:
     var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -63,7 +133,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-border, currentColor);
   }
 
   a,
@@ -80,40 +150,191 @@
 }
 
 @layer utilities {
+  /* ============ MDX 正文排版（浅色模式） ============ */
   .prose {
-    & a {
-      color: var(--color-primary-500);
-      &:hover {
-        color: var(--color-primary-600);
-      }
-      & code {
-        color: var(--color-primary-400);
-      }
+    /* 移动端 14px/26px，桌面端（sm≥640px）16px/28px */
+    @apply text-[0.875rem] leading-[1.625rem] text-gray-700 sm:text-base sm:leading-7;
+
+    /* ---- 标题层级 ---- */
+    & :where(h1, h2, h3, h4, h5, h6) {
+      @apply scroll-mt-24 font-bold tracking-tight text-gray-600;
+      text-wrap: balance;
     }
-    & :where(h1, h2) {
-      font-weight: 700;
-      letter-spacing: var(--tracking-tight);
+    & h1 {
+      @apply mt-2 mb-6 text-2xl leading-8 sm:text-3xl;
+    }
+    & h2 {
+      @apply mt-12 mb-4 border-b border-gray-200 pb-2 text-xl leading-7 sm:text-2xl;
     }
     & h3 {
-      font-weight: 600;
+      @apply mt-10 mb-3 text-[1.05rem] font-semibold sm:text-xl;
     }
+    & h4 {
+      @apply mt-8 mb-2 text-base font-semibold sm:text-[1.05rem];
+    }
+    & :where(h5, h6) {
+      @apply mt-6 mb-2 text-sm font-semibold sm:text-[0.9375rem];
+    }
+
+    /* ---- 段落与行内元素 ---- */
+    & p {
+      @apply my-5;
+    }
+    & strong {
+      @apply font-semibold text-gray-900;
+    }
+    & a {
+      @apply text-primary-500 decoration-primary-300/60 font-medium break-words underline decoration-1 underline-offset-4 transition-colors;
+      &:hover {
+        @apply text-primary-600 decoration-primary-500;
+      }
+      & code {
+        color: inherit;
+      }
+    }
+
+    /* ---- 行内代码 ---- */
     & :where(code):not(pre code) {
-      color: var(--color-indigo-500);
+      @apply text-primary-700 rounded-md border border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-[0.85em] font-medium;
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+    & a :where(code):not(pre code) {
+      @apply text-primary-600;
+    }
+
+    /* ---- 代码块 ---- */
+    & pre {
+      @apply my-6 rounded-xl border border-gray-800 bg-gray-900 p-4 text-[0.85em] leading-6 shadow-sm sm:text-[0.9em] sm:leading-7;
+    }
+
+    /* ---- 引用块 ---- */
+    & blockquote {
+      @apply border-primary-500 bg-primary-50 my-6 rounded-r-xl border-l-4 py-1 pr-4 pl-5 font-normal text-gray-600 not-italic;
+      & p:first-of-type {
+        margin-top: 0.75rem;
+      }
+      & p:last-of-type {
+        margin-bottom: 0.75rem;
+      }
+      & p:first-of-type::before,
+      & p:last-of-type::after {
+        content: none;
+      }
+    }
+
+    /* ---- 列表 ---- */
+    & :where(ul, ol) {
+      @apply my-5 space-y-1.5;
+    }
+    & li {
+      @apply pl-1;
+      &::marker {
+        @apply text-primary-500 font-medium;
+      }
+    }
+
+    /* ---- 表格 ---- */
+    & table {
+      @apply my-6 w-full border-collapse text-[0.9em] leading-7;
+    }
+    & thead {
+      @apply border-b-2 border-gray-300;
+    }
+    & th {
+      @apply px-4 py-2.5 text-left font-semibold text-gray-900;
+    }
+    & tbody tr {
+      @apply border-b border-gray-200 transition-colors;
+      &:hover {
+        @apply bg-gray-50;
+      }
+    }
+    & td {
+      @apply px-4 py-2.5 align-top;
+    }
+
+    /* ---- 图片与多媒体 ---- */
+    & img {
+      @apply mx-auto rounded-xl shadow-md;
+    }
+    & figure {
+      @apply my-8;
+      & figcaption {
+        @apply mt-3 text-center text-sm text-gray-500;
+      }
+    }
+    & :where(video, iframe) {
+      @apply mx-auto my-6 w-full rounded-xl shadow-md;
+    }
+
+    /* ---- 分隔线 ---- */
+    & hr {
+      @apply my-10 border-gray-200;
     }
   }
 
+  /* ============ MDX 正文排版（深色模式） ============ */
   .prose-invert {
+    @apply text-gray-200;
+
+    & :where(h1, h2, h3, h4, h5, h6) {
+      @apply text-white;
+    }
+    & h2 {
+      @apply border-gray-600;
+    }
+    & strong {
+      @apply text-white;
+    }
     & a {
-      color: var(--color-primary-500);
+      @apply text-primary-400 decoration-primary-500/40;
       &:hover {
-        color: var(--color-primary-400);
-      }
-      & code {
-        color: var(--color-primary-400);
+        @apply text-primary-300 decoration-primary-400;
       }
     }
-    & :where(h1, h2, h3, h4, h5, h6) {
-      color: var(--color-gray-100);
+
+    & :where(code):not(pre code) {
+      @apply text-primary-300 border-gray-600 bg-gray-800;
+    }
+    & a :where(code):not(pre code) {
+      @apply text-primary-300;
+    }
+    & pre {
+      @apply border-gray-700 bg-gray-950;
+    }
+
+    & blockquote {
+      @apply border-primary-400 bg-gray-800/60 text-gray-300;
+    }
+
+    & li::marker {
+      @apply text-primary-400;
+    }
+
+    & thead {
+      @apply border-primary-900 bg-primary-950;
+    }
+    & th {
+      @apply text-primary-100;
+    }
+    & tbody tr {
+      @apply border-gray-700;
+      &:hover {
+        @apply bg-gray-800/40;
+      }
+    }
+
+    & img {
+      @apply shadow-lg shadow-black/30;
+    }
+    & figure figcaption {
+      @apply text-gray-400;
+    }
+    & hr {
+      @apply border-gray-600;
     }
   }
 }
@@ -147,6 +368,60 @@
   scrollbar-width: none; /* Firefox */
 }
 
+/* ============ 自定义滚动条 ============ */
+/* 颜色走主题变量，自动适配浅色 / 深色主题 */
+:root {
+  --scrollbar-size: 10px;
+  --scrollbar-thumb: var(--color-gray-300);
+  --scrollbar-thumb-hover: var(--color-gray-400);
+  --scrollbar-thumb-active: var(--color-primary-500);
+}
+
+.dark {
+  --scrollbar-thumb: var(--color-gray-700);
+  --scrollbar-thumb-hover: var(--color-gray-500);
+  --scrollbar-thumb-active: var(--color-primary-400);
+}
+
+/* Firefox：细滚动条 + 滑块/轨道配色（横向与纵向均生效） */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+}
+
+/* WebKit / Blink：纵向宽度与横向高度一致，圆角滑块、透明轨道 */
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  /* 透明边框 + padding-box 裁剪，营造内缩悬浮感且不占用额外布局空间 */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active);
+}
+
+/* 横向与纵向滚动条交汇角保持透明 */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
@@ -173,4 +448,50 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+/* ============ ReactBits effects ============ */
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-color, rgba(61, 136, 23, 0.15)),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.shiny-text {
+  color: var(--color-muted-foreground);
+  background: linear-gradient(
+    120deg,
+    var(--color-muted-foreground) 40%,
+    var(--color-primary-300, #ffffff) 50%,
+    var(--color-muted-foreground) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name: shine;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
 }

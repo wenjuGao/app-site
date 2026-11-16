@@ -1,13 +1,14 @@
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Image from 'next/image'
+import Image from './Image'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-3 px-2'
+  let headerClass =
+    'flex items-center w-full justify-between py-3 px-2 bg-background/80 backdrop-blur-md border-b border-border/60 supports-[backdrop-filter]:bg-background/60'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
@@ -16,7 +17,7 @@ const Header = () => {
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
-          <div className="mr-3">
+          <div className="mr-3 transition-transform duration-300 hover:scale-110">
             <Image
               src="/static/images/logo.png"
               alt={siteMetadata.headerTitle}
@@ -34,7 +35,7 @@ const Header = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
+                className="hover:text-primary after:bg-primary relative m-1 font-medium text-gray-900 transition-colors after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:transition-all after:duration-300 hover:after:w-full dark:text-gray-100"
               >
                 {link.title}
               </Link>
